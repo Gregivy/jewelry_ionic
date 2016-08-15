@@ -3,7 +3,7 @@
   <name>jewelry</name>
   <description>
         An Ionic Framework and Cordova project.
-    </description>
+  </description>
   <author email="you@example.com" href="http://example.com.com/">
       Your Name Here
     </author>
@@ -19,4 +19,5 @@
   <feature name="StatusBar">
     <param name="ios-package" value="CDVStatusBar" onload="true"/>
   </feature>
+  <gap:plugin name="cordova-plugin-camera-preview" />
 </widget>
