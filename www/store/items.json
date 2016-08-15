@@ -1,0 +1,40 @@
+var items = [
+	{
+		"name": {
+			"ru": "Verge",
+			"en": "Verge"
+		},
+		"imgs": [
+			"DSC_7225_.jpg"
+		],
+		"tryitonImg": "",
+		"desc": {
+			"ru": "",
+			"en": "Hello lorum ispum dolor sit amet"
+		},
+		"categoryId": 0
+	},
+	{
+		"name": {
+			"ru": "Anchorage",
+			"en": "Anchorage"
+		},
+		"imgs": [
+			"DSC_7227.jpg"
+		],
+		"tryitonImg": "",
+		"desc": {
+			"ru": "",
+			"en": ""
+		},
+		"categoryId": 0
+	}
+];
+
+var categories = [
+	{
+		"ru": "Кольца",
+		"en": "Rings",
+		"imgs": ["r_0.png","r_1.png","r_2.png","r_3.png","r_4.png","r_5.png"]
+	},
+];

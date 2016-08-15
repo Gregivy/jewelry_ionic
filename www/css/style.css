@@ -1,0 +1,64 @@
+/* Empty. Add your own CSS if you like */
+body {
+	background-color: transparent;
+}
+.centered {
+	margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.logo {
+	width:60%;
+}
+.jewelrylist {
+	padding-bottom: 50px;
+}
+.jewelry img {
+	width:60%;
+}
+.jewelry h3, .category h3 {
+	font-weight: 100;
+	text-align: center;
+}
+a {
+	text-decoration: none;
+	color: white !important;
+}
+.itemlist .bar-footer {
+	height: 44px !important;
+	background-color: rgba(110,110,109,0.9) !important;
+}
+.itemlist .has-footer {
+	bottom: 0px !important;
+}
+
+    .my-swiper-container {
+        width: 100%;
+        padding-top: 10px;
+        padding-bottom: 20px;
+    }
+    .swiper-slide {
+        background-position: center;
+        background-size: cover;
+        width: 250px;
+        height: 250px;
+    }
+
+.desc {
+	margin-top:20px;
+	font-size: inherit;
+}
+.not-visible {
+  visibility: hidden;
+}
+.catlogo {
+	position: relative;
+}
+.catlogo img {
+	position: absolute;
+	top:0;
+	left:0;
+	right:0;
+	width:60%;
+}
