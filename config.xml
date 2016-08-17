@@ -19,5 +19,5 @@
   <feature name="StatusBar">
     <param name="ios-package" value="CDVStatusBar" onload="true"/>
   </feature>
-  <plugin name="com.keith.cordova.plugin.canvascamera" spec="1.0.1" source="pgb" />
+  <plugin name="cordova-camera-preview" />
 </widget>
