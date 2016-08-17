@@ -127,11 +127,11 @@ angular.module('starter', ['ionic','ngCordova','angular-scroll-animate'])
                                           CanvasCamera.initialize(canvasMain);
                                           // define options
                                           var opt = {
-                                              quality: 75,
+                                              quality: 100,
                                               destinationType: CanvasCamera.DestinationType.DATA_URL,
                                               encodingType: CanvasCamera.EncodingType.JPEG,
-                                              saveToPhotoAlbum:true,
-                                              correctOrientation:true,
+                                              saveToPhotoAlbum:false,
+                                              correctOrientation:false,
                                               width:640,
                                               height:480
                                           };
