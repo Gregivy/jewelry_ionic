@@ -123,11 +123,19 @@ angular.module('starter', ['ionic','ngCordova','angular-scroll-animate'])
   $scope.n = $stateParams["n"];
   $scope.item = $scope.items[$scope.n];
   $scope.title = $scope.item["name"][$scope.lang];
-  var tapEnabled = true; //enable tap take picture
-  var dragEnabled = true; //enable preview box drag across the screen
-  var toBack = true; //send preview box to the back of the webview
-  var rect = {x: 100, y: 100, width: 200, height:200};
-  cordova.plugins.camerapreview.startCamera(rect, "front", tapEnabled, dragEnabled, toBack)
+  canvasMain = document.getElementById("camera");
+                                          CanvasCamera.initialize(canvasMain);
+                                          // define options
+                                          var opt = {
+                                              quality: 75,
+                                              destinationType: CanvasCamera.DestinationType.DATA_URL,
+                                              encodingType: CanvasCamera.EncodingType.JPEG,
+                                              saveToPhotoAlbum:true,
+                                              correctOrientation:true,
+                                              width:640,
+                                              height:480
+                                          };
+                                          CanvasCamera.start(opt);
 })
 
 .controller('itemdetailsCtrl', function($scope,$http,$ionicScrollDelegate,$stateParams,$state) {
