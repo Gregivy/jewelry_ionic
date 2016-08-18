@@ -136,7 +136,7 @@ angular.module('starter', ['ionic','ngCordova','angular-scroll-animate'])
   var tapEnabled = false; //enable tap take picture
   var dragEnabled = false; //enable preview box drag across the screen
   var toBack = true; //send preview box to the back of the webview
-  var rect = {x: 0, y: 44, width: screen.width * window.devicePixelRatio, height: (screen.height-44) * window.devicePixelRatio};
+  var rect = {x: 0, y: 44, width: 500, height: 500};
   cordova.plugins.camerapreview.startCamera(rect, "back", tapEnabled, dragEnabled, toBack);
 })
 
