@@ -120,13 +120,23 @@ angular.module('starter', ['ionic','ngCordova','angular-scroll-animate'])
 })
 
 .controller('itempreviewCtrl', function($scope,$http,$ionicScrollDelegate,$stateParams,$state) {
+  var views = document.querySelectorAll(".view, .pane");
+  for (var i=0; i<views.lenght; i++) {
+    views[i].classList.add('transback');
+  }
+  $scope.$on('$ionicView.beforeLeave', function(){
+    var views = document.querySelectorAll(".view, .pane");
+    for (var i=0; i<views.lenght; i++) {
+      views[i].classList.remove('transback');
+    }
+  });
   $scope.n = $stateParams["n"];
   $scope.item = $scope.items[$scope.n];
   $scope.title = $scope.item["name"][$scope.lang];
   var tapEnabled = false; //enable tap take picture
   var dragEnabled = false; //enable preview box drag across the screen
   var toBack = true; //send preview box to the back of the webview
-  var rect = {x: 100, y: 100, width: 200, height:200};
+  var rect = {x: 0, y: 44, width: screen.width, height: (screen.height-44)};
   cordova.plugins.camerapreview.startCamera(rect, "back", tapEnabled, dragEnabled, toBack);
 })
 

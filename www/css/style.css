@@ -3,9 +3,14 @@ body {
 	background-color: transparent !important;
 }
 
-.view {
+.transback {
 	background-color: transparent !important;
 }
+
+[nav-view-transition="ios"][nav-view-direction="forward"], [nav-view-transition="ios"][nav-view-direction="back"] {
+  background-color: transparent !important; 
+}
+
 
 .centered {
 	margin-left: auto;
