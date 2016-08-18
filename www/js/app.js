@@ -138,8 +138,8 @@ angular.module('starter', ['ionic','ngCordova','angular-scroll-animate'])
   var toBack = true; //send preview box to the back of the webview
   var rect = {x: 0, y: 44, width: document.body.offsetWidth, height: (screen.height-44)};
   cordova.plugins.camerapreview.startCamera(rect, "back", tapEnabled, dragEnabled, toBack);
-  cordova.plugins.camerapreview.stopCamera();
-  cordova.plugins.camerapreview.startCamera(rect, "back", tapEnabled, dragEnabled, toBack);
+  //cordova.plugins.camerapreview.stopCamera();
+  //cordova.plugins.camerapreview.startCamera(rect, "back", tapEnabled, dragEnabled, toBack);
 })
 
 .controller('itemdetailsCtrl', function($scope,$http,$ionicScrollDelegate,$stateParams,$state) {
