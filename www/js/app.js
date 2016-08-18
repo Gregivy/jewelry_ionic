@@ -121,7 +121,7 @@ angular.module('starter', ['ionic','ngCordova','angular-scroll-animate'])
 
 .controller('itempreviewCtrl', function($scope,$http,$ionicScrollDelegate,$stateParams,$state) {
   var views = document.querySelectorAll(".view, .pane");
-  for (var i=0; i<views.lenght; i++) {
+  for (var i=0; i<views.length; i++) {
     views[i].classList.add('transback');
   }
   $scope.$on('$ionicView.beforeLeave', function(){
