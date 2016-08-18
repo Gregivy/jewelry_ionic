@@ -129,6 +129,7 @@ angular.module('starter', ['ionic','ngCordova','angular-scroll-animate'])
     for (var i=0; i<views.lenght; i++) {
       views[i].classList.remove('transback');
     }
+    cordova.plugins.camerapreview.stopCamera();
   });
   $scope.n = $stateParams["n"];
   $scope.item = $scope.items[$scope.n];
@@ -136,7 +137,7 @@ angular.module('starter', ['ionic','ngCordova','angular-scroll-animate'])
   var tapEnabled = false; //enable tap take picture
   var dragEnabled = false; //enable preview box drag across the screen
   var toBack = true; //send preview box to the back of the webview
-  var rect = {x: 0, y: 44, width: document.body.offsetWidth, height: (screen.height-44)};
+  var rect = {x: 0, y: 44, width: document.body.offsetWidth, height: (500-44)};
   cordova.plugins.camerapreview.startCamera(rect, "back", tapEnabled, dragEnabled, toBack);
 
 })
