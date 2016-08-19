@@ -120,7 +120,7 @@ angular.module('starter', ['ionic','ngCordova','angular-scroll-animate'])
 })
 
 .controller('itempreviewCtrl', function($scope,$http,$ionicScrollDelegate,$stateParams,$state) {
-  var views = document.querySelectorAll(".view, .pane");
+  /*var views = document.querySelectorAll(".view, .pane");
   for (var i=0; i<views.length; i++) {
     views[i].classList.add('transback');
   }
@@ -130,16 +130,26 @@ angular.module('starter', ['ionic','ngCordova','angular-scroll-animate'])
       views[i].classList.remove('transback');
     }
     cordova.plugins.camerapreview.stopCamera();
-  });
+  });*/
   $scope.n = $stateParams["n"];
   $scope.item = $scope.items[$scope.n];
   $scope.title = $scope.item["name"][$scope.lang];
-  var tapEnabled = true; //enable tap take picture
+  /*var tapEnabled = true; //enable tap take picture
   var dragEnabled = false; //enable preview box drag across the screen
   var toBack = true; //send preview box to the back of the webview
   var rect = {x: 0, y: 44, width: document.body.offsetWidth, height: (500-44)};
-  cordova.plugins.camerapreview.startCamera(rect, "front", tapEnabled, dragEnabled, toBack);
+  cordova.plugins.camerapreview.startCamera(rect, "front", tapEnabled, dragEnabled, toBack);*/
   //cordova.plugins.camerapreview.switchCamera();
+  var objCanvas = document.getElementById("camera");
+  window.plugin.CanvasCamera.initialize(objCanvas);
+  var options = {
+        quality: 75,
+        destinationType: CanvasCamera.DestinationType.DATA_URL,
+        encodingType: CanvasCamera.EncodingType.JPEG,
+        width: 640,
+        height: 480
+    };
+  window.plugin.CanvasCamera.start(options);
 })
 
 .controller('itemdetailsCtrl', function($scope,$http,$ionicScrollDelegate,$stateParams,$state) {
