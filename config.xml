@@ -19,6 +19,9 @@
   <feature name="StatusBar">
     <param name="ios-package" value="CDVStatusBar" onload="true"/>
   </feature>
+  <plugin name="cordova-plugin-whitelist" />
+  <plugin name="cordova-plugin-crosswalk-webview" />
   <plugin name="cordova-camera-preview" />
   <plugin name="com.cordova.plugin.canvascamera" spec="https://github.com/Gregivy/cordova-canvas-camera" />
+  <access origin="*" />
 </widget>
