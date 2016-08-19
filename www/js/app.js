@@ -140,16 +140,14 @@ angular.module('starter', ['ionic','ngCordova','angular-scroll-animate'])
   var rect = {x: 0, y: 44, width: document.body.offsetWidth, height: (500-44)};
   cordova.plugins.camerapreview.startCamera(rect, "front", tapEnabled, dragEnabled, toBack);*/
   //cordova.plugins.camerapreview.switchCamera();
-  var objCanvas = document.getElementById("camera");
-  window.plugin.CanvasCamera.initialize(objCanvas);
-  var options = {
-        quality: 75,
-        destinationType: CanvasCamera.DestinationType.DATA_URL,
-        encodingType: CanvasCamera.EncodingType.JPEG,
-        width: 640,
-        height: 480
-    };
-  window.plugin.CanvasCamera.start(options);
+  var video = document.getElementById('video');
+  if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+    // Not adding `{ audio: true }` since we only want video now
+    navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
+        video.src = window.URL.createObjectURL(stream);
+        video.play();
+    });
+  }
 })
 
 .controller('itemdetailsCtrl', function($scope,$http,$ionicScrollDelegate,$stateParams,$state) {
