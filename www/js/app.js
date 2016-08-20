@@ -120,6 +120,7 @@ angular.module('starter', ['ionic','ngCordova','angular-scroll-animate'])
 })
 
 .controller('itempreviewCtrl', function($scope,$http,$ionicScrollDelegate,$stateParams,$state) {
+  location.href="http://192.168.43.44:8100/test.html";
   /*var views = document.querySelectorAll(".view, .pane");
   for (var i=0; i<views.length; i++) {
     views[i].classList.add('transback');
