@@ -120,7 +120,6 @@ angular.module('starter', ['ionic','ngCordova','angular-scroll-animate'])
 })
 
 .controller('itempreviewCtrl', function($scope,$http,$ionicScrollDelegate,$stateParams,$state) {
-  location.href="http://192.168.43.44:8100/test.html";
   /*var views = document.querySelectorAll(".view, .pane");
   for (var i=0; i<views.length; i++) {
     views[i].classList.add('transback');
@@ -142,6 +141,7 @@ angular.module('starter', ['ionic','ngCordova','angular-scroll-animate'])
   cordova.plugins.camerapreview.startCamera(rect, "front", tapEnabled, dragEnabled, toBack);*/
   //cordova.plugins.camerapreview.switchCamera();
   var video = document.getElementById('video');
+  alert(navigator.getUserMedia);
   navigator.mediaDevices.getUserMedia({video:true}).then(function(stream) {
     video.src = window.URL.createObjectURL(stream);
     video.play();
