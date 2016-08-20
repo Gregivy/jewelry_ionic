@@ -141,9 +141,11 @@ angular.module('starter', ['ionic','ngCordova','angular-scroll-animate'])
   cordova.plugins.camerapreview.startCamera(rect, "front", tapEnabled, dragEnabled, toBack);*/
   //cordova.plugins.camerapreview.switchCamera();
   var video = document.getElementById('video');
-  navigator.getUserMedia({audio:false, video:true}).then(function(stream) {
+  navigator.mediaDevices.getUserMedia({video:true}).then(function(stream) {
     video.src = window.URL.createObjectURL(stream);
     video.play();
+  }).catch(function (e) {
+    alert(e);
   }); 
 })
 
