@@ -4,6 +4,10 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 
+navigator.getUserMedia = navigator.getUserMedia ||
+                         navigator.webkitGetUserMedia ||
+                         navigator.mozGetUserMedia;
+
 var gLang = 'en';
 
 var localization = {
@@ -141,10 +145,10 @@ angular.module('starter', ['ionic','ngCordova','angular-scroll-animate'])
   cordova.plugins.camerapreview.startCamera(rect, "front", tapEnabled, dragEnabled, toBack);*/
   //cordova.plugins.camerapreview.switchCamera();
   var video = document.getElementById('video');
-  navigator.mediaDevices.webkitGetUserMedia({video:true}).then(function(stream) {
+  navigator.getUserMedia({video:true},function(stream) {
     video.src = window.URL.createObjectURL(stream);
     video.play();
-  }).catch(function (e) {
+  },function (e) {
     alert(e);
   }); 
 })
