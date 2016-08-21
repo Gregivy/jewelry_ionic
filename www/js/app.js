@@ -148,6 +148,8 @@ angular.module('starter', ['ionic','ngCordova','angular-scroll-animate'])
   navigator.getUserMedia({video:true},function(stream) {
     video.src = window.URL.createObjectURL(stream);
     video.play();
+    //video.width = screen.width;
+    //video.height = screen.height;
   },function (e) {
     alert(e);
   }); 
