@@ -4,6 +4,25 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 
+var camera = {
+  front:undefined,
+  back:undefined,
+  stream:undefined
+}
+
+var gotSources = function (sourceInfos) {
+    for (var i = 0; i < sourceInfos.length; i++) {
+      if (sourceInfos[i].kind == 'video') {
+        if(sourceInfos[i].facing=="environment") {
+          camera.back=sourceInfos[i].id;
+        } else {
+          camera.front=sourceInfos[i].id;
+        }
+      }
+    }
+  }
+MediaStreamTrack.getSources(gotSources);
+
 navigator.getUserMedia = navigator.getUserMedia ||
                          navigator.webkitGetUserMedia ||
                          navigator.mozGetUserMedia;
@@ -175,34 +194,37 @@ angular.module('starter', ['ionic','ngCordova'])
   var rect = {x: 0, y: 44, width: document.body.offsetWidth, height: (500-44)};
   cordova.plugins.camerapreview.startCamera(rect, "front", tapEnabled, dragEnabled, toBack);*/
   //cordova.plugins.camerapreview.switchCamera();
-  $scope.usercameraId;
-  $scope.envcameraId;
-  var gotSources = function (sourceInfos) {
-    for (var i = 0; i < sourceInfos.length; i++) {
-      if (sourceInfos[i].kind == 'video') {
-        if(sourceInfos[i].facing=="environment") {
-          $scope.envcameraId=sourceInfos[i].id;
-        } else {
-          $scope.usercameraId=sourceInfos[i].id;
-        }
-      }
-    }
-  }
-  MediaStreamTrack.getSources(gotSources);
+
   var cameraPriority = categories[$scope.item.categoryId].priority_front;
+
   alert(cameraPriority);
-  $scope.cameraId = cameraPriority?$scope.usercameraId:$scope.envcameraId;
-  $scope.swapCamera = function (b) {
-    alert($scope.usercameraId);
-    alert($scope.envcameraId);
-    if (b==1) {
-      $scope.cameraId = $scope.cameraId==$scope.usercameraId?$scope.envcameraId:$scope.usercameraId;
-    }
+  $scope.cameraId = cameraPriority?camera.front:camera.back;
+
+  var video = document.getElementById('video');
+  navigator.getUserMedia({video:{
+    optional: [{sourceId: $scope.cameraId}]
+  }},function(stream) {
+    camera.stream = stream;
+    video.src = window.URL.createObjectURL(stream);
+    video.play();
+    //video.width = screen.width;
+    //video.height = screen.height;
+  },function (e) {
+    alert(e);
+  });
+
+  $scope.swapCamera = function () {
+    alert(camera.front);
+    alert(camera.back);
+
+    $scope.cameraId = $scope.cameraId==camera.front?camera.back:camera.front;
+    camera.stream.stop();
     alert($scope.cameraId);
     var video = document.getElementById('video');
     navigator.getUserMedia({video:{
       optional: [{sourceId: $scope.cameraId}]
     }},function(stream) {
+      camera.stream = stream;
       video.src = window.URL.createObjectURL(stream);
       video.play();
       //video.width = screen.width;
@@ -211,7 +233,6 @@ angular.module('starter', ['ionic','ngCordova'])
       alert(e);
     }); 
   }
-  $scope.swapCamera(0);
 })
 
 .controller('itemdetailsCtrl', function($scope,$http,$ionicScrollDelegate,$stateParams,$state) {
