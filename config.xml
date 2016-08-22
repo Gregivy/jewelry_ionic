@@ -22,6 +22,6 @@
   <plugin name="cordova-plugin-whitelist" />
   <plugin name="cordova-plugin-crosswalk-webview" />
   <plugin name="cordova-camera-preview" />
-  <plugin spec="https://github.com/Moonware/cordova-cameraserver" />
+  <plugin spec="https://github.com/moonware/cordova-cameraplus.git" />
   <access origin="*" />
 </widget>

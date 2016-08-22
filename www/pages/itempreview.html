@@ -5,7 +5,7 @@
 
 	<ion-content class="has-footer" scroll="false">
 		<!--<video id="video" autoplay width="100%"></video> -->
-		<img src='http://127.0.0.1:8080/live.jpg'>
+		<img class="live-grab" src="data:image/jpeg;base64, {{jsBuffer.Image}}" imageonload="refreshPreview()">
 	</ion-content>
 	<ion-footer-bar align-title="center" class="bar-light photobar">
 	  <button class="button icon ion-camera button-dark button-large centered makephoto" ng-click="scrollTop()"></button>
