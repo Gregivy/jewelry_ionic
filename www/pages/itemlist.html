@@ -4,13 +4,13 @@
 	  	<div class="jewelry" ng-repeat="item in items">
 	  	  <img src="./store/{{item.imgs[0]}}" class="centered" ng-click="showDetails($index)">
 	  	  <h3>{{item.name[lang]}}</h3>
-	  	  <div class="centered" style="width:180px">
-		  <button class="button button-light button-outline">
+	  	  <div class="centered" style="width:230px">
+		  <button class="button button-light button-outline" style="width:100px">
   			{{localization.tryiton[lang]}}
 		  </button>
 
-		  <button class="button button-light button-outline">
-  			{{localization.tryiton[lang]}}
+		  <button class="button button-dark button-outline" style="width:120px" ng-click="openPreorder()">
+  			{{localization.preorder[lang]}}
 		  </button>
 		  </div>
 	  	</div>

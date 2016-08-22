@@ -1,5 +1,13 @@
-<ion-view view-title="{{title}}" class="itemlist">
-	<ion-content>
+<ion-view view-title="{{title}}" class="cameraprev">
+	<ion-nav-buttons side="right">
+      <button class="button icon ion-ios-reverse-camera button-dark button-outline" ng-click="scrollTop()"></button>
+    </ion-nav-buttons>
+
+	<ion-content class="has-footer" scroll="false">
 		<video id="video" autoplay width="100%"></video>
+
 	</ion-content>
+	<ion-footer-bar align-title="center" class="bar-light photobar">
+	  <button class="button icon ion-camera button-dark button-large centered makephoto" ng-click="scrollTop()"></button>
+	</ion-footer-bar>
 </ion-view>

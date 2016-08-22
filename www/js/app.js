@@ -10,10 +10,16 @@ navigator.getUserMedia = navigator.getUserMedia ||
 
 var gLang = 'en';
 
+var preorderLink = "";
+
 var localization = {
   tryiton: {
     ru: 'Примерить',
     en: 'Try it on'
+  },
+  preorder: {
+    ru: 'Предзаказ',
+    en: 'Pre-order'
   },
   visitus: {
     ru: 'Наш магазин',
@@ -25,7 +31,7 @@ var localization = {
   }
 };
 
-angular.module('starter', ['ionic','ngCordova','angular-scroll-animate'])
+angular.module('starter', ['ionic','ngCordova'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -84,10 +90,34 @@ angular.module('starter', ['ionic','ngCordova','angular-scroll-animate'])
   $scope.localization = localization;
   $scope.lang = gLang;
   $scope.items = items;
+  $scope.preorderLink = preorderLink;
+  $scope.openPreorder = function () {
+    navigator.app.loadUrl($scope.preorderLink, { openExternal:true });
+  }
 })
 
 .controller('categorylistCtrl', function($scope,$http,$ionicScrollDelegate,$stateParams,$state,$timeout) {
   $scope.categories = categories;
+  $scope.shownCats = [];
+  $scope.showCats = function () {
+    var top = $ionicScrollDelegate.getScrollPosition().top;
+    var cats = document.querySelectorAll(".category");
+    var sum = 0;
+    for (var i=0;i<cats.length;i++) {
+      sum += cats[i].clientHeight;
+      if (sum>screen.height+top) {
+        //alert(sum);
+        //alert(screen.height);
+        break;
+      } else if (sum>=top) {
+        if (_.indexOf($scope.showCats,i)==-1) {
+          $scope.shownCats.push(i);
+          $scope.animateElementIn([cats[i]]);
+        }
+      }
+    }
+  }
+  $timeout($scope.showCats);
   $scope.animateElementIn = function ($el) {
     console.log($el[0]);
     //console.log(($el).querySelectorAll("img"));
@@ -144,8 +174,11 @@ angular.module('starter', ['ionic','ngCordova','angular-scroll-animate'])
   var rect = {x: 0, y: 44, width: document.body.offsetWidth, height: (500-44)};
   cordova.plugins.camerapreview.startCamera(rect, "front", tapEnabled, dragEnabled, toBack);*/
   //cordova.plugins.camerapreview.switchCamera();
+  MediaStreamTrack.getSources(gotSources);
   var video = document.getElementById('video');
-  navigator.getUserMedia({video:true},function(stream) {
+  navigator.getUserMedia({video:{
+          facingMode: 'environment'
+        }},function(stream) {
     video.src = window.URL.createObjectURL(stream);
     video.play();
     //video.width = screen.width;
