@@ -174,11 +174,18 @@ angular.module('starter', ['ionic','ngCordova'])
   var rect = {x: 0, y: 44, width: document.body.offsetWidth, height: (500-44)};
   cordova.plugins.camerapreview.startCamera(rect, "front", tapEnabled, dragEnabled, toBack);*/
   //cordova.plugins.camerapreview.switchCamera();
-  //MediaStreamTrack.getSources(gotSources);
+  var cameraId;
+  var gotSources = function (sourceInfos) {
+    for (var i = 0; i < sourceInfos.length; i++) {
+      if (sourceInfos[i].kind == 'video') {
+        alert(sourceInfos[i].facing)
+      }
+    }
+  }
+  alert("ok at this step");
+  MediaStreamTrack.getSources(gotSources);
   var video = document.getElementById('video');
-  navigator.getUserMedia({video:{
-          facingMode: 'environment'
-        }},function(stream) {
+  navigator.getUserMedia({video:true},function(stream) {
     video.src = window.URL.createObjectURL(stream);
     video.play();
     //video.width = screen.width;
