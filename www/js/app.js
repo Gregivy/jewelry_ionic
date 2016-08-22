@@ -190,12 +190,15 @@ angular.module('starter', ['ionic','ngCordova'])
   }
   MediaStreamTrack.getSources(gotSources);
   var cameraPriority = categories[$scope.item.categoryId].priority_front;
+  alert(cameraPriority);
   $scope.cameraId = cameraPriority?$scope.usercameraId:$scope.envcameraId;
-  $scope.cameraStatus = 0;
   $scope.swapCamera = function (b) {
+    alert($scope.usercameraId);
+    alert($scope.envcameraId);
     if (b==1) {
       $scope.cameraId = $scope.cameraId==$scope.usercameraId?$scope.envcameraId:$scope.usercameraId;
     }
+    alert($scope.cameraId);
     var video = document.getElementById('video');
     navigator.getUserMedia({video:{
       optional: [{sourceId: $scope.cameraId}]
