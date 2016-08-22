@@ -221,7 +221,7 @@ angular.module('starter', ['ionic','ngCordova'])
     $scope.cameraId = $scope.cameraId==camera.front?camera.back:camera.front;
     alert($scope.cameraId+"ok");
     if (camera.stream) {
-      camera.stream.stop();
+      camera.stream.getVideoTracks()[0].stop();
     }
     alert($scope.cameraId);
     var video = document.getElementById('video');
