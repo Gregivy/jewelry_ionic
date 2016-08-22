@@ -174,7 +174,7 @@ angular.module('starter', ['ionic','ngCordova'])
   var rect = {x: 0, y: 44, width: document.body.offsetWidth, height: (500-44)};
   cordova.plugins.camerapreview.startCamera(rect, "front", tapEnabled, dragEnabled, toBack);*/
   //cordova.plugins.camerapreview.switchCamera();
-  MediaStreamTrack.getSources(gotSources);
+  //MediaStreamTrack.getSources(gotSources);
   var video = document.getElementById('video');
   navigator.getUserMedia({video:{
           facingMode: 'environment'
