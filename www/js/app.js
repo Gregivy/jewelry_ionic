@@ -199,13 +199,15 @@ angular.module('starter', ['ionic','ngCordova'])
 
   $scope.cameraId = cameraPriority?camera.front:camera.back;
 
+  alert($scope.cameraId);
+
   var video = document.getElementById('video');
   navigator.getUserMedia({video:{
     width: {max:1920},
     height: {max:1080},
-    facingMode: { exact: "environment" },
-    //optional: [{sourceId: $scope.cameraId}]
+    optional: [{sourceId: $scope.cameraId}]
   }},function(stream) {
+    alert(stream);
     camera.stream = stream;
     video.src = window.URL.createObjectURL(stream);
     video.play();
@@ -217,14 +219,15 @@ angular.module('starter', ['ionic','ngCordova'])
 
   $scope.swapCamera = function () {
     $scope.cameraId = $scope.cameraId==camera.front?camera.back:camera.front;
-    if(camera.stream){
+    alert($scope.cameraId+"ok");
+    if (camera.stream) {
       camera.stream.stop();
     }
     alert($scope.cameraId);
     var video = document.getElementById('video');
     navigator.getUserMedia({video:{
-      width: 1920,
-      height: 1080,
+      width: {max:1920},
+      height: {max:1080},
       optional: [{sourceId: $scope.cameraId}]
     }},function(stream) {
       camera.stream = stream;
