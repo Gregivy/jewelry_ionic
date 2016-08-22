@@ -193,8 +193,8 @@ angular.module('starter', ['ionic','ngCordova'])
   var tapEnabled = true; //enable tap take picture
   var dragEnabled = false; //enable preview box drag across the screen
   var toBack = false; //send preview box to the back of the webview
-  var rect = {x: 0, y: 44, width: document.body.offsetWidth, height: (500-44)};
-  cordova.plugins.camerapreview.startCamera(rect, "front", tapEnabled, dragEnabled, toBack);
+  var rect = {x: 0, y: 44, width: 300, height: (500-44)};
+  CameraPreview.startCamera();
   //cordova.plugins.camerapreview.switchCamera();
 
   /*var cameraPriority = categories[$scope.item.categoryId].priority_front;
