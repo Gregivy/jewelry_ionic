@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 
-var camera = {
+/*var camera = {
   front:undefined,
   back:undefined,
   stream:undefined
@@ -21,7 +21,21 @@ var gotSources = function (sourceInfos) {
       }
     }
   }
-MediaStreamTrack.getSources(gotSources);
+MediaStreamTrack.getSources(gotSources);*/
+
+  cordova.plugins.CameraServer.startServer({
+    'www_root' : '/',
+    'port' : 8080,
+    'localhost_only' : true,
+    'json_info': []
+  }, function( url ){
+    // if server is up, it will return the url of http://<server ip>:port/
+    // the ip is the active network connection
+    // if no wifi or no cell, "127.0.0.1" will be returned.
+    console.log('CameraServer Started @ ' + url); 
+  }, function( error ){
+    console.log('CameraServer Start failed: ' + error);
+  });
 
 navigator.getUserMedia = navigator.getUserMedia ||
                          navigator.webkitGetUserMedia ||
@@ -195,7 +209,7 @@ angular.module('starter', ['ionic','ngCordova'])
   cordova.plugins.camerapreview.startCamera(rect, "front", tapEnabled, dragEnabled, toBack);*/
   //cordova.plugins.camerapreview.switchCamera();
 
-  var cameraPriority = categories[$scope.item.categoryId].priority_front;
+  /*var cameraPriority = categories[$scope.item.categoryId].priority_front;
 
   $scope.cameraId = cameraPriority?camera.front:camera.back;
 
@@ -238,7 +252,17 @@ angular.module('starter', ['ionic','ngCordova'])
     },function (e) {
       alert(e);
     }); 
-  }
+  }*/
+
+
+  cordova.plugins.CameraServer.startCamera(function(){
+      console.log('Capture Started');
+  },function( error ){
+      console.log('CameraServer StartCapture failed: ' + error);
+  });
+
+
+
 })
 
 .controller('itemdetailsCtrl', function($scope,$http,$ionicScrollDelegate,$stateParams,$state) {
