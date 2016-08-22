@@ -168,31 +168,47 @@ angular.module('starter', ['ionic','ngCordova'])
   $scope.n = $stateParams["n"];
   $scope.item = $scope.items[$scope.n];
   $scope.title = $scope.item["name"][$scope.lang];
+
   /*var tapEnabled = true; //enable tap take picture
   var dragEnabled = false; //enable preview box drag across the screen
   var toBack = true; //send preview box to the back of the webview
   var rect = {x: 0, y: 44, width: document.body.offsetWidth, height: (500-44)};
   cordova.plugins.camerapreview.startCamera(rect, "front", tapEnabled, dragEnabled, toBack);*/
   //cordova.plugins.camerapreview.switchCamera();
-  var cameraId;
+  $scope.usercameraId;
+  $scope.envcameraId;
   var gotSources = function (sourceInfos) {
     for (var i = 0; i < sourceInfos.length; i++) {
       if (sourceInfos[i].kind == 'video') {
-        alert(sourceInfos[i].facing)
+        if(sourceInfos[i].facing=="environment") {
+          $scope.envcameraId=sourceInfos[i].id;
+        } else {
+          $scope.usercameraId=sourceInfos[i].id;
+        }
       }
     }
   }
-  alert("ok at this step");
   MediaStreamTrack.getSources(gotSources);
-  var video = document.getElementById('video');
-  navigator.getUserMedia({video:true},function(stream) {
-    video.src = window.URL.createObjectURL(stream);
-    video.play();
-    //video.width = screen.width;
-    //video.height = screen.height;
-  },function (e) {
-    alert(e);
-  }); 
+  var cameraPriority = categories[$scope.item.categoryId].priority_front;
+  $scope.cameraId = cameraPriority?$scope.usercameraId:$scope.envcameraId;
+  $scope.cameraStatus = 0;
+  $scope.swapCamera = function (b) {
+    if (b==1) {
+      $scope.cameraId = $scope.cameraId==$scope.usercameraId?$scope.envcameraId:$scope.usercameraId;
+    }
+    var video = document.getElementById('video');
+    navigator.getUserMedia({video:{
+      optional: [{sourceId: $scope.cameraId}]
+    }},function(stream) {
+      video.src = window.URL.createObjectURL(stream);
+      video.play();
+      //video.width = screen.width;
+      //video.height = screen.height;
+    },function (e) {
+      alert(e);
+    }); 
+  }
+  $scope.swapCamera(0);
 })
 
 .controller('itemdetailsCtrl', function($scope,$http,$ionicScrollDelegate,$stateParams,$state) {
