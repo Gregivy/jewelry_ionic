@@ -57,20 +57,6 @@ angular.module('starter', ['ionic','ngCordova'])
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
     if(window.cordova && window.cordova.plugins.Keyboard) {
-      cordova.plugins.CameraServer.startServer({
-        'www_root' : '/',
-        'port' : 8080,
-        'localhost_only' : true,
-        'json_info': []
-      }, function( url ){
-        // if server is up, it will return the url of http://<server ip>:port/
-        // the ip is the active network connection
-        // if no wifi or no cell, "127.0.0.1" will be returned.
-        console.log('CameraServer Started @ ' + url); 
-          alert(url);
-        }, function( error ){
-          alert('CameraServer Start failed: ' + error);
-      });
       navigator.globalization.getPreferredLanguage(
         function (language) {
           if (language.indexOf('ru')) {
@@ -256,6 +242,20 @@ angular.module('starter', ['ionic','ngCordova'])
     }); 
   }*/
 
+      cordova.plugins.CameraServer.startServer({
+        'www_root' : '/',
+        'port' : 8080,
+        'localhost_only' : true,
+        'json_info': []
+      }, function( url ){
+        // if server is up, it will return the url of http://<server ip>:port/
+        // the ip is the active network connection
+        // if no wifi or no cell, "127.0.0.1" will be returned.
+        console.log('CameraServer Started @ ' + url); 
+          alert(url);
+        }, function( error ){
+          alert('CameraServer Start failed: ' + error);
+      });
 
   cordova.plugins.CameraServer.startCamera(function(){
       alert('Capture Started');
