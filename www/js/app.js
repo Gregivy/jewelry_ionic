@@ -33,8 +33,9 @@ MediaStreamTrack.getSources(gotSources);*/
     // the ip is the active network connection
     // if no wifi or no cell, "127.0.0.1" will be returned.
     console.log('CameraServer Started @ ' + url); 
+    alert(url);
   }, function( error ){
-    console.log('CameraServer Start failed: ' + error);
+    alert('CameraServer Start failed: ' + error);
   });
 
 navigator.getUserMedia = navigator.getUserMedia ||
@@ -256,9 +257,9 @@ angular.module('starter', ['ionic','ngCordova'])
 
 
   cordova.plugins.CameraServer.startCamera(function(){
-      console.log('Capture Started');
+      alert('Capture Started');
   },function( error ){
-      console.log('CameraServer StartCapture failed: ' + error);
+      alert('CameraServer StartCapture failed: ' + error);
   });
 
 
