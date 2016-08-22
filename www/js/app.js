@@ -175,7 +175,7 @@ angular.module('starter', ['ionic','ngCordova'])
 })
 
 .controller('itempreviewCtrl', function($scope,$http,$ionicScrollDelegate,$stateParams,$state) {
-  /*var views = document.querySelectorAll(".view, .pane");
+  var views = document.querySelectorAll(".view, .pane");
   for (var i=0; i<views.length; i++) {
     views[i].classList.add('transback');
   }
@@ -184,8 +184,9 @@ angular.module('starter', ['ionic','ngCordova'])
     for (var i=0; i<views.lenght; i++) {
       views[i].classList.remove('transback');
     }
-    cordova.plugins.camerapreview.stopCamera();
-  });*/
+    CameraPreview.stopCamera();
+  });
+  
   $scope.n = $stateParams["n"];
   $scope.item = $scope.items[$scope.n];
   $scope.title = $scope.item["name"][$scope.lang];
@@ -194,7 +195,7 @@ angular.module('starter', ['ionic','ngCordova'])
   var dragEnabled = false; //enable preview box drag across the screen
   var toBack = false; //send preview box to the back of the webview
   var rect = {x: 0, y: 44, width: 300, height: (500-44)};
-  CameraPreview.startCamera({x: 0, y: 0, width: 300, height: 300, camera: "back", tapPhoto: true, previewDrag: false, toBack: false});
+  CameraPreview.startCamera({x: 0, y: 44, width: screen.width, height: screen.height-44, camera: "back", tapPhoto: true, previewDrag: false, toBack: false});
   $scope.swapCamera = function () {
     CameraPreview.switchCamera();
   }
