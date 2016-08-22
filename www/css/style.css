@@ -12,7 +12,7 @@ body {
 
 ion-footer-bar.photobar {
 	height: 100px !important;
-	background-color: rgba(110,110,109,0.1) !important;
+	background-color: rgba(110,110,109,0.3) !important;
 }
 
 .photobar .makephoto {
@@ -29,21 +29,6 @@ video {
 	z-index: 1;
 	top:0;
 	left:0;
-}
-
-#make_photo_button {
-	position: fixed;
-	z-index: 2;
-	bottom: 0px;
-	margin-left: auto;
-    margin-right: auto;
-	background-color: white;
-	width: 100px;
-	height: 100px;
-}
-
-.transback {
-	background-color: transparent !important;
 }
 
 .centered {
