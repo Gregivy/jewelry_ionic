@@ -196,7 +196,7 @@ angular.module('starter', ['ionic','ngCordova'])
   var toBack = false; //send preview box to the back of the webview
   var rect = {x: 0, y: 44, width: 300, height: (500-44)};
   alert(window.innerWidth+"x"+window.innerHeight);
-  CameraPreview.startCamera({x: 0, y: 44, width: window.innerWidth, height: window.innerHeight-44, camera: "back", tapPhoto: true, previewDrag: false, toBack: false});
+  CameraPreview.startCamera({x: 0, y: 44, width: window.innerWidth, height: window.innerHeight-44, camera: "back", tapPhoto: true, previewDrag: false, toBack: true});
   $scope.swapCamera = function () {
     CameraPreview.switchCamera();
   }
