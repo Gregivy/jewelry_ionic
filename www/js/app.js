@@ -194,7 +194,10 @@ angular.module('starter', ['ionic','ngCordova'])
   var dragEnabled = false; //enable preview box drag across the screen
   var toBack = false; //send preview box to the back of the webview
   var rect = {x: 0, y: 44, width: 300, height: (500-44)};
-  CameraPreview.startCamera();
+  CameraPreview.startCamera({x: 0, y: 0, width: 300, height: 300, camera: "back", tapPhoto: true, previewDrag: false, toBack: false});
+  $scope.swapCamera = function () {
+    CameraPreview.switchCamera();
+  }
   //cordova.plugins.camerapreview.switchCamera();
 
   /*var cameraPriority = categories[$scope.item.categoryId].priority_front;
