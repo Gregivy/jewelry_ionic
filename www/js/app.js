@@ -194,14 +194,20 @@ angular.module('starter', ['ionic','ngCordova'])
   $scope.n = $stateParams["n"];
   $scope.item = $scope.items[$scope.n];
   $scope.title = $scope.item["name"][$scope.lang];
+  $scope.photo = "none";
 
-  var tapEnabled = true; //enable tap take picture
-  var dragEnabled = false; //enable preview box drag across the screen
-  var toBack = false; //send preview box to the back of the webview
-  var rect = {x: 0, y: 44, width: 300, height: (500-44)};
-  CameraPreview.startCamera({x: 0, y: 44, width: window.innerWidth, height: window.innerHeight-44, camera: "back", tapPhoto: true, previewDrag: false, toBack: true});
+
+  var cameraPriority = categories[$scope.item.categoryId].priority_front;
+  var camera = cameraPriority?"front":"back";
+  CameraPreview.startCamera({x: 0, y: 44, width: window.innerWidth, height: window.innerHeight-44, camera: camera, tapPhoto: true, previewDrag: false, toBack: true});
+  CameraPreview.setOnPictureTakenHandler(function (picture) {
+    $scope.photo = picture; // base64 picture;
+  });
   $scope.swapCamera = function () {
     CameraPreview.switchCamera();
+  }
+  $scope.takePhoto = function () {
+    CameraPreview.takePicture();
   }
   //cordova.plugins.camerapreview.switchCamera();
 

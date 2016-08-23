@@ -4,9 +4,9 @@
     </ion-nav-buttons>
 
 	<ion-content class="has-footer" scroll="false">
-
+		<img src="{{photo}}" ng-show="photo!='none'">
 	</ion-content>
 	<ion-footer-bar align-title="center" class="bar-light photobar">
-	  <button class="button icon ion-camera button-dark button-large centered makephoto" ng-click="scrollTop()"></button>
+	  <button class="button icon ion-camera button-dark button-large centered makephoto" ng-click="takePhoto()"></button>
 	</ion-footer-bar>
 </ion-view>
