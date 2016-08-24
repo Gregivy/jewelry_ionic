@@ -59,7 +59,10 @@ var localization = {
   pleasewait: {
     ru: 'Пожалуйста подождите...',
     en: 'Please wait...'
-  }
+  },
+  savesuccess: {
+    ru: 'Изображение сохранено!',
+    en: 'Image saved!'
 };
 
 angular.module('starter', ['ionic','ngCordova'])
@@ -69,6 +72,7 @@ angular.module('starter', ['ionic','ngCordova'])
     if(window.cordova && window.cordova.plugins.Keyboard) {
       navigator.globalization.getPreferredLanguage(
         function (language) {
+          alert(language);
           if (language.indexOf('ru')) {
             gLang = 'ru';
           } else {
@@ -122,7 +126,7 @@ angular.module('starter', ['ionic','ngCordova'])
   $scope.lang = gLang;
   $scope.items = items;
   $scope.preorderLink = preorderLink;
-  $scope.preorderLink = visitusLink;
+  $scope.visitusLink = visitusLink;
   $scope.openPreorder = function () {
     cordova.InAppBrowser.open($scope.preorderLink, '_system');
   }
@@ -191,7 +195,7 @@ angular.module('starter', ['ionic','ngCordova'])
   };
 })
 
-.controller('itempreviewCtrl', function($scope,$http,$ionicScrollDelegate,$stateParams,$state,$ionicLoading,$ionicHistory ) {
+.controller('itempreviewCtrl', function($scope,$ionicPopup,$http,$ionicScrollDelegate,$stateParams,$state,$ionicLoading,$ionicHistory ) {
   var views = document.querySelectorAll(".view, .pane");
   console.log(views);
   for (var i=0; i<views.length; i++) {
@@ -245,8 +249,8 @@ angular.module('starter', ['ionic','ngCordova'])
         left:0
       });
       fImg.set('selectable', false);
-      fImg.scaleToWidth(window.innerWidth);
-      //fImg.scaleToHeight(window.innerHeight-44);
+      //fImg.scaleToWidth(window.innerWidth);
+      fImg.scaleToHeight(window.innerHeight-44);
       $scope.photo = fImg;
       $scope.tryitonImg.set('selectable', true);
       canvas.add(fImg);
@@ -260,7 +264,7 @@ angular.module('starter', ['ionic','ngCordova'])
     CameraPreview.switchCamera();
   }
   $scope.takePhoto = function () {
-    CameraPreview.takePicture({maxWidth:window.innerWidth, maxHeight:window.innerHeight-44});
+    CameraPreview.takePicture();
     $scope.photoTaken = true;
     $ionicLoading.show({
       template: $scope.localization.pleasewait[$scope.lang]
@@ -275,7 +279,10 @@ angular.module('starter', ['ionic','ngCordova'])
   }
   $scope.savePhoto = function () {
     window.canvas2ImagePlugin.saveImageDataToLibrary(function(m){
-      alert(m);
+      $ionicPopup.alert({
+        title: $scope.localization.savesuccess[$scope.lang],
+        template: m
+      });
       $ionicHistory.goBack();
     },function(e){
       alert(e);
