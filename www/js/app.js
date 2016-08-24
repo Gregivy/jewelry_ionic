@@ -209,7 +209,7 @@ angular.module('starter', ['ionic','ngCordova'])
     oImg.set('lockUniScaling',true);
     oImg.set('left',(window.innerWidth-oImg.width*0.3)/2);
     oImg.set('top',(window.innerHeight-44-oImg.height*0.3)/2);
-    //oImg.set('selectable', false);
+    oImg.set('selectable', false);
     oImg.set('hasControls', false);
     canvas.add(oImg);
     $scope.tryitonImg = oImg;
@@ -235,8 +235,7 @@ angular.module('starter', ['ionic','ngCordova'])
       $scope.tryitonImg.set('selectable', true);
       canvas.add(fImg);
       fImg.sendBackwards();
-      alert();
-      CameraPreview.hide();
+      CameraPreview.stopCamera();
     }
     img.src = "data:image/png;base64," + picture;
     //alert(picture);
@@ -255,7 +254,7 @@ angular.module('starter', ['ionic','ngCordova'])
     $scope.tryitonImg.set('top',(window.innerHeight-44-$scope.tryitonImg.height*0.3)/2);
     $scope.tryitonImg.set('selectable', false);
     $scope.photo.remove();
-    CameraPreview.show();
+    CameraPreview.startCamera($scope.props);
     //CameraPreview.startCamera($scope.props);
   }
   
