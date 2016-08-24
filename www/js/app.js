@@ -121,11 +121,7 @@ angular.module('starter', ['ionic','ngCordova'])
   $scope.items = items;
   $scope.preorderLink = preorderLink;
   $scope.openPreorder = function () {
-    if(device.platform === 'Android') {
-        navigator.app.loadUrl($scope.preorderLink, {openExternal:true});
-    } else {
-        window.open($scope.preorderLink, '_system');
-    }
+    cordova.InAppBrowser.open($scope.preorderLink, '_system');
   }
 })
 
