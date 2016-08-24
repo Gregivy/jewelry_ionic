@@ -29,7 +29,7 @@ navigator.getUserMedia = navigator.getUserMedia ||
                          navigator.webkitGetUserMedia ||
                          navigator.mozGetUserMedia;
 
-var gLang = 'en';
+//var gLang = 'en';
 
 var preorderLink = "http://yandex.ru/";
 
@@ -72,7 +72,6 @@ angular.module('starter', ['ionic','ngCordova'])
     if(window.cordova && window.cordova.plugins.Keyboard) {
       navigator.globalization.getPreferredLanguage(
         function (language) {
-          alert(language);
           if (language.indexOf('ru')) {
             gLang = 'ru';
           } else {
@@ -158,11 +157,9 @@ angular.module('starter', ['ionic','ngCordova'])
   }
   $timeout($scope.showCats);
   $scope.animateElementIn = function ($el) {
-    console.log($el[0]);
     //console.log(($el).querySelectorAll("img"));
     //for (var i=0; i<$el[0].getElementsByTagName("img").length; i++) {
       var anim = function (i) {
-        console.log(i);
         $el[0].getElementsByTagName("img")[i].classList.remove('not-visible');
         $el[0].getElementsByTagName("img")[i].classList.add('animated');
         $el[0].getElementsByTagName("img")[i].classList.add('fadeIn');
