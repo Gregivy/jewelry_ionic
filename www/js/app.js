@@ -217,31 +217,22 @@ angular.module('starter', ['ionic','ngCordova'])
 
   var cameraPriority = categories[$scope.item.categoryId].priority_front;
   var camera = cameraPriority?"front":"back";
-  CameraPreview.startCamera({x: 0, y: 44, width: window.innerWidth, height: window.innerHeight-44, camera: camera, tapPhoto: true, previewDrag: false, toBack: true});
+  $scope.props = {x: 0, y: 44, width: window.innerWidth, height: window.innerHeight-44, camera: camera, tapPhoto: true, previewDrag: false, toBack: true};
+  CameraPreview.startCamera($scope.props);
   CameraPreview.setOnPictureTakenHandler(function (picture) {
     //$scope.photo = picture; // base64 picture;
-    alert("ok 1");
     var img = document.createElement("IMG");
     img.onload = function(){
-      alert("ok 2");
       var fImg = new fabric.Image(img, {
         top:0,
         left:0
       });
-      alert("ok 3");
       //fImg.moveTo(0);
-      alert("ok 4");
       fImg.set('selectable', false);
-      alert("ok 5");
-      alert(fImg);
-      alert("ok 6");
       $scope.photo = fImg;
-      alert("ok 7");
-      alert($scope.photo);
-      alert("ok 8");
       $scope.tryitonImg.set('selectable', true);
-      alert("ok 9");
-      //canvas.add(fImg);
+      canvas.add(fImg);
+      CameraPreview.hide();
     }
     img.src = "data:image/png;base64," + picture;
     //alert(picture);
@@ -260,6 +251,8 @@ angular.module('starter', ['ionic','ngCordova'])
     $scope.tryitonImg.set('top',(window.innerHeight-44-oImg.height*0.3)/2);
     $scope.tryitonImg.set('selectable', false);
     $scope.photo.remove();
+    CameraPreview.show();
+    //CameraPreview.startCamera($scope.props);
   }
   
 
