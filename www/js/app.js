@@ -211,20 +211,24 @@ angular.module('starter', ['ionic','ngCordova'])
   var canvas = new fabric.Canvas('photo');
   canvas.selection = false;
 
-  fabric.Image.fromURL("./store/"+$scope.item.tryitonImg, function(oImg) {
-    oImg.scale(0.3);
-    oImg.set('lockUniScaling',true);
-    oImg.set('left',(window.innerWidth-oImg.width*0.3)/2);
-    oImg.set('top',(window.innerHeight-44-oImg.height*0.3)/2);
-    oImg.set('selectable', false);
-    oImg.set('hasControls', false);
-    canvas.add(oImg);
-    $scope.tryitonImg = oImg;
-  });
+  var createPrevPhoto = function () {
+    fabric.Image.fromURL("./store/"+$scope.item.tryitonImg, function(oImg) {
+      oImg.scale(0.3);
+      oImg.set('lockUniScaling',true);
+      oImg.set('left',(window.innerWidth-oImg.width*0.3)/2);
+      oImg.set('top',(window.innerHeight-44-oImg.height*0.3)/2);
+      oImg.set('selectable', false);
+      oImg.set('hasControls', false);
+      canvas.add(oImg);
+      $scope.tryitonImg = oImg;
+    });
+  }
+  createPrevPhoto();
+
 
   var cameraPriority = categories[$scope.item.categoryId].priority_front;
   var camera = cameraPriority?"front":"back";
-  $scope.props = {x: 0, y: 44, width: window.innerWidth, height: window.innerHeight-44, camera: camera, tapPhoto: true, previewDrag: false, toBack: true};
+  $scope.props = {x: 0, y: 44, width: window.innerWidth-10, height: window.innerHeight-44, camera: camera, tapPhoto: true, previewDrag: false, toBack: true};
   CameraPreview.startCamera($scope.props);
   CameraPreview.setOnPictureTakenHandler(function (picture) {
     //$scope.photo = picture; // base64 picture;
@@ -260,11 +264,8 @@ angular.module('starter', ['ionic','ngCordova'])
   }
   $scope.retakePhoto = function () {
     $scope.photoTaken = false;
-    $scope.tryitonImg.rotate(0);
-    $scope.tryitonImg.scale(0.3);
-    $scope.tryitonImg.set('left',(window.innerWidth-$scope.tryitonImg.width*0.3)/2);
-    $scope.tryitonImg.set('top',(window.innerHeight-44-$scope.tryitonImg.height*0.3)/2);
-    $scope.tryitonImg.set('selectable', false);
+    $scope.tryitonImg.remove();
+    createPrevPhoto();
     $scope.photo.remove();
     CameraPreview.startCamera($scope.props);
     //CameraPreview.startCamera($scope.props);
