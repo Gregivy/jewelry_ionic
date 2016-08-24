@@ -4,9 +4,13 @@
     </ion-nav-buttons>
 
 	<ion-content class="has-footer" scroll="false">
-		<img src="{{photo}}" ng-show="photo!='none'">
+		<canvas id="photo"></canvas>
 	</ion-content>
 	<ion-footer-bar align-title="center" class="bar-light photobar">
-	  <button class="button icon ion-camera button-dark button-large centered makephoto" ng-click="takePhoto()"></button>
+	  <button ng-show="!photoTaken" class="button icon ion-camera button-dark button-large centered makephoto" ng-click="takePhoto()"></button>
+	  <div class="centered" ng-show="photoTaken">
+	  	<button class="button button-dark button-large makephoto" ng-click="takePhoto()">{{localization.save[lang]}}</button>
+	  	<button class="button button-dark button-large makephoto" ng-click="retakePhoto()">{{localization.retake[lang]}}</button>
+	  </div>
 	</ion-footer-bar>
 </ion-view>

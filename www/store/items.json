@@ -7,7 +7,7 @@ var items = [
 		"imgs": [
 			"DSC_7225_.jpg"
 		],
-		"tryitonImg": "",
+		"tryitonImg": "t_verge.png",
 		"desc": {
 			"ru": "",
 			"en": "Hello lorum ispum dolor sit amet"

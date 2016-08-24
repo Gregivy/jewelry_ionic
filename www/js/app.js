@@ -46,9 +46,13 @@ var localization = {
     ru: 'Наш магазин',
     en: 'Visit us'
   },
-  back: {
-    ru: 'Назад',
-    en: 'Back'
+  save: {
+    ru: 'Cохранить',
+    en: 'Save'
+  },
+  retake: {
+    ru: 'Переснять',
+    en: 'Retake'
   }
 };
 
@@ -178,14 +182,11 @@ angular.module('starter', ['ionic','ngCordova'])
   var views = document.querySelectorAll(".view, .pane");
   console.log(views);
   for (var i=0; i<views.length; i++) {
-    console.log(views[i].classList);
     views[i].classList.add('transback');
   }
   $scope.$on('$destroy', function(){
     var views = document.querySelectorAll(".view, .pane");
-    console.log(views);
     for (var i=0; i<views.length; i++) {
-      console.log(views[i].classList);
       views[i].classList.remove('transback');
     }
     CameraPreview.stopCamera();
@@ -194,21 +195,63 @@ angular.module('starter', ['ionic','ngCordova'])
   $scope.n = $stateParams["n"];
   $scope.item = $scope.items[$scope.n];
   $scope.title = $scope.item["name"][$scope.lang];
-  $scope.photo = "none";
+  $scope.photoTaken = false;
+  $scope.tryitonImg = null;
+  $scope.photo = null;
 
+  document.querySelector("#photo").width = window.innerWidth;
+  document.querySelector("#photo").height = window.innerHeight-44;
+  var canvas = new fabric.Canvas('photo');
+  canvas.selection = false;
+
+  fabric.Image.fromURL("./store/"+$scope.item.tryitonImg, function(oImg) {
+    oImg.scale(0.3);
+    oImg.set('lockUniScaling',true);
+    oImg.set('left',(window.innerWidth-oImg.width*0.3)/2);
+    oImg.set('top',(window.innerHeight-44-oImg.height*0.3)/2);
+    oImg.set('selectable', false);
+    oImg.set('hasControls', false);
+    canvas.add(oImg);
+    $scope.tryitonImg = oImg;
+  });
 
   var cameraPriority = categories[$scope.item.categoryId].priority_front;
   var camera = cameraPriority?"front":"back";
   CameraPreview.startCamera({x: 0, y: 44, width: window.innerWidth, height: window.innerHeight-44, camera: camera, tapPhoto: true, previewDrag: false, toBack: true});
   CameraPreview.setOnPictureTakenHandler(function (picture) {
-    $scope.photo = picture; // base64 picture;
+    //$scope.photo = picture; // base64 picture;
+    var img = document.createElement("IMG");
+    img.onload = function(){
+      var fImg = new fabric.Image(img, {
+        top:0,
+        left:0
+      });
+      fImg.moveTo(0);
+      fImg.set('selectable', false);
+      $scope.photo = fImg;
+      $scope.tryitonImg.set('selectable', true);
+      canvas.add(fImg);
+    }
+    img.src = picture;
+    alert(picture);
   });
   $scope.swapCamera = function () {
     CameraPreview.switchCamera();
   }
   $scope.takePhoto = function () {
     CameraPreview.takePicture();
+    $scope.photoTaken = true;
   }
+  $scope.retakePhoto = function () {
+    $scope.photoTaken = false;
+    $scope.tryitonImg.scale(0.3);
+    $scope.tryitonImg.set('left',(window.innerWidth-oImg.width*0.3)/2);
+    $scope.tryitonImg.set('top',(window.innerHeight-44-oImg.height*0.3)/2);
+    $scope.tryitonImg.set('selectable', false);
+    $scope.photo.remove();
+  }
+  
+
   //cordova.plugins.camerapreview.switchCamera();
 
   /*var cameraPriority = categories[$scope.item.categoryId].priority_front;

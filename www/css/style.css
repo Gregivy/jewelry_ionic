@@ -15,6 +15,13 @@ ion-footer-bar.photobar {
 	background-color: rgba(110,110,109,0.3) !important;
 }
 
+.tryitonImg {
+	display:block;
+	position: absolute;
+	z-index:100;
+	width:30%;
+}
+
 .photobar .makephoto {
 	width:100px;
 }
