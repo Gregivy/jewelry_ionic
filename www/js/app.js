@@ -63,6 +63,7 @@ var localization = {
   savesuccess: {
     ru: 'Изображение сохранено!',
     en: 'Image saved!'
+  }
 };
 
 angular.module('starter', ['ionic','ngCordova'])
