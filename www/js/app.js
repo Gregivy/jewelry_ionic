@@ -228,7 +228,10 @@ angular.module('starter', ['ionic','ngCordova'])
         left:0
       });
       //fImg.moveTo(0);
+      fImg.sendBackwards();
       fImg.set('selectable', false);
+      fImg.scaleToWidth(window.innerWidth);
+      fImg.scaleToHeight(window.innerHeight-44);
       $scope.photo = fImg;
       $scope.tryitonImg.set('selectable', true);
       canvas.add(fImg);
@@ -247,8 +250,8 @@ angular.module('starter', ['ionic','ngCordova'])
   $scope.retakePhoto = function () {
     $scope.photoTaken = false;
     $scope.tryitonImg.scale(0.3);
-    $scope.tryitonImg.set('left',(window.innerWidth-oImg.width*0.3)/2);
-    $scope.tryitonImg.set('top',(window.innerHeight-44-oImg.height*0.3)/2);
+    $scope.tryitonImg.set('left',(window.innerWidth-$scope.tryitonImg.width*0.3)/2);
+    $scope.tryitonImg.set('top',(window.innerHeight-44-$scope.tryitonImg.height*0.3)/2);
     $scope.tryitonImg.set('selectable', false);
     $scope.photo.remove();
     CameraPreview.show();
