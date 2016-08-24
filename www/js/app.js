@@ -34,8 +34,8 @@ var gLang = 'en';
 document.addEventListener("deviceready", function () {
   navigator.globalization.getPreferredLanguage(
         function (language) {
-          alert(language);
-          if (language.indexOf('ru')) {
+          alert(language.value);
+          if (language.value.indexOf('ru')) {
             gLang = 'ru';
           } else {
             gLang = 'en';
@@ -161,19 +161,35 @@ angular.module('starter', ['ionic','ngCordova'])
     }
   }
   $timeout($scope.showCats);
+  $scope.animated = false;
   $scope.animateElementIn = function ($el) {
     //console.log(($el).querySelectorAll("img"));
     //for (var i=0; i<$el[0].getElementsByTagName("img").length; i++) {
       var anim = function (i) {
+        $scope.animated = true;
         $el[0].getElementsByTagName("img")[i].classList.remove('not-visible');
         $el[0].getElementsByTagName("img")[i].classList.add('animated');
         $el[0].getElementsByTagName("img")[i].classList.add('fadeIn');
-        if ((i+1)<$el[0].getElementsByTagName("img").length) {setTimeout(function(){anim(i+1);},50*i);}
+        if ((i+1)<$el[0].getElementsByTagName("img").length) {setTimeout(function(){anim(i+1);},50*i);} else {
+          $scope.animated = false;
+        }
       }
       anim(1);
     //}
     //$el.addClass('animated fadeInUp');
   };
+  $scope.repeatAnimation = function () {
+    if (!$scope.animated) {
+      var imgs = document.querySelectorAll(".category img");
+      for (var i=0;i<imgs.length;i++) {
+        imgs[i].classList.add('not-visible');
+        imgs[i].classList.remove('animated');
+        imgs[i].classList.remove('fadeIn');
+      }
+      $scope.shownCats = [];
+      $scope.showCats();
+    }
+  }
   $scope.showCategory = function (n) {
     $state.go("category", {n:n});
   }
@@ -213,7 +229,7 @@ angular.module('starter', ['ionic','ngCordova'])
 
   $scope.n = $stateParams["n"];
   $scope.item = $scope.items[$scope.n];
-  $scope.title = $scope.item["name"][$scope.lang];
+  $scope.title = $scope.item["name"];
   $scope.photoTaken = false;
   $scope.tryitonImg = null;
   $scope.photo = null;
@@ -345,7 +361,7 @@ angular.module('starter', ['ionic','ngCordova'])
 .controller('itemdetailsCtrl', function($scope,$http,$ionicScrollDelegate,$stateParams,$state) {
   $scope.n = $stateParams["n"];
   $scope.item = $scope.items[$scope.n];
-  $scope.title = $scope.item["name"][$scope.lang];
+  $scope.title = $scope.item["name"];
       var swiper = new Swiper('.my-swiper-container', {
         effect: 'coverflow',
         grabCursor: true,

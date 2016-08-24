@@ -1,9 +1,6 @@
 var items = [
 	{
-		"name": {
-			"ru": "Verge",
-			"en": "Verge"
-		},
+		"name": "Verge",
 		"imgs": [
 			"DSC_7225_.jpg"
 		],
@@ -15,10 +12,7 @@ var items = [
 		"categoryId": 0
 	},
 	{
-		"name": {
-			"ru": "Anchorage",
-			"en": "Anchorage"
-		},
+		"name": "Anchorage",
 		"imgs": [
 			"DSC_7227.jpg"
 		],

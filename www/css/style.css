@@ -30,6 +30,9 @@ ion-footer-bar.photobar {
 	font-size:58px !important;
 }
 
+.category {
+	padding-bottom: 50px;
+}
 
 video {
 	position:absolute;
