@@ -53,6 +53,10 @@ var localization = {
   retake: {
     ru: 'Переснять',
     en: 'Retake'
+  },
+  pleasewait: {
+    ru: 'Пожалуйста подождите...',
+    en: 'Please wait...'
   }
 };
 
@@ -178,7 +182,7 @@ angular.module('starter', ['ionic','ngCordova'])
   };
 })
 
-.controller('itempreviewCtrl', function($scope,$http,$ionicScrollDelegate,$stateParams,$state) {
+.controller('itempreviewCtrl', function($scope,$http,$ionicScrollDelegate,$stateParams,$state,$ionicLoading) {
   var views = document.querySelectorAll(".view, .pane");
   console.log(views);
   for (var i=0; i<views.length; i++) {
@@ -236,6 +240,7 @@ angular.module('starter', ['ionic','ngCordova'])
       canvas.add(fImg);
       fImg.sendBackwards();
       CameraPreview.stopCamera();
+      $ionicLoading.hide();
     }
     img.src = "data:image/png;base64," + picture;
     //alert(picture);
@@ -246,10 +251,14 @@ angular.module('starter', ['ionic','ngCordova'])
   $scope.takePhoto = function () {
     CameraPreview.takePicture();
     $scope.photoTaken = true;
+    $ionicLoading.show({
+      template: $scope.localization.pleasewait[lang]
+    });
   }
   $scope.retakePhoto = function () {
     $scope.photoTaken = false;
     $scope.tryitonImg.scale(0.3);
+    $scope.tryitonImg.rotate(0);
     $scope.tryitonImg.set('left',(window.innerWidth-$scope.tryitonImg.width*0.3)/2);
     $scope.tryitonImg.set('top',(window.innerHeight-44-$scope.tryitonImg.height*0.3)/2);
     $scope.tryitonImg.set('selectable', false);
