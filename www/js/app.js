@@ -31,7 +31,7 @@ navigator.getUserMedia = navigator.getUserMedia ||
 
 var gLang = 'en';
 
-var preorderLink = "";
+var preorderLink = "http://yandex.ru/";
 
 var localization = {
   tryiton: {
@@ -121,7 +121,11 @@ angular.module('starter', ['ionic','ngCordova'])
   $scope.items = items;
   $scope.preorderLink = preorderLink;
   $scope.openPreorder = function () {
-    navigator.app.loadUrl($scope.preorderLink, { openExternal:true });
+    if(device.platform === 'Android') {
+        navigator.app.loadUrl($scope.preorderLink, {openExternal:true});
+    } else {
+        window.open($scope.preorderLink, '_system');
+    }
   }
 })
 
@@ -156,7 +160,7 @@ angular.module('starter', ['ionic','ngCordova'])
         $el[0].getElementsByTagName("img")[i].classList.remove('not-visible');
         $el[0].getElementsByTagName("img")[i].classList.add('animated');
         $el[0].getElementsByTagName("img")[i].classList.add('fadeIn');
-        if ((i+1)<$el[0].getElementsByTagName("img").length) {setTimeout(function(){anim(i+1);},100*i);}
+        if ((i+1)<$el[0].getElementsByTagName("img").length) {setTimeout(function(){anim(i+1);},50*i);}
       }
       anim(1);
     //}
@@ -179,6 +183,9 @@ angular.module('starter', ['ionic','ngCordova'])
   };
   $scope.showDetails = function(n) {
     $state.go("itemdetails", {n:n});
+  };
+  $scope.showPreview = function (n) {
+    $state.go("itempreview",{n:n})
   };
 })
 
@@ -257,8 +264,8 @@ angular.module('starter', ['ionic','ngCordova'])
   }
   $scope.retakePhoto = function () {
     $scope.photoTaken = false;
-    $scope.tryitonImg.scale(0.3);
     $scope.tryitonImg.rotate(0);
+    $scope.tryitonImg.scale(0.3);
     $scope.tryitonImg.set('left',(window.innerWidth-$scope.tryitonImg.width*0.3)/2);
     $scope.tryitonImg.set('top',(window.innerHeight-44-$scope.tryitonImg.height*0.3)/2);
     $scope.tryitonImg.set('selectable', false);

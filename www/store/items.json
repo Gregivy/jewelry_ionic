@@ -35,7 +35,7 @@ var categories = [
 	{
 		"ru": "Кольца",
 		"en": "Rings",
-		"imgs": ["r_0.png","r_1.png","r_2.png","r_3.png","r_4.png","r_5.png"],
+		"imgs": ["r_0.png","r_1.png","r_2.png","r_3.png","r_4.png","r_5.png","r_6.png","r_7.png","r_8.png","r_9.png"],
 		"priority_front": false
 	},
 ];
