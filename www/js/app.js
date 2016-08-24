@@ -220,8 +220,10 @@ angular.module('starter', ['ionic','ngCordova'])
   CameraPreview.startCamera({x: 0, y: 44, width: window.innerWidth, height: window.innerHeight-44, camera: camera, tapPhoto: true, previewDrag: false, toBack: true});
   CameraPreview.setOnPictureTakenHandler(function (picture) {
     //$scope.photo = picture; // base64 picture;
+    alert("ok 1");
     var img = document.createElement("IMG");
     img.onload = function(){
+      alert("ok 2");
       var fImg = new fabric.Image(img, {
         top:0,
         left:0
