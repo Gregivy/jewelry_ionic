@@ -209,7 +209,7 @@ angular.module('starter', ['ionic','ngCordova'])
     oImg.set('lockUniScaling',true);
     oImg.set('left',(window.innerWidth-oImg.width*0.3)/2);
     oImg.set('top',(window.innerHeight-44-oImg.height*0.3)/2);
-    oImg.set('selectable', false);
+    //oImg.set('selectable', false);
     oImg.set('hasControls', false);
     canvas.add(oImg);
     $scope.tryitonImg = oImg;
@@ -229,6 +229,7 @@ angular.module('starter', ['ionic','ngCordova'])
       });
       //fImg.moveTo(0);
       fImg.sendBackwards();
+      alert("ok");
       fImg.set('selectable', false);
       fImg.scaleToWidth(window.innerWidth);
       fImg.scaleToHeight(window.innerHeight-44);
