@@ -244,9 +244,8 @@ angular.module('starter', ['ionic','ngCordova'])
         top:0,
         left:0
       });
-      //fImg.moveTo(0);
       fImg.set('selectable', false);
-      //fImg.scaleToWidth(window.innerWidth);
+      fImg.scaleToWidth(window.innerWidth);
       //fImg.scaleToHeight(window.innerHeight-44);
       $scope.photo = fImg;
       $scope.tryitonImg.set('selectable', true);
@@ -256,7 +255,6 @@ angular.module('starter', ['ionic','ngCordova'])
       $ionicLoading.hide();
     }
     img.src = "data:image/png;base64," + picture;
-    //alert(picture);
   });
   $scope.swapCamera = function () {
     CameraPreview.switchCamera();
@@ -274,11 +272,15 @@ angular.module('starter', ['ionic','ngCordova'])
     createPrevPhoto();
     $scope.photo.remove();
     CameraPreview.startCamera($scope.props);
-    //CameraPreview.startCamera($scope.props);
   }
   $scope.savePhoto = function () {
-    window.canvas2ImagePlugin.saveImageDataToLibrary(function(){},function(){},document.getElementById('photo'));
-    $ionicHistory.backView();
+    window.canvas2ImagePlugin.saveImageDataToLibrary(function(m){
+      alert(m);
+      $ionicHistory.goBack();
+    },function(e){
+      alert(e);
+      $ionicHistory.goBack();
+    },document.getElementById('photo'));
   }
   
 
