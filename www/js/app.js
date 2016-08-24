@@ -228,12 +228,14 @@ angular.module('starter', ['ionic','ngCordova'])
       });
       fImg.moveTo(0);
       fImg.set('selectable', false);
+      alert(fImg);
       $scope.photo = fImg;
+      alert($scope.photo);
       $scope.tryitonImg.set('selectable', true);
-      canvas.add(fImg);
+      //canvas.add(fImg);
     }
     img.src = picture;
-    alert(picture);
+    //alert(picture);
   });
   $scope.swapCamera = function () {
     CameraPreview.switchCamera();
