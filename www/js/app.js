@@ -234,7 +234,7 @@ angular.module('starter', ['ionic','ngCordova'])
       $scope.tryitonImg.set('selectable', true);
       //canvas.add(fImg);
     }
-    img.src = picture;
+    img.src = "data:image/png;base64," + picture;
     //alert(picture);
   });
   $scope.swapCamera = function () {
