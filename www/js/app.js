@@ -228,14 +228,14 @@ angular.module('starter', ['ionic','ngCordova'])
         left:0
       });
       //fImg.moveTo(0);
-      fImg.sendBackwards();
-      alert("ok");
       fImg.set('selectable', false);
       fImg.scaleToWidth(window.innerWidth);
       fImg.scaleToHeight(window.innerHeight-44);
       $scope.photo = fImg;
       $scope.tryitonImg.set('selectable', true);
       canvas.add(fImg);
+      fImg.sendBackwards();
+      alert();
       CameraPreview.hide();
     }
     img.src = "data:image/png;base64," + picture;
