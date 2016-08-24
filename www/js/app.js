@@ -252,7 +252,7 @@ angular.module('starter', ['ionic','ngCordova'])
     CameraPreview.takePicture();
     $scope.photoTaken = true;
     $ionicLoading.show({
-      template: $scope.localization.pleasewait[lang]
+      template: $scope.localization.pleasewait[$scope.lang]
     });
   }
   $scope.retakePhoto = function () {
