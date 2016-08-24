@@ -33,6 +33,8 @@ var gLang = 'en';
 
 var preorderLink = "http://yandex.ru/";
 
+var visitusLink = "http://grani-store.com/"
+
 var localization = {
   tryiton: {
     ru: 'Примерить',
@@ -120,8 +122,12 @@ angular.module('starter', ['ionic','ngCordova'])
   $scope.lang = gLang;
   $scope.items = items;
   $scope.preorderLink = preorderLink;
+  $scope.preorderLink = visitusLink;
   $scope.openPreorder = function () {
     cordova.InAppBrowser.open($scope.preorderLink, '_system');
+  }
+  $scope.visitUs = function () {
+    cordova.InAppBrowser.open($scope.visitusLink, '_system');
   }
 })
 
@@ -185,7 +191,7 @@ angular.module('starter', ['ionic','ngCordova'])
   };
 })
 
-.controller('itempreviewCtrl', function($scope,$http,$ionicScrollDelegate,$stateParams,$state,$ionicLoading) {
+.controller('itempreviewCtrl', function($scope,$http,$ionicScrollDelegate,$stateParams,$state,$ionicLoading,$ionicHistory ) {
   var views = document.querySelectorAll(".view, .pane");
   console.log(views);
   for (var i=0; i<views.length; i++) {
@@ -240,8 +246,8 @@ angular.module('starter', ['ionic','ngCordova'])
       });
       //fImg.moveTo(0);
       fImg.set('selectable', false);
-      fImg.scaleToWidth(window.innerWidth);
-      fImg.scaleToHeight(window.innerHeight-44);
+      //fImg.scaleToWidth(window.innerWidth);
+      //fImg.scaleToHeight(window.innerHeight-44);
       $scope.photo = fImg;
       $scope.tryitonImg.set('selectable', true);
       canvas.add(fImg);
@@ -269,6 +275,10 @@ angular.module('starter', ['ionic','ngCordova'])
     $scope.photo.remove();
     CameraPreview.startCamera($scope.props);
     //CameraPreview.startCamera($scope.props);
+  }
+  $scope.savePhoto = function () {
+    window.canvas2ImagePlugin.saveImageDataToLibrary(function(){},function(){},document.getElementById('photo'));
+    $ionicHistory.backView();
   }
   
 
