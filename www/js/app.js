@@ -229,7 +229,7 @@ angular.module('starter', ['ionic','ngCordova'])
         left:0
       });
       alert("ok 3");
-      fImg.moveTo(0);
+      //fImg.moveTo(0);
       alert("ok 4");
       fImg.set('selectable', false);
       alert("ok 5");
