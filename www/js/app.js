@@ -228,7 +228,7 @@ angular.module('starter', ['ionic','ngCordova'])
 
   var cameraPriority = categories[$scope.item.categoryId].priority_front;
   var camera = cameraPriority?"front":"back";
-  $scope.props = {x: 10, y: 44, width: window.innerWidth-10, height: window.innerHeight-44, camera: camera, tapPhoto: true, previewDrag: false, toBack: true};
+  $scope.props = {x: 0, y: 44, width: window.innerWidth, height: window.innerHeight-44, camera: camera, tapPhoto: false, previewDrag: false, toBack: true};
   CameraPreview.startCamera($scope.props);
   CameraPreview.setOnPictureTakenHandler(function (picture) {
     //$scope.photo = picture; // base64 picture;
@@ -256,7 +256,7 @@ angular.module('starter', ['ionic','ngCordova'])
     CameraPreview.switchCamera();
   }
   $scope.takePhoto = function () {
-    CameraPreview.takePicture();
+    CameraPreview.takePicture({maxWidth:window.innerWidth, maxHeight:window.innerHeight-44});
     $scope.photoTaken = true;
     $ionicLoading.show({
       template: $scope.localization.pleasewait[$scope.lang]
