@@ -29,7 +29,21 @@ navigator.getUserMedia = navigator.getUserMedia ||
                          navigator.webkitGetUserMedia ||
                          navigator.mozGetUserMedia;
 
-//var gLang = 'en';
+var gLang = 'en';
+
+document.addEventListener("deviceready", function () {
+  navigator.globalization.getPreferredLanguage(
+        function (language) {
+          alert(language);
+          if (language.indexOf('ru')) {
+            gLang = 'ru';
+          } else {
+            gLang = 'en';
+          }
+        },
+        function () {alert('Error getting language\n');}
+      );
+});
 
 var preorderLink = "http://yandex.ru/";
 
@@ -71,16 +85,6 @@ angular.module('starter', ['ionic','ngCordova'])
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
     if(window.cordova && window.cordova.plugins.Keyboard) {
-      navigator.globalization.getPreferredLanguage(
-        function (language) {
-          if (language.indexOf('ru')) {
-            gLang = 'ru';
-          } else {
-            gLang = 'en';
-          }
-        },
-        function () {alert('Error getting language\n');}
-      );
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
       // for form inputs)
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
