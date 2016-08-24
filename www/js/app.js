@@ -34,7 +34,6 @@ var gLang = 'en';
 document.addEventListener("deviceready", function () {
   navigator.globalization.getPreferredLanguage(
         function (language) {
-          alert(language.value);
           if (language.value.indexOf('ru')) {
             gLang = 'ru';
           } else {
@@ -170,7 +169,7 @@ angular.module('starter', ['ionic','ngCordova'])
         $el[0].getElementsByTagName("img")[i].classList.remove('not-visible');
         $el[0].getElementsByTagName("img")[i].classList.add('animated');
         $el[0].getElementsByTagName("img")[i].classList.add('fadeIn');
-        if ((i+1)<$el[0].getElementsByTagName("img").length) {setTimeout(function(){anim(i+1);},50*i);} else {
+        if ((i+1)<$el[0].getElementsByTagName("img").length) {setTimeout(function(){anim(i+1);},160+10*i);} else {
           $scope.animated = false;
         }
       }
@@ -267,8 +266,8 @@ angular.module('starter', ['ionic','ngCordova'])
         left:0
       });
       fImg.set('selectable', false);
-      //fImg.scaleToWidth(window.innerWidth);
-      fImg.scaleToHeight(window.innerHeight-44);
+      fImg.set('width', window.innerWidth);
+      fImg.set('height', window.innerHeight-44);
       $scope.photo = fImg;
       $scope.tryitonImg.set('selectable', true);
       canvas.add(fImg);

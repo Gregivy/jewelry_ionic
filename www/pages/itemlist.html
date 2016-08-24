@@ -5,11 +5,11 @@
 	  	  <img src="./store/{{item.imgs[0]}}" class="centered" ng-click="showDetails($index)">
 	  	  <h3>{{item.name}}</h3>
 	  	  <div class="centered" style="width:230px">
-		  <button class="button button-light button-outline" style="width:100px" ng-click="showPreview($index)">
+		  <button class="button button-dark button-outline" style="width:100px" ng-click="showPreview($index)">
   			{{localization.tryiton[lang]}}
 		  </button>
 
-		  <button class="button button-dark button-outline" style="width:120px" ng-click="openPreorder()">
+		  <button class="button button-dark" style="width:120px" ng-click="openPreorder()">
   			{{localization.preorder[lang]}}
 		  </button>
 		  </div>
