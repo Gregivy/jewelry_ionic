@@ -228,12 +228,19 @@ angular.module('starter', ['ionic','ngCordova'])
         top:0,
         left:0
       });
+      alert("ok 3");
       fImg.moveTo(0);
+      alert("ok 4");
       fImg.set('selectable', false);
+      alert("ok 5");
       alert(fImg);
+      alert("ok 6");
       $scope.photo = fImg;
+      alert("ok 7");
       alert($scope.photo);
+      alert("ok 8");
       $scope.tryitonImg.set('selectable', true);
+      alert("ok 9");
       //canvas.add(fImg);
     }
     img.src = "data:image/png;base64," + picture;
