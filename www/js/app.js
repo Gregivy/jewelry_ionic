@@ -218,8 +218,6 @@ angular.module('starter', ['ionic','ngCordova'])
 
 .controller('itempreviewCtrl', function($scope,$ionicPopup,$http,$ionicScrollDelegate,$stateParams,$state,$ionicLoading,$ionicHistory ) {
   
-  alert();  
-
   $scope.$on('$ionicView.enter', function(){
     var views = document.querySelectorAll(".view, .pane");
     for (var i=0; i<views.length; i++) {
@@ -232,7 +230,7 @@ angular.module('starter', ['ionic','ngCordova'])
     for (var i=0; i<views.length; i++) {
       views[i].classList.remove('transback');
     }
-    CameraPreview.stopCamera();
+    cordova.plugins.camerapreview.stopCamera();
   });
 
   $scope.n = $stateParams["n"];
@@ -269,8 +267,8 @@ angular.module('starter', ['ionic','ngCordova'])
   var camera = cameraPriority?"front":"rear";
   //$scope.props = {x: 0, y: 44, width: window.innerWidth, height: window.innerHeight-44, camera: camera, tapPhoto: false, previewDrag: false, toBack: true};
   //CameraPreview.startCamera($scope.props);
-  CameraPreview.startCamera({x: 0, y: 44, width: window.innerWidth, height: window.innerHeight-44},camera,true);
-  CameraPreview.setOnPictureTakenHandler(function (picture) {
+  cordova.plugins.camerapreview.startCamera({x: 0, y: 44, width: window.innerWidth, height: window.innerHeight-44},camera,true);
+  cordova.plugins.camerapreview.setOnPictureTakenHandler(function (picture) {
     //$scope.photo = picture; // base64 picture;
     var img = document.createElement("IMG");
     img.onload = function(){
@@ -288,16 +286,16 @@ angular.module('starter', ['ionic','ngCordova'])
       $scope.tryitonImg.set('selectable', true);
       canvas.add(fImg);
       fImg.sendBackwards();
-      CameraPreview.stopCamera();
+      cordova.plugins.camerapreview.stopCamera();
       $ionicLoading.hide();
     }
     img.src = "data:image/png;base64," + picture;
   });
   $scope.swapCamera = function () {
-    CameraPreview.switchCamera();
+    cordova.plugins.camerapreview.switchCamera();
   }
   $scope.takePhoto = function () {
-    CameraPreview.takePicture();
+    cordova.plugins.camerapreview.takePicture();
     $scope.photoTaken = true;
     $ionicLoading.show({
       template: $scope.localization.pleasewait[$scope.lang]
@@ -308,7 +306,7 @@ angular.module('starter', ['ionic','ngCordova'])
     $scope.tryitonImg.remove();
     createPrevPhoto();
     $scope.photo.remove();
-    CameraPreview.startCamera($scope.props);
+    cordova.plugins.camerapreview.startCamera($scope.props);
   }
   $scope.savePhoto = function () {
     canvas.deactivateAll().renderAll();
