@@ -147,7 +147,7 @@ angular.module('starter', ['ionic','ngCordova'])
     var sum = 0;
     for (var i=0;i<cats.length;i++) {
       sum += cats[i].clientHeight;
-      if (sum>screen.height+top) {
+      if (sum>window.innerHeight+top) {
         //alert(sum);
         //alert(screen.height);
         break;
