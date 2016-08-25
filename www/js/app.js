@@ -172,7 +172,7 @@ angular.module('starter', ['ionic','ngCordova'])
         $el[0].getElementsByTagName("img")[i].classList.remove('not-visible');
         $el[0].getElementsByTagName("img")[i].classList.add('animated');
         $el[0].getElementsByTagName("img")[i].classList.add('fadeIn');
-        if ((i+1)<$el[0].getElementsByTagName("img").length) {setTimeout(function(){anim(i+1);},160+10*i);} else {
+        if ((i+1)<$el[0].getElementsByTagName("img").length) {setTimeout(function(){anim(i+1);},120+10*i);} else {
           $scope.animated = false;
         }
       }
@@ -221,7 +221,7 @@ angular.module('starter', ['ionic','ngCordova'])
   for (var i=0; i<views.length; i++) {
     views[i].classList.add('transback');
   }
-  $scope.$on('$destroy', function(){
+  $scope.$on('$ionicView.beforeLeave', function(){
     var views = document.querySelectorAll(".view, .pane");
     for (var i=0; i<views.length; i++) {
       views[i].classList.remove('transback');
