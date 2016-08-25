@@ -262,12 +262,13 @@ angular.module('starter', ['ionic','ngCordova'])
     var img = document.createElement("IMG");
     img.onload = function(){
       var fImg = new fabric.Image(img, {
-        top:0,
-        left:0
+        top:0
       });
       fImg.set('selectable', false);
-      fImg.set('width', window.innerWidth);
-      fImg.set('height', window.innerHeight-44);
+      fImg.scaleToHeight(window.innerHeight-44);
+      fImg.set('right',(fImg.get('width')-window.innerWidth));
+      //fImg.set('width', window.innerWidth);
+      //fImg.set('height', window.innerHeight-44);
       $scope.photo = fImg;
       $scope.tryitonImg.set('selectable', true);
       canvas.add(fImg);
@@ -295,6 +296,7 @@ angular.module('starter', ['ionic','ngCordova'])
     CameraPreview.startCamera($scope.props);
   }
   $scope.savePhoto = function () {
+    canvas.deactivateAll().renderAll();
     window.canvas2ImagePlugin.saveImageDataToLibrary(function(m){
       $ionicPopup.alert({
         title: $scope.localization.savesuccess[$scope.lang],
