@@ -32,6 +32,7 @@ navigator.getUserMedia = navigator.getUserMedia ||
 var gLang = 'en';
 
 document.addEventListener("deviceready", function () {
+  if (!CameraPreview) {CameraPreview = cordova.plugins.camerapreview;}
   navigator.globalization.getPreferredLanguage(
         function (language) {
           if (language.value.indexOf('ru')) {
@@ -216,8 +217,8 @@ angular.module('starter', ['ionic','ngCordova'])
 })
 
 .controller('itempreviewCtrl', function($scope,$ionicPopup,$http,$ionicScrollDelegate,$stateParams,$state,$ionicLoading,$ionicHistory ) {
-
-  if (!CameraPreview) CameraPreview = cordova.plugins.camerapreview;
+  
+  alert();  
 
   $scope.$on('$ionicView.enter', function(){
     var views = document.querySelectorAll(".view, .pane");
