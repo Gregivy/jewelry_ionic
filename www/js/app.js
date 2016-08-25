@@ -249,6 +249,8 @@ angular.module('starter', ['ionic','ngCordova'])
       oImg.set('top',(window.innerHeight-44-oImg.height*0.3)/2);
       oImg.set('selectable', false);
       oImg.set('hasControls', false);
+      oImg.set('hasBorders', false);
+      oImg.set('padding', 10000);
       canvas.add(oImg);
       $scope.tryitonImg = oImg;
     });
