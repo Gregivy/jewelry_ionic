@@ -216,11 +216,16 @@ angular.module('starter', ['ionic','ngCordova'])
 })
 
 .controller('itempreviewCtrl', function($scope,$ionicPopup,$http,$ionicScrollDelegate,$stateParams,$state,$ionicLoading,$ionicHistory ) {
-  var views = document.querySelectorAll(".view, .pane");
-  console.log(views);
-  for (var i=0; i<views.length; i++) {
-    views[i].classList.add('transback');
-  }
+
+  if (CameraPreview) CameraPreview = cordova.plugins.camerapreview;
+
+  $scope.$on('$ionicView.enter', function(){
+    var views = document.querySelectorAll(".view, .pane");
+    for (var i=0; i<views.length; i++) {
+      views[i].classList.add('transback');
+    }
+  });
+  
   $scope.$on('$ionicView.beforeLeave', function(){
     var views = document.querySelectorAll(".view, .pane");
     for (var i=0; i<views.length; i++) {
