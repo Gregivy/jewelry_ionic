@@ -243,7 +243,7 @@ angular.module('starter', ['ionic','ngCordova'])
 
   var createPrevPhoto = function () {
     fabric.Image.fromURL("./store/"+$scope.item.tryitonImg, function(oImg) {
-      oImg.scale(0.3);
+      oImg.scale(0.2);
       oImg.set('lockUniScaling',true);
       oImg.set('left',(window.innerWidth-oImg.width*0.3)/2);
       oImg.set('top',(window.innerHeight-44-oImg.height*0.3)/2);
