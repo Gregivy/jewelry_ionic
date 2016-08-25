@@ -84,6 +84,8 @@ angular.module('starter', ['ionic','ngCordova'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
+    var myStyle = document.styleSheets[0];
+    myStyle.insertRule(".swiper-slide { width: "+0.6*window.innerWidth+"px !important; height: "+0.6*window.innerWidth+"px !important}", 0);
     if(window.cordova && window.cordova.plugins.Keyboard) {
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
       // for form inputs)
@@ -267,7 +269,7 @@ angular.module('starter', ['ionic','ngCordova'])
   var camera = cameraPriority?"front":"rear";
   //$scope.props = {x: 0, y: 44, width: window.innerWidth, height: window.innerHeight-44, camera: camera, tapPhoto: false, previewDrag: false, toBack: true};
   //CameraPreview.startCamera($scope.props);
-  cordova.plugins.camerapreview.startCamera({x: 0, y: 44, width: 300, height: 300},camera,true);
+  cordova.plugins.camerapreview.startCamera({x: 0, y: 44, width: 300, height: 300},camera,false,false,true);
   cordova.plugins.camerapreview.setOnPictureTakenHandler(function (picture) {
     //$scope.photo = picture; // base64 picture;
     var img = document.createElement("IMG");
