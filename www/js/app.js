@@ -262,11 +262,12 @@ angular.module('starter', ['ionic','ngCordova'])
     var img = document.createElement("IMG");
     img.onload = function(){
       var fImg = new fabric.Image(img, {
-        top:0
+        top:0,
+        left:0
       });
       fImg.set('selectable', false);
       fImg.scaleToHeight(window.innerHeight-44);
-      fImg.set('right',(fImg.get('width')-window.innerWidth));
+      $scope.tryitonImg.set('left',$scope.tryitonImg.get('left')+(fImg.get('width')-window.innerWidth));
       //fImg.set('width', window.innerWidth);
       //fImg.set('height', window.innerHeight-44);
       $scope.photo = fImg;
@@ -363,7 +364,8 @@ angular.module('starter', ['ionic','ngCordova'])
   $scope.n = $stateParams["n"];
   $scope.item = $scope.items[$scope.n];
   $scope.title = $scope.item["name"];
-      var swiper = new Swiper('.my-swiper-container', {
+  $scope.$on('$ionicView.enter', function () {
+    var swiper = new Swiper('.my-swiper-container', {
         effect: 'coverflow',
         grabCursor: true,
         centeredSlides: true,
@@ -376,7 +378,8 @@ angular.module('starter', ['ionic','ngCordova'])
             modifier: 1,
             slideShadows : true
         }
-    }); 
+    });      
+  }); 
     $scope.showPreview = function () {
       $state.go("itempreview",{n:$scope.n})
     };
