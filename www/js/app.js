@@ -271,7 +271,7 @@ angular.module('starter', ['ionic','ngCordova'])
       fImg.set('selectable', false);
       fImg.scaleToHeight(window.innerHeight-44);
       //alert(fImg.get('width')*fImg.getScaleX());
-      //$scope.tryitonImg.set('left',$scope.tryitonImg.get('left')-(fImg.get('width')*fImg.getScaleX()-window.innerWidth));
+      $scope.tryitonImg.set('left',$scope.tryitonImg.get('left')+(fImg.get('width')*fImg.getScaleX()-window.innerWidth)/2);
       //fImg.set('width', window.innerWidth);
       //fImg.set('height', window.innerHeight-44);
       $scope.photo = fImg;
