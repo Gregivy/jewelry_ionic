@@ -217,7 +217,7 @@ angular.module('starter', ['ionic','ngCordova'])
 
 .controller('itempreviewCtrl', function($scope,$ionicPopup,$http,$ionicScrollDelegate,$stateParams,$state,$ionicLoading,$ionicHistory ) {
 
-  if (CameraPreview) CameraPreview = cordova.plugins.camerapreview;
+  if (!CameraPreview) CameraPreview = cordova.plugins.camerapreview;
 
   $scope.$on('$ionicView.enter', function(){
     var views = document.querySelectorAll(".view, .pane");
