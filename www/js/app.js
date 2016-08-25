@@ -159,6 +159,9 @@ angular.module('starter', ['ionic','ngCordova'])
       }
     }
   }
+  $scope.scrollTop = function() {
+    $ionicScrollDelegate.scrollTop(true);
+  };
   $timeout($scope.showCats);
   $scope.animated = false;
   $scope.animateElementIn = function ($el) {
@@ -267,6 +270,8 @@ angular.module('starter', ['ionic','ngCordova'])
       });
       fImg.set('selectable', false);
       fImg.scaleToHeight(window.innerHeight-44);
+      alert(fImg.get('width')-window.innerWidth);
+      alert($scope.tryitonImg.get('left'));
       $scope.tryitonImg.set('left',$scope.tryitonImg.get('left')+(fImg.get('width')-window.innerWidth));
       //fImg.set('width', window.innerWidth);
       //fImg.set('height', window.innerHeight-44);
@@ -373,10 +378,10 @@ angular.module('starter', ['ionic','ngCordova'])
         freeMode: true,
         coverflow: {
             rotate: 30,
-            stretch: -10,
-            depth: 100,
+            stretch: 0,
+            depth: 300,
             modifier: 1,
-            slideShadows : true
+            slideShadows : false
         }
     });      
   }); 
