@@ -32,7 +32,7 @@ navigator.getUserMedia = navigator.getUserMedia ||
 var gLang = 'en';
 
 document.addEventListener("deviceready", function () {
-  if (!CameraPreview) {CameraPreview = cordova.plugins.camerapreview;}
+  //if (!CameraPreview) {CameraPreview = cordova.plugins.camerapreview;}
   navigator.globalization.getPreferredLanguage(
         function (language) {
           if (language.value.indexOf('ru')) {
@@ -232,7 +232,7 @@ angular.module('starter', ['ionic','ngCordova'])
     for (var i=0; i<views.length; i++) {
       views[i].classList.remove('transback');
     }
-    cordova.plugins.camerapreview.stopCamera();
+    CameraPreview.stopCamera();
   });
 
   $scope.n = $stateParams["n"];
@@ -267,10 +267,9 @@ angular.module('starter', ['ionic','ngCordova'])
   var cameraPriority = categories[$scope.item.categoryId].priority_front;
   //var camera = cameraPriority?"front":"back";
   var camera = cameraPriority?"front":"rear";
-  //$scope.props = {x: 0, y: 44, width: window.innerWidth, height: window.innerHeight-44, camera: camera, tapPhoto: false, previewDrag: false, toBack: true};
-  //CameraPreview.startCamera($scope.props);
-  cordova.plugins.camerapreview.startCamera({x: 0, y: 44, width: 300, height: 300},camera,false,false,true);
-  cordova.plugins.camerapreview.setOnPictureTakenHandler(function (picture) {
+  $scope.props = {x: 0, y: 44, width: window.innerWidth, height: window.innerHeight-44, camera: camera, tapPhoto: false, previewDrag: false, toBack: true};
+  CameraPreview.startCamera($scope.props);
+  CameraPreview.setOnPictureTakenHandler(function (picture) {
     //$scope.photo = picture; // base64 picture;
     var img = document.createElement("IMG");
     img.onload = function(){
@@ -281,23 +280,25 @@ angular.module('starter', ['ionic','ngCordova'])
       fImg.set('selectable', false);
       fImg.scaleToHeight(window.innerHeight-44);
       //alert(fImg.get('width')*fImg.getScaleX());
-      $scope.tryitonImg.set('left',$scope.tryitonImg.get('left')+(fImg.get('width')*fImg.getScaleX()-window.innerWidth)/2);
+      var m = (fImg.get('width')*fImg.getScaleX()-window.innerWidth)/2;
+      $scope.tryitonImg.scaleToWidth($scope.tryitonImg.get('width')-m);
+      $scope.tryitonImg.set('left',$scope.tryitonImg.get('left')+m);
       //fImg.set('width', window.innerWidth);
       //fImg.set('height', window.innerHeight-44);
       $scope.photo = fImg;
       $scope.tryitonImg.set('selectable', true);
       canvas.add(fImg);
       fImg.sendBackwards();
-      cordova.plugins.camerapreview.stopCamera();
+      CameraPreview.stopCamera();
       $ionicLoading.hide();
     }
     img.src = "data:image/png;base64," + picture;
   });
   $scope.swapCamera = function () {
-    cordova.plugins.camerapreview.switchCamera();
+    CameraPreview.switchCamera();
   }
   $scope.takePhoto = function () {
-    cordova.plugins.camerapreview.takePicture();
+    CameraPreview.takePicture();
     $scope.photoTaken = true;
     $ionicLoading.show({
       template: $scope.localization.pleasewait[$scope.lang]
@@ -308,7 +309,7 @@ angular.module('starter', ['ionic','ngCordova'])
     $scope.tryitonImg.remove();
     createPrevPhoto();
     $scope.photo.remove();
-    cordova.plugins.camerapreview.startCamera($scope.props);
+    CameraPreview.startCamera($scope.props);
   }
   $scope.savePhoto = function () {
     canvas.deactivateAll().renderAll();
