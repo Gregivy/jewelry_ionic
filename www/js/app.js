@@ -251,8 +251,9 @@ angular.module('starter', ['ionic','ngCordova'])
     fabric.Image.fromURL("./store/"+$scope.item.tryitonImg, function(oImg) {
       oImg.scale(0.2);
       oImg.set('lockUniScaling',true);
-      oImg.set('left',(window.innerWidth-oImg.width*0.3)/2);
-      oImg.set('top',(window.innerHeight-44-oImg.height*0.3)/2);
+     // oImg.set('left',(window.innerWidth-oImg.width*0.3)/2);
+     // oImg.set('top',(window.innerHeight-44-oImg.height*0.3)/2);
+      oImg.center();
       oImg.set('selectable', false);
       oImg.set('hasControls', false);
       oImg.set('hasBorders', false);
@@ -281,7 +282,7 @@ angular.module('starter', ['ionic','ngCordova'])
       fImg.scaleToHeight(window.innerHeight-44);
       //alert(fImg.get('width')*fImg.getScaleX());
       var m = (fImg.get('width')*fImg.getScaleX()-window.innerWidth)/2;
-      $scope.tryitonImg.scaleToWidth($scope.tryitonImg.get('width')-m);
+      $scope.tryitonImg.scaleToWidth($scope.tryitonImg.get('width')*$scope.tryitonImg.getScaleX()-m*fImg.getScaleX());
       $scope.tryitonImg.set('left',$scope.tryitonImg.get('left')+m);
       //fImg.set('width', window.innerWidth);
       //fImg.set('height', window.innerHeight-44);
