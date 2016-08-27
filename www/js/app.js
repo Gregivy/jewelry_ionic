@@ -244,7 +244,7 @@ angular.module('starter', ['ionic','ngCordova'])
 
   document.querySelector("#photo").width = window.innerWidth;
   document.querySelector("#photo").height = window.innerHeight-44;
-  /*var canvas = new fabric.Canvas('photo');
+  var canvas = new fabric.Canvas('photo');
   canvas.selection = false;
 
   var createPrevPhoto = function () {
@@ -269,8 +269,8 @@ angular.module('starter', ['ionic','ngCordova'])
   var cameraPriority = categories[$scope.item.categoryId].priority_front;
   var camera = cameraPriority?"front":"back";
   //var camera = cameraPriority?"front":"rear";
-  //$scope.props = {x: 0, y: 44, width: window.innerWidth, height: window.innerHeight-44, camera: camera, tapPhoto: false, previewDrag: false, toBack: true};
-  $scope.props = {x: 0, y: 0, width: window.innerWidth, height: window.innerHeight, camera: camera, tapPhoto: false, previewDrag: false, toBack: true};
+  $scope.props = {x: 0, y: 44, width: window.innerWidth, height: window.innerHeight-44, camera: camera, tapPhoto: false, previewDrag: false, toBack: true};
+  //$scope.props = {x: 0, y: 0, width: window.innerWidth, height: window.innerHeight, camera: camera, tapPhoto: false, previewDrag: false, toBack: true};
   CameraPreview.startCamera($scope.props);
   CameraPreview.setOnPictureTakenHandler(function (picture) {
     //$scope.photo = picture; // base64 picture;
@@ -281,7 +281,8 @@ angular.module('starter', ['ionic','ngCordova'])
         left:0
       });
       fImg.set('selectable', false);
-      fImg.scaleToWidth(window.innerWidth);
+      fImg.scaleToHeight(window.innerHeight-44);
+      fImg.adjustPosition("center");
       //alert(fImg.get('width')*fImg.getScaleX());
       //var m = (fImg.get('width')*fImg.getScaleX()-window.innerWidth)/2;
       //$scope.tryitonImg.scaleToWidth($scope.tryitonImg.get('width')*$scope.tryitonImg.getScaleX()-m*fImg.getScaleX());
@@ -301,7 +302,7 @@ angular.module('starter', ['ionic','ngCordova'])
     CameraPreview.switchCamera();
   }
   $scope.takePhoto = function () {
-    CameraPreview.takePicture({maxWidth:window.innerWidth, maxHeight:window.innerHeight});
+    CameraPreview.takePicture();
     $scope.photoTaken = true;
     $ionicLoading.show({
       template: $scope.localization.pleasewait[$scope.lang]
@@ -327,19 +328,7 @@ angular.module('starter', ['ionic','ngCordova'])
       $ionicHistory.goBack();
     },document.getElementById('photo'));
   }
-  */
-
-  var objCanvas = document.getElementById("photo");
-  window.plugin.CanvasCamera.initialize(objCanvas);
   
-   var options = {
-        quality: 75,
-        destinationType: CanvasCamera.DestinationType.DATA_URL,
-        encodingType: CanvasCamera.EncodingType.JPEG,
-        width: window.innerWidth,
-        height: window.innerHeight-44
-    };
-    window.plugin.CanvasCamera.start(options);
 
   //cordova.plugins.camerapreview.switchCamera();
 
