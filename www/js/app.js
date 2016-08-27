@@ -301,7 +301,7 @@ angular.module('starter', ['ionic','ngCordova'])
     CameraPreview.switchCamera();
   }
   $scope.takePhoto = function () {
-    CameraPreview.takePicture();
+    CameraPreview.takePicture({maxWidth:window.innerWidth, maxHeight:window.innerHeight});
     $scope.photoTaken = true;
     $ionicLoading.show({
       template: $scope.localization.pleasewait[$scope.lang]
