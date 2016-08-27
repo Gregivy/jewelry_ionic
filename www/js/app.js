@@ -32,7 +32,7 @@ navigator.getUserMedia = navigator.getUserMedia ||
 var gLang = 'en';
 
 document.addEventListener("deviceready", function () {
-  //if (!CameraPreview) {CameraPreview = cordova.plugins.camerapreview;}
+  if (!CameraPreview) {CameraPreview = cordova.plugins.camerapreview;}
   navigator.globalization.getPreferredLanguage(
         function (language) {
           if (language.value.indexOf('ru')) {
@@ -269,8 +269,9 @@ angular.module('starter', ['ionic','ngCordova'])
   var cameraPriority = categories[$scope.item.categoryId].priority_front;
   //var camera = cameraPriority?"front":"back";
   var camera = cameraPriority?"front":"rear";
-  $scope.props = {x: 0, y: 44, width: window.innerWidth, height: window.innerHeight-44, camera: camera, tapPhoto: false, previewDrag: false, toBack: true};
-  CameraPreview.startCamera($scope.props);
+  //$scope.props = {x: 0, y: 44, width: window.innerWidth, height: window.innerHeight-44, camera: camera, tapPhoto: false, previewDrag: false, toBack: true};
+  //CameraPreview.startCamera($scope.props);
+  CameraPreview.startCamera({x: 0, y: 44, width: window.innerWidth, height: window.innerHeight-44},camera,false,false,true);
   CameraPreview.setOnPictureTakenHandler(function (picture) {
     //$scope.photo = picture; // base64 picture;
     var img = document.createElement("IMG");
