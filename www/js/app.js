@@ -270,7 +270,7 @@ angular.module('starter', ['ionic','ngCordova'])
   var camera = cameraPriority?"front":"back";
   //var camera = cameraPriority?"front":"rear";
   //$scope.props = {x: 0, y: 44, width: window.innerWidth, height: window.innerHeight-44, camera: camera, tapPhoto: false, previewDrag: false, toBack: true};
-  $scope.props = {x: 0, y: 44, width: 150, height: 300, camera: camera, tapPhoto: false, previewDrag: false, toBack: true};
+  $scope.props = {x: 0, y: 44, width: 300, height: 300, camera: camera, tapPhoto: false, previewDrag: false, toBack: true};
   CameraPreview.startCamera($scope.props);
   CameraPreview.setOnPictureTakenHandler(function (picture) {
     //$scope.photo = picture; // base64 picture;
