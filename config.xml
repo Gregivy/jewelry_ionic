@@ -25,7 +25,7 @@
   <plugin name="cordova-plugin-globalization"/>
   <plugin name="cordova-plugin-inappbrowser"/>
   <plugin name="cordova-plugin-canvas2image"/>
-  <plugin spec="https://github.com/cordova-plugin-camera-preview/cordova-plugin-camera-preview.git" />
+  <plugin spec="https://github.com/skanygin/CordovaCameraPreview" />
   <platform name="android">
     <icon src="resources/android/icon/drawable-ldpi-icon.png" density="ldpi"/>
     <icon src="resources/android/icon/drawable-mdpi-icon.png" density="mdpi"/>
