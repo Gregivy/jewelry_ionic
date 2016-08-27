@@ -244,7 +244,7 @@ angular.module('starter', ['ionic','ngCordova'])
 
   document.querySelector("#photo").width = window.innerWidth;
   document.querySelector("#photo").height = window.innerHeight-44;
-  var canvas = new fabric.Canvas('photo');
+  /*var canvas = new fabric.Canvas('photo');
   canvas.selection = false;
 
   var createPrevPhoto = function () {
@@ -327,7 +327,19 @@ angular.module('starter', ['ionic','ngCordova'])
       $ionicHistory.goBack();
     },document.getElementById('photo'));
   }
+  */
+
+  var objCanvas = document.getElementById("photo");
+  window.plugin.CanvasCamera.initialize(objCanvas);
   
+   var options = {
+        quality: 75,
+        destinationType: CanvasCamera.DestinationType.DATA_URL,
+        encodingType: CanvasCamera.EncodingType.JPEG,
+        width: window.innerWidth,
+        height: window.innerHeight-44
+    };
+    window.plugin.CanvasCamera.start(options);
 
   //cordova.plugins.camerapreview.switchCamera();
 
