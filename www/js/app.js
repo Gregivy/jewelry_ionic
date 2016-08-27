@@ -281,7 +281,7 @@ angular.module('starter', ['ionic','ngCordova'])
         left:0
       });
       fImg.set('selectable', false);
-      fImg.scaleToHeight(window.innerHeight-44);
+      fImg.scaleToWidth(window.innerWidth);
       //alert(fImg.get('width')*fImg.getScaleX());
       var m = (fImg.get('width')*fImg.getScaleX()-window.innerWidth)/2;
       $scope.tryitonImg.scaleToWidth($scope.tryitonImg.get('width')*$scope.tryitonImg.getScaleX()-m*fImg.getScaleX());
