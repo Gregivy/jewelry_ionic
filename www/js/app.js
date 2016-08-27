@@ -254,6 +254,7 @@ angular.module('starter', ['ionic','ngCordova'])
      // oImg.set('left',(window.innerWidth-oImg.width*0.3)/2);
      // oImg.set('top',(window.innerHeight-44-oImg.height*0.3)/2);
       oImg.center();
+      oImg.setCoords();
       oImg.set('selectable', false);
       oImg.set('hasControls', false);
       oImg.set('hasBorders', false);
