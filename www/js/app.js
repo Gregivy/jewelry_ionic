@@ -270,7 +270,7 @@ angular.module('starter', ['ionic','ngCordova'])
   var camera = cameraPriority?"front":"back";
   //var camera = cameraPriority?"front":"rear";
   //$scope.props = {x: 0, y: 44, width: window.innerWidth, height: window.innerHeight-44, camera: camera, tapPhoto: false, previewDrag: false, toBack: true};
-  $scope.props = {x: 0, y: 44, width: 300, height: 300, camera: camera, tapPhoto: false, previewDrag: false, toBack: true};
+  $scope.props = {x: 0, y: 0, width: window.innerWidth, height: window.innerHeight, camera: camera, tapPhoto: false, previewDrag: false, toBack: true};
   CameraPreview.startCamera($scope.props);
   CameraPreview.setOnPictureTakenHandler(function (picture) {
     //$scope.photo = picture; // base64 picture;
@@ -283,9 +283,9 @@ angular.module('starter', ['ionic','ngCordova'])
       fImg.set('selectable', false);
       fImg.scaleToWidth(window.innerWidth);
       //alert(fImg.get('width')*fImg.getScaleX());
-      var m = (fImg.get('width')*fImg.getScaleX()-window.innerWidth)/2;
-      $scope.tryitonImg.scaleToWidth($scope.tryitonImg.get('width')*$scope.tryitonImg.getScaleX()-m*fImg.getScaleX());
-      $scope.tryitonImg.set('left',$scope.tryitonImg.get('left')+m);
+      //var m = (fImg.get('width')*fImg.getScaleX()-window.innerWidth)/2;
+      //$scope.tryitonImg.scaleToWidth($scope.tryitonImg.get('width')*$scope.tryitonImg.getScaleX()-m*fImg.getScaleX());
+      //$scope.tryitonImg.set('left',$scope.tryitonImg.get('left')+m);
       //fImg.set('width', window.innerWidth);
       //fImg.set('height', window.innerHeight-44);
       $scope.photo = fImg;
