@@ -218,7 +218,7 @@ angular.module('starter', ['ionic','ngCordova'])
   };
 })
 
-.controller('itempreviewCtrl', function($scope,$ionicPopup,$http,$ionicScrollDelegate,$stateParams,$state,$ionicLoading,$ionicHistory ) {
+.controller('itempreviewCtrl', function($scope,$timeout,$ionicPopup,$http,$ionicScrollDelegate,$stateParams,$state,$ionicLoading,$ionicHistory ) {
   
   $scope.$on('$ionicView.enter', function(){
     var views = document.querySelectorAll(".view, .pane");
@@ -282,7 +282,7 @@ angular.module('starter', ['ionic','ngCordova'])
       });
       fImg.set('selectable', false);
       fImg.scaleToHeight(window.innerHeight-44);
-      fImg.adjustPosition("center");
+      fImg.set('left', -1*(fImg.get('width')*fImg.getScaleX()-window.innerWidth));
       //alert(fImg.get('width')*fImg.getScaleX());
       //var m = (fImg.get('width')*fImg.getScaleX()-window.innerWidth)/2;
       //$scope.tryitonImg.scaleToWidth($scope.tryitonImg.get('width')*$scope.tryitonImg.getScaleX()-m*fImg.getScaleX());
@@ -309,11 +309,15 @@ angular.module('starter', ['ionic','ngCordova'])
     });
   }
   $scope.retakePhoto = function () {
+    $ionicLoading.show({
+      template: $scope.localization.pleasewait[$scope.lang]
+    });
     $scope.photoTaken = false;
     $scope.tryitonImg.remove();
     createPrevPhoto();
     $scope.photo.remove();
     CameraPreview.startCamera($scope.props);
+    $timeout(function () {$ionicLoading.hide();},200);
   }
   $scope.savePhoto = function () {
     canvas.deactivateAll().renderAll();
