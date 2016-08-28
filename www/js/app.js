@@ -282,7 +282,7 @@ angular.module('starter', ['ionic','ngCordova'])
       });
       fImg.set('selectable', false);
       fImg.scaleToHeight(window.innerHeight-44);
-      fImg.set('left', -1*(fImg.get('width')*fImg.getScaleX()-window.innerWidth));
+      fImg.set('left', -0.5*(fImg.get('width')*fImg.getScaleX()-window.innerWidth));
       //alert(fImg.get('width')*fImg.getScaleX());
       //var m = (fImg.get('width')*fImg.getScaleX()-window.innerWidth)/2;
       //$scope.tryitonImg.scaleToWidth($scope.tryitonImg.get('width')*$scope.tryitonImg.getScaleX()-m*fImg.getScaleX());
