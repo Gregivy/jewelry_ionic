@@ -220,10 +220,7 @@ angular.module('starter', ['ionic','ngCordova'])
 
 .controller('itempreviewCtrl', function($scope,$timeout,$ionicPopup,$http,$ionicScrollDelegate,$stateParams,$state,$ionicLoading,$ionicHistory ) {
   
-  alert(CameraPreview);
-  alert(cordova.plugins.camerapreview);
-  cordova.plugins.camerapreview = CameraPreview;
-  alert(cordova.plugins.camerapreview);
+  alert(CameraPreview.startCamera);
 
   $scope.$on('$ionicView.enter', function(){
     var views = document.querySelectorAll(".view, .pane");
@@ -276,10 +273,10 @@ angular.module('starter', ['ionic','ngCordova'])
   //var camera = cameraPriority?"front":"rear";
   $scope.props = {x: 0, y: 44, width: window.innerWidth, height: window.innerHeight-44, camera: camera, tapPhoto: false, previewDrag: false, toBack: true};
   //$scope.props = {x: 0, y: 0, width: window.innerWidth, height: window.innerHeight, camera: camera, tapPhoto: false, previewDrag: false, toBack: true};
-  cordova.plugins.camerapreview.startCamera($scope.props);
+  CameraPreview.startCamera($scope.props);
   CameraPreview.setOnPictureTakenHandler(function (picture) {
     //$scope.photo = picture; // base64 picture;
-    var img = document.createElement("IMG");
+    var img = document.createElement("img");
     img.onload = function(){
       var fImg = new fabric.Image(img, {
         top:0,
