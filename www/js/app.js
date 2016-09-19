@@ -33,18 +33,7 @@ var gLang = 'en';
 
 document.addEventListener("deviceready", function () {
   //if (!CameraPreview) {CameraPreview = cordova.plugins.camerapreview;}
-  navigator.globalization.getPreferredLanguage(
-        function (language) {
-        	alert(language.value.indexOf('ru'));
-          if (language.value.indexOf('ru')>-1) {
-          	alert('ok');
-            gLang = 'ru';
-          } else {
-            gLang = 'en';
-          }
-        },
-        function () {alert('Error getting language\n');}
-      );
+
 });
 
 var preorderLink = "http://yandex.ru/";
@@ -121,6 +110,17 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
       // from snapping when text inputs are focused. Ionic handles this internally for
       // a much nicer keyboard experience.
       cordova.plugins.Keyboard.disableScroll(true);
+
+      navigator.globalization.getPreferredLanguage(
+        function (language) {
+          if (language.value.indexOf('ru')>-1) {
+            gLang = 'ru';
+          } else {
+            gLang = 'en';
+          }
+        },
+        function () {alert('Error getting language\n');}
+      );
     }
     if(window.StatusBar) {
       StatusBar.styleDefault();
