@@ -329,11 +329,11 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
   var camera = cameraPriority?"front":"rear";
   //$scope.props = {x: 0, y: 44, width: window.innerWidth, height: window.innerHeight-44, camera: camera, tapPhoto: false, previewDrag: false, toBack: true};
   
-  cordova.plugins.camerapreview.startCamera({x: 0, y: 44, width: window.innerWidth, height: window.innerHeight-44}, "front", false, false, true);
+  //cordova.plugins.camerapreview.startCamera({x: 0, y: 44, width: window.innerWidth, height: window.innerHeight-44}, "front", false, false, true);
 
   //CameraPreview.startCamera($scope.props);
   //CameraPreview.setOnPictureTakenHandler(function (picture) {
-  cordova.plugins.camerapreview.setOnPictureTakenHandler(function (result) {
+  /*cordova.plugins.camerapreview.setOnPictureTakenHandler(function (result) {
     //$scope.photo = picture; // base64 picture;
     var picture = result[0];
     var img = document.createElement("img");
@@ -361,7 +361,7 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
       $ionicLoading.hide();
     }
     img.src = "data:image/png;base64," + picture;
-  });
+  });*/
   $scope.swapCamera = function () {
     //CameraPreview.switchCamera();
     cordova.plugins.camerapreview.switchCamera();
