@@ -1,7 +1,7 @@
 /* Empty. Add your own CSS if you like */
 
 [nav-view-transition="ios"][nav-view-direction="forward"], [nav-view-transition="ios"][nav-view-direction="back"] {
-	background-color: transparent: !important;
+	background-color: transparent !important;
 }
 
 html,
