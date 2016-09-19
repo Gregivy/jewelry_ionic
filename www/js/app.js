@@ -35,6 +35,7 @@ document.addEventListener("deviceready", function () {
   //if (!CameraPreview) {CameraPreview = cordova.plugins.camerapreview;}
   navigator.globalization.getPreferredLanguage(
         function (language) {
+          alert(language);
           if (language.value.indexOf('ru')) {
             gLang = 'ru';
           } else {
@@ -77,10 +78,34 @@ var localization = {
   savesuccess: {
     ru: 'Изображение сохранено!',
     en: 'Image saved!'
+  },
+  modalTitle: {
+    ru: 'Регистрация',
+    en: 'Register'
+  },
+  urname: {
+    ru: 'Ваше имя',
+    en: 'Your name'
+  },
+  urmail: {
+    ru: 'Ваша почта',
+    en: 'Your email'
+  },
+  submit: {
+    ru: 'Отправить',
+    en: 'Submit'
+  },
+  reqfield: {
+    ru: 'Поле не может быть пустым!',
+    en: 'This field is required!'
+  },
+  reqmail: {
+    ru: 'Неверный адрес email!',
+    en: 'Wrong email address!'
   }
 };
 
-angular.module('starter', ['ionic','ngCordova'])
+angular.module('starter', ['ionic','ngCordova','ngMessages'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -102,7 +127,8 @@ angular.module('starter', ['ionic','ngCordova'])
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $urlRouterProvider,$httpProvider) {
+  delete $httpProvider.defaults.headers.common['X-Requested-With'];
   $stateProvider
   .state('index', {
     url: '/',
@@ -127,12 +153,41 @@ angular.module('starter', ['ionic','ngCordova'])
   $urlRouterProvider.otherwise("/");
 })
 
-.controller('index', function($scope,$http,$ionicScrollDelegate,$stateParams,$state) {
+.controller('index', function($scope,$http,$ionicScrollDelegate,$stateParams,$state,$ionicModal) {
+  $ionicModal.fromTemplateUrl('pages/mymodal.html', {
+    scope: $scope,
+    animation: 'slide-in-up',
+    backdropClickToClose: false,
+    hardwareBackButtonClose: false
+  }).then(function(modal) {
+    $scope.modal = modal;
+  });
+  $scope.$on('$ionicView.enter', function(){
+    if (localStorage.getItem('registered')!=='true') {
+      localStorage.setItem('registered', 'true');
+      $scope.modal.show();
+    }
+  });
+  $scope.username = "";
+  $scope.usermail = "";
+  $scope.send = function (form) {
+    if(form.$valid) {
+      $http.get("http://138.201.20.220:4000/index.php?key=jiefj93p3XOIEJF32Sfefed&name="+form.username.$modelValue+"&mail="+form.usermail.$modelValue).then(function() {
+        $scope.modal.hide();
+      });
+    }
+  }
   $scope.localization = localization;
   $scope.lang = gLang;
   $scope.items = items;
   $scope.preorderLink = preorderLink;
   $scope.visitusLink = visitusLink;
+  $scope.modalTitle = $scope.localization.modalTitle[$scope.lang];
+  $scope.urname = $scope.localization.urname[$scope.lang];
+  $scope.urmail = $scope.localization.urmail[$scope.lang];
+  $scope.submit = $scope.localization.submit[$scope.lang];
+  $scope.reqfield = $scope.localization.reqfield[$scope.lang];
+  $scope.reqmail = $scope.localization.reqmail[$scope.lang];
   $scope.openPreorder = function () {
     cordova.InAppBrowser.open($scope.preorderLink, '_system');
   }
