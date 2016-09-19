@@ -330,7 +330,7 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
 
   //CameraPreview.startCamera($scope.props);
   //CameraPreview.setOnPictureTakenHandler(function (picture) {
-  cordova.plugins.camerapreview.setOnPictureTakenHandler(function (result)) {
+  cordova.plugins.camerapreview.setOnPictureTakenHandler(function (result) {
     //$scope.photo = picture; // base64 picture;
     var picture = result[0];
     var img = document.createElement("img");
