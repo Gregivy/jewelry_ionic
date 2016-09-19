@@ -110,17 +110,6 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
       // from snapping when text inputs are focused. Ionic handles this internally for
       // a much nicer keyboard experience.
       cordova.plugins.Keyboard.disableScroll(true);
-
-      navigator.globalization.getPreferredLanguage(
-        function (language) {
-          if (language.value.indexOf('ru')>-1) {
-            gLang = 'ru';
-          } else {
-            gLang = 'en';
-          }
-        },
-        function () {alert('Error getting language\n');}
-      );
     }
     if(window.StatusBar) {
       StatusBar.styleDefault();
@@ -178,8 +167,18 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
       });
     }
   }
+        navigator.globalization.getPreferredLanguage(
+        function (language) {
+          if (language.value.indexOf('ru')>-1) {
+            $scope.lang  = 'ru';
+          } else {
+            $scope.lang  = 'en';
+          }
+        },
+        function () {alert('Error getting language\n');}
+      );
   $scope.localization = localization;
-  $scope.lang = gLang;
+  //$scope.lang = gLang;
   $scope.items = items;
   $scope.preorderLink = preorderLink;
   $scope.visitusLink = visitusLink;
