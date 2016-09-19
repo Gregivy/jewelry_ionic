@@ -35,7 +35,7 @@ document.addEventListener("deviceready", function () {
   //if (!CameraPreview) {CameraPreview = cordova.plugins.camerapreview;}
   navigator.globalization.getPreferredLanguage(
         function (language) {
-          alert(language);
+          alert(language.value);
           if (language.value.indexOf('ru')) {
             gLang = 'ru';
           } else {
