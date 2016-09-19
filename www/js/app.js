@@ -167,7 +167,7 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
       });
     }
   }
-        navigator.globalization.getPreferredLanguage(
+        /*navigator.globalization.getPreferredLanguage(
         function (language) {
           if (language.value.indexOf('ru')>-1) {
             $scope.lang  = 'ru';
@@ -176,7 +176,9 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
           }
         },
         function () {alert('Error getting language\n');}
-      );
+      );*/
+
+  $scope.lang = navigator.language.indexOf('ru')>-1?'ru':'en';
   $scope.localization = localization;
   //$scope.lang = gLang;
   $scope.items = items;
