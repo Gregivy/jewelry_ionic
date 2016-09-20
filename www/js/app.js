@@ -327,7 +327,7 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
   var cameraPriority = categories[$scope.item.categoryId].priority_front;
   var camera = cameraPriority?"front":"back";
   //var camera = cameraPriority?"front":"rear";
-  //$scope.props = {x: 0, y: 44, width: window.innerWidth, height: window.innerHeight-44, camera: camera, tapPhoto: false, previewDrag: false, toBack: true};
+  $scope.props = {x: 0, y: 44, width: window.innerWidth, height: window.innerHeight-44, camera: camera, tapPhoto: false, previewDrag: false, toBack: true};
   
   //cordova.plugins.camerapreview.startCamera({x: 0, y: 44, width: window.innerWidth, height: window.innerHeight-44}, "front", false, false, true);
 
@@ -335,7 +335,7 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
   CameraPreview.setOnPictureTakenHandler(function (picture) {
   //cordova.plugins.camerapreview.setOnPictureTakenHandler(function (result) {
     //$scope.photo = picture; // base64 picture;
-    var picture = result[0];
+    //var picture = result[0];
     var img = document.createElement("img");
     img.onload = function(){
       var fImg = new fabric.Image(img, {
@@ -360,7 +360,8 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
       //cordova.plugins.camerapreview.stopCamera();
       $ionicLoading.hide();
     }
-    img.src = "data:image/png;base64," + picture;
+    //img.src = "data:image/png;base64," + picture;
+    img.src = picture;
   });
   $scope.swapCamera = function () {
     CameraPreview.switchCamera();
