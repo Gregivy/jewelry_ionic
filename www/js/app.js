@@ -344,8 +344,8 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
       });
       fImg.set('selectable', false);
 	  fImg.scaleToHeight(window.innerHeight-44);
+	  fImg.set('left', -0.5*(fImg.get('width')*fImg.getScaleX()-window.innerWidth));
 	  if (device.platform=="Android") {
-	      fImg.set('left', -0.5*(fImg.get('width')*fImg.getScaleX()-window.innerWidth));
 	      $scope.tryitonImg.scale(0.18);
   	  }
       //alert(fImg.get('width')*fImg.getScaleX());
@@ -385,7 +385,7 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
     $scope.tryitonImg.remove();
     createPrevPhoto();
     $scope.photo.remove();
-    //CameraPreview.startCamera($scope.props);
+    CameraPreview.startCamera($scope.props);
     //$timeout(function () {$ionicLoading.hide();},200);
   }
   $scope.savePhoto = function () {
