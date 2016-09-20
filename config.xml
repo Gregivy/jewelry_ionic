@@ -26,6 +26,7 @@
   <plugin name="cordova-plugin-inappbrowser"/>
   <plugin name="cordova-plugin-canvas2image"/>
   <plugin spec="https://github.com/westonganger/cordova-plugin-camera-preview/"/>
+  <plugin name="cordova-plugin-device"/>
   
   <platform name="android">
     <icon src="resources/android/icon/drawable-ldpi-icon.png" density="ldpi"/>
