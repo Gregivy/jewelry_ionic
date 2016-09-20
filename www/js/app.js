@@ -400,9 +400,7 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
       alert(e);
       $ionicHistory.goBack();
     },
-    document.getElementById('photo'),
-    '.jpg',
-    80);
+    document.getElementById('photo'));
   }
   
 
