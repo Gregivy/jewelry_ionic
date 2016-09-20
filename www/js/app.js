@@ -412,17 +412,17 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
 	}
 	var onSuccess = function(result) {
 		$scope.savingphoto = false;
-  		$ionicPopup.alert({
+  		/*$ionicPopup.alert({
         	title: $scope.localization.savesuccess[$scope.lang],
         	template: ""
       	});
-      	$ionicHistory.goBack();
+      	$ionicHistory.goBack();*/
 	}
 
 	var onError = function(msg) {
 		$scope.savingphoto = false;
   		alert(msg);
-  		$ionicHistory.goBack();
+  		//$ionicHistory.goBack();
 	}
     window.plugins.socialsharing.shareWithOptions(options, onSuccess, onError);
   }
