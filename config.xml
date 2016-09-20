@@ -24,7 +24,7 @@
   <plugin name="cordova-plugin-whitelist"/>
   <plugin name="cordova-plugin-globalization"/>
   <plugin name="cordova-plugin-inappbrowser"/>
-  <plugin name="org.wbt11a.Canvas2ImagePlugin"/>
+  <plugin name="org.wbt11a.Canvas2ImagePlugin" source="pgb"/>
   <plugin spec="https://github.com/westonganger/cordova-plugin-camera-preview/"/>
   <plugin name="cordova-plugin-device"/>
   
