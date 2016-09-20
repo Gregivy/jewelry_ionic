@@ -390,6 +390,8 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
   }
   $scope.savePhoto = function () {
     canvas.deactivateAll().renderAll();
+    alert(window.canvas2ImagePlugin);
+    alert(window.canvas2ImagePlugin.saveImageDataToLibrary);
     window.canvas2ImagePlugin.saveImageDataToLibrary(function(m){
       $ionicPopup.alert({
         title: $scope.localization.savesuccess[$scope.lang],
