@@ -9,7 +9,7 @@
 	<ion-footer-bar align-title="center" class="bar-light photobar">
 	  <button ng-show="!photoTaken" class="button icon ion-camera button-dark button-large centered makephoto" ng-click="takePhoto()"></button>
 	  <div class="centered" ng-show="photoTaken">
-	  	<button class="button button-dark button-large makephoto" ng-click="savePhoto()">{{localization.save[lang]}}</button>
+	  	<button class="button button-dark button-large makephoto" ng-click="savePhoto()" ng-disabled="savingphoto">{{localization.save[lang]}}</button>
 	  	<button class="button button-dark button-large makephoto" ng-click="retakePhoto()">{{localization.retake[lang]}}</button>
 	  </div>
 	</ion-footer-bar>

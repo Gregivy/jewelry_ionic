@@ -297,6 +297,7 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
   $scope.item = $scope.items[$scope.n];
   $scope.title = $scope.item["name"];
   $scope.photoTaken = false;
+  $scope.savingphoto = false;
   $scope.tryitonImg = null;
   $scope.photo = null;
 
@@ -389,6 +390,7 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
     //$timeout(function () {$ionicLoading.hide();},200);
   }
   $scope.savePhoto = function () {
+  	$scope.savingphoto = true;
     canvas.deactivateAll().renderAll();
     /*window.canvas2ImagePlugin.saveImageDataToLibrary(function(m){
       $ionicPopup.alert({
@@ -409,6 +411,7 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
   		//chooserTitle: 'Pick an app' // Android only, you can override the default share sheet title
 	}
 	var onSuccess = function(result) {
+		$scope.savingphoto = false;
   		$ionicPopup.alert({
         	title: $scope.localization.savesuccess[$scope.lang],
         	template: ""
@@ -417,6 +420,7 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
 	}
 
 	var onError = function(msg) {
+		$scope.savingphoto = false;
   		alert(msg);
   		$ionicHistory.goBack();
 	}
