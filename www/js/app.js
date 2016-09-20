@@ -390,9 +390,7 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
   }
   $scope.savePhoto = function () {
     canvas.deactivateAll().renderAll();
-    alert(window.canvas2ImagePlugin);
-    alert(window.canvas2ImagePlugin.saveImageDataToLibrary);
-    window.canvas2ImagePlugin.saveImageDataToLibrary(function(m){
+    /*window.canvas2ImagePlugin.saveImageDataToLibrary(function(m){
       $ionicPopup.alert({
         title: $scope.localization.savesuccess[$scope.lang],
         template: m
@@ -402,7 +400,27 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
       alert(e);
       $ionicHistory.goBack();
     },
-    document.getElementById('photo'));
+    document.getElementById('photo'));*/
+    var options = {
+  		message: 'share this', // not supported on some apps (Facebook, Instagram)
+  		subject: 'the subject', // fi. for email
+  		files: ['', ''], // an array of filenames either locally or remotely
+  		url: 'https://www.website.com/foo/#bar?a=b',
+  		chooserTitle: 'Pick an app' // Android only, you can override the default share sheet title
+	}
+	var onSuccess = function(result) {
+  		$ionicPopup.alert({
+        	title: $scope.localization.savesuccess[$scope.lang],
+        	template: ""
+      	});
+      	$ionicHistory.goBack();
+	}
+
+	var onError = function(msg) {
+  		alert(msg);
+  		$ionicHistory.goBack();
+	}
+    window.plugins.socialsharing.shareWithOptions(options, onSuccess, onError);
   }
   
 

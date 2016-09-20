@@ -21,10 +21,16 @@
   <feature name="StatusBar">
     <param name="ios-package" value="CDVStatusBar" onload="true"/>
   </feature>
+  <feature name="SocialSharing">
+    <param name="ios-package" value="SocialSharing" />
+  </feature>
+  <feature name="SocialSharing">
+    <param name="android-package" value="nl.xservices.plugins.SocialSharing" />
+  </feature>
   <plugin name="cordova-plugin-whitelist"/>
   <plugin name="cordova-plugin-globalization"/>
   <plugin name="cordova-plugin-inappbrowser"/>
-  <plugin name="cordova-plugin-canvas2image" source="npm"/>
+  <plugin spec="https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin.git"/>
   <plugin spec="https://github.com/westonganger/cordova-plugin-camera-preview/"/>
   <plugin name="cordova-plugin-device"/>
   
