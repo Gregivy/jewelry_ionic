@@ -402,11 +402,11 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
     },
     document.getElementById('photo'));*/
     var options = {
-  		message: 'share this', // not supported on some apps (Facebook, Instagram)
-  		subject: 'the subject', // fi. for email
-  		files: ['', ''], // an array of filenames either locally or remotely
-  		url: 'https://www.website.com/foo/#bar?a=b',
-  		chooserTitle: 'Pick an app' // Android only, you can override the default share sheet title
+  		//message: 'share this', // not supported on some apps (Facebook, Instagram)
+  		//subject: 'the subject', // fi. for email
+  		files: [document.getElementById('photo').toDataURL()], // an array of filenames either locally or remotely
+  		//url: 'https://www.website.com/foo/#bar?a=b',
+  		//chooserTitle: 'Pick an app' // Android only, you can override the default share sheet title
 	}
 	var onSuccess = function(result) {
   		$ionicPopup.alert({
