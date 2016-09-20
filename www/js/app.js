@@ -289,8 +289,8 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
     for (var i=0; i<views.length; i++) {
       views[i].classList.remove('transback');
     }
-    //CameraPreview.stopCamera();
-    cordova.plugins.camerapreview.stopCamera();
+    CameraPreview.stopCamera();
+    //cordova.plugins.camerapreview.stopCamera();
   });
 
   $scope.n = $stateParams["n"];
@@ -325,15 +325,15 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
 
 
   var cameraPriority = categories[$scope.item.categoryId].priority_front;
-  //var camera = cameraPriority?"front":"back";
-  var camera = cameraPriority?"front":"rear";
+  var camera = cameraPriority?"front":"back";
+  //var camera = cameraPriority?"front":"rear";
   //$scope.props = {x: 0, y: 44, width: window.innerWidth, height: window.innerHeight-44, camera: camera, tapPhoto: false, previewDrag: false, toBack: true};
   
-  cordova.plugins.camerapreview.startCamera({x: 0, y: 44, width: window.innerWidth, height: window.innerHeight-44}, "front", false, false, true);
+  //cordova.plugins.camerapreview.startCamera({x: 0, y: 44, width: window.innerWidth, height: window.innerHeight-44}, "front", false, false, true);
 
-  //CameraPreview.startCamera($scope.props);
-  //CameraPreview.setOnPictureTakenHandler(function (picture) {
-  cordova.plugins.camerapreview.setOnPictureTakenHandler(function (result) {
+  CameraPreview.startCamera($scope.props);
+  CameraPreview.setOnPictureTakenHandler(function (picture) {
+  //cordova.plugins.camerapreview.setOnPictureTakenHandler(function (result) {
     //$scope.photo = picture; // base64 picture;
     var picture = result[0];
     var img = document.createElement("img");
@@ -356,19 +356,19 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
       $scope.tryitonImg.set('selectable', true);
       canvas.add(fImg);
       fImg.sendBackwards();
-      //CameraPreview.stopCamera();
-      cordova.plugins.camerapreview.stopCamera();
+      CameraPreview.stopCamera();
+      //cordova.plugins.camerapreview.stopCamera();
       $ionicLoading.hide();
     }
     img.src = "data:image/png;base64," + picture;
   });
   $scope.swapCamera = function () {
-    //CameraPreview.switchCamera();
-    cordova.plugins.camerapreview.switchCamera();
+    CameraPreview.switchCamera();
+    //cordova.plugins.camerapreview.switchCamera();
   }
   $scope.takePhoto = function () {
-    //CameraPreview.takePicture();
-    cordova.plugins.camerapreview.takePicture();
+    CameraPreview.takePicture();
+    //cordova.plugins.camerapreview.takePicture();
     $scope.photoTaken = true;
     $ionicLoading.show({
       template: $scope.localization.pleasewait[$scope.lang]
