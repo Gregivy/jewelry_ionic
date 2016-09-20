@@ -399,7 +399,10 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
     },function(e){
       alert(e);
       $ionicHistory.goBack();
-    },document.getElementById('photo'));
+    },
+    document.getElementById('photo'),
+    '.jpg',
+    80);
   }
   
 
