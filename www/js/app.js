@@ -361,7 +361,7 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
       //fImg.set('height', window.innerHeight-44);
       $scope.photo = fImg;
       $scope.tryitonImg.set('selectable', true);
-      $scope.tryitonImg.set('top', $scope.tryitonImg.get('top')+44);
+      $scope.tryitonImg.set('top', $scope.tryitonImg.get('top')+14);
       canvas.add(fImg);
       fImg.sendBackwards();
       CameraPreview.stopCamera();
