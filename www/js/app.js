@@ -278,8 +278,6 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
 .controller('itempreviewCtrl', function($scope,$timeout,$ionicPopup,$http,$ionicScrollDelegate,$stateParams,$state,$ionicLoading,$ionicHistory ) {
   
   $scope.$on('$ionicView.enter', function(){
-  	document.body.classList.add('transback');
-  	document.querySelector("html").classList.add('transback');
     var views = document.querySelectorAll(".view, .pane");
     for (var i=0; i<views.length; i++) {
       views[i].classList.add('transback');
@@ -287,8 +285,6 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
   });
   
   $scope.$on('$ionicView.beforeLeave', function(){
-  	document.body.classList.remove('transback');
-  	document.querySelector("html").classList.remove('transback');
     var views = document.querySelectorAll(".view, .pane");
     for (var i=0; i<views.length; i++) {
       views[i].classList.remove('transback');
