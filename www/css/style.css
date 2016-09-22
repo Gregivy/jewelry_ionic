@@ -7,6 +7,7 @@
 html,
 body {
   height: 100%;
+  -webkit-transform: translate3d(0,0,0);
   /*background-color: transparent !important;*/
 }
 
@@ -78,7 +79,6 @@ a {
 	background-color: rgba(110,110,109,0.9) !important;
 }
 .itemlist .has-footer, .cameraprev .has-footer {
-	top: 20px !important;
 	bottom: 0px !important;
 }
 
