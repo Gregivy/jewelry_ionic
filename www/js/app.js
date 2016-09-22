@@ -278,6 +278,8 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
 .controller('itempreviewCtrl', function($scope,$timeout,$ionicPopup,$http,$ionicScrollDelegate,$stateParams,$state,$ionicLoading,$ionicHistory ) {
   
   $scope.$on('$ionicView.enter', function(){
+  	document.body.classList.add('transback');
+  	document.querySelector("html").classList.add('transback');
     var views = document.querySelectorAll(".view, .pane");
     for (var i=0; i<views.length; i++) {
       views[i].classList.add('transback');
@@ -285,6 +287,8 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
   });
   
   $scope.$on('$ionicView.beforeLeave', function(){
+  	document.body.classList.remove('transback');
+  	document.querySelector("html").classList.remove('transback');
     var views = document.querySelectorAll(".view, .pane");
     for (var i=0; i<views.length; i++) {
       views[i].classList.remove('transback');
@@ -344,7 +348,11 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
         left:0
       });
       fImg.set('selectable', false);
-	  fImg.scaleToHeight(window.innerHeight-44);
+      var minus = 0;
+      if (device.platform!="Android") {
+	      minus = 44;
+  	  }
+	  fImg.scaleToHeight(window.innerHeight-minus);
 	  fImg.set('left', -0.5*(fImg.get('width')*fImg.getScaleX()-window.innerWidth));
 	  if (device.platform=="Android") {
 	      $scope.tryitonImg.scale(0.18);
@@ -363,8 +371,12 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
       //cordova.plugins.camerapreview.stopCamera();
       $ionicLoading.hide();
     }
-    //img.src = "data:image/png;base64," + picture;
-    img.src = picture;
+    if (device.platform=="Android") {
+	      img.src = "data:image/png;base64," + picture;
+  	 }
+    else {
+    	img.src = picture;
+    }
   });
   $scope.swapCamera = function () {
     CameraPreview.switchCamera();
