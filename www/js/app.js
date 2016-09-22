@@ -348,11 +348,7 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
         left:0
       });
       fImg.set('selectable', false);
-      var minus = 0;
-      if (device.platform!="Android") {
-	      minus = 44;
-  	  }
-	  fImg.scaleToHeight(window.innerHeight-minus);
+	  fImg.scaleToHeight(window.innerHeight-44);
 	  fImg.set('left', -0.5*(fImg.get('width')*fImg.getScaleX()-window.innerWidth));
 	  if (device.platform=="Android") {
 	      $scope.tryitonImg.scale(0.18);
@@ -365,6 +361,7 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
       //fImg.set('height', window.innerHeight-44);
       $scope.photo = fImg;
       $scope.tryitonImg.set('selectable', true);
+      $scope.tryitonImg.set('top', $scope.tryitonImg.get('top')+44);
       canvas.add(fImg);
       fImg.sendBackwards();
       CameraPreview.stopCamera();
