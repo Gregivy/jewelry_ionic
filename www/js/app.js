@@ -124,31 +124,31 @@ angular.module('starter', ['ionic','templates','ngCordova','ngMessages'])
   	cache: true,
     url: '/',
     controller: 'categorylistCtrl',
-    templateUrl: 'pages/categorylist.html'
+    templateUrl: 'categorylist.html'
   })
   .state('category', {
   	cache: true,
     url: '/category/:n',
     controller: 'itemlistCtrl',
-    templateUrl: 'pages/itemlist.html'
+    templateUrl: 'itemlist.html'
   })
   .state('itempreview', {
   	cache: false,
     url: '/preview/:n',
     controller: 'itempreviewCtrl',
-    templateUrl: 'pages/itempreview.html'
+    templateUrl: 'itempreview.html'
   })
   .state('itemdetails', {
   	cache: false,
     url: '/item/:n',
     controller: 'itemdetailsCtrl',
-    templateUrl: 'pages/itemdetails.html'
+    templateUrl: 'itemdetails.html'
   });
   $urlRouterProvider.otherwise("/");
 })
 
 .controller('index', function($scope,$http,$ionicScrollDelegate,$stateParams,$state,$ionicModal) {
-  $ionicModal.fromTemplateUrl('pages/mymodal.html', {
+  $ionicModal.fromTemplateUrl('mymodal.html', {
     scope: $scope,
     animation: 'slide-in-up',
     backdropClickToClose: false,
@@ -156,7 +156,8 @@ angular.module('starter', ['ionic','templates','ngCordova','ngMessages'])
   }).then(function(modal) {
     $scope.modal = modal;
   });
-  if (window['device'] && device.platform=="iOS") {
+  alert(device.platform);
+  if (device.platform=="iOS") {
   	$scope.specRules = ["top: 20px !important;","bottom: 20px !important;"];
   } else {
   	$scope.specRules = ["",""];
