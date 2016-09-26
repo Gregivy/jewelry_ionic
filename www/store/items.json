@@ -62,7 +62,7 @@ var items = [
 	{
 		"name": "Lamination Black",
 		"imgs": [
-			"Laminatio01D.jpg","Laminatio02D.jpg","Laminatio03D.jpg"
+			"Lamination01D.jpg","Lamination02D.jpg","Lamination03D.jpg"
 		],
 		"tryitonImg": "t_verge.png",
 		"desc": {
@@ -110,7 +110,7 @@ var items = [
 	{
 		"name": "Anchorage Black",
 		"imgs": [
-			"Anchorag04D.jpg","Anchorag01D.jpg","Anchorag02D.jpg","Anchorag03D.jpg"
+			"Anchorage04D.jpg","Anchorage01D.jpg","Anchorage02D.jpg","Anchorage03D.jpg"
 		],
 		"tryitonImg": "",
 		"desc": {
@@ -254,7 +254,7 @@ var items = [
 	{
 		"name": "Passage Black",
 		"imgs": [
-			"Passage01D.jpg"
+			"Passege01D.jpg"
 		],
 		"tryitonImg": "",
 		"desc": {
@@ -311,7 +311,6 @@ var items = [
 		},
 		"categoryId": 1
 	}
-];
 ];
 
 var categories = [
