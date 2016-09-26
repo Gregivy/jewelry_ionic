@@ -28,7 +28,7 @@
     <param name="android-package" value="nl.xservices.plugins.SocialSharing" />
   </feature>
   <plugin name="cordova-plugin-whitelist"/>
-  <!--<plugin name="cordova-plugin-crosswalk-webview"/> //-->
+  <plugin name="cordova-plugin-crosswalk-webview"/>
   <plugin name="cordova-plugin-globalization"/>
   <plugin name="cordova-plugin-inappbrowser"/>
   <plugin spec="https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin.git"/>

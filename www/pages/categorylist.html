@@ -5,7 +5,7 @@
 	  	<div class="category" ng-repeat="category in categories">
 	  	  <div class="catlogo" ng-click="showCategory($index)" >
 	  	  <img src="./store/{{category.imgs[0]}}" class="centered not-visible" style="position:static">
-	  	  	<img src="./store/{{img}}" class="centered not-visible" ng-repeat="img in category.imgs" style="z-index:{{$index}}">
+	  	  	<img src="./store/{{img}}" class="centered not-visible acs" ng-repeat="img in category.imgs" style="z-index:{{$index}}">
 	  	  </div>	  	  
 	  	  <h3 ng-click="showCategory($index)">{{category[lang]}}</h3>
 	  	</div>
