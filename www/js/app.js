@@ -156,12 +156,13 @@ angular.module('starter', ['ionic','templates','ngCordova','ngMessages'])
   }).then(function(modal) {
     $scope.modal = modal;
   });
-  alert(device.platform);
-  if (device.platform=="iOS") {
-  	$scope.specRules = ["top: 20px !important;","bottom: 20px !important;"];
-  } else {
-  	$scope.specRules = ["",""];
-  }
+  document.addEventListener("deviceready", function () {
+	  if (device.platform=="iOS") {
+	  	$scope.specRules = ["top: 20px !important;","bottom: 20px !important;"];
+	  } else {
+	  	$scope.specRules = ["",""];
+	  }
+  });
   $scope.$on('$ionicView.enter', function(){
     if (localStorage.getItem('registered')!=='true') {
       localStorage.setItem('registered', 'true');
