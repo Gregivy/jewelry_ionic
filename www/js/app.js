@@ -23,7 +23,7 @@ var gotSources = function (sourceInfos) {
   }
 MediaStreamTrack.getSources(gotSources);*/
 
-
+angular.module('templates', []); 
 
 navigator.getUserMedia = navigator.getUserMedia ||
                          navigator.webkitGetUserMedia ||
@@ -95,12 +95,12 @@ var localization = {
   }
 };
 
-angular.module('starter', ['ionic','ngCordova','ngMessages'])
+angular.module('starter', ['ionic','templates','ngCordova','ngMessages'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
     var myStyle = document.styleSheets[0];
-    myStyle.insertRule(".swiper-slide { width: "+0.6*window.innerWidth+"px !important; height: "+0.6*window.innerWidth+"px !important}", 1);
+    myStyle.insertRule(".swiper-slide { width: "+0.6*window.innerWidth+"px !important; height: "+0.8*window.innerWidth+"px !important}", 1);
     if(window.cordova && window.cordova.plugins.Keyboard) {
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
       // for form inputs)
@@ -121,21 +121,25 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
   delete $httpProvider.defaults.headers.common['X-Requested-With'];
   $stateProvider
   .state('index', {
+  	cache: true,
     url: '/',
     controller: 'categorylistCtrl',
     templateUrl: 'pages/categorylist.html'
   })
   .state('category', {
+  	cache: true,
     url: '/category/:n',
     controller: 'itemlistCtrl',
     templateUrl: 'pages/itemlist.html'
   })
   .state('itempreview', {
+  	cache: false,
     url: '/preview/:n',
     controller: 'itempreviewCtrl',
     templateUrl: 'pages/itempreview.html'
   })
   .state('itemdetails', {
+  	cache: false,
     url: '/item/:n',
     controller: 'itemdetailsCtrl',
     templateUrl: 'pages/itemdetails.html'
@@ -152,6 +156,11 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
   }).then(function(modal) {
     $scope.modal = modal;
   });
+  if (window['device'] && device.platform=="iOS") {
+  	$scope.specRules = ["top: 20px !important;","bottom: 20px !important;"];
+  } else {
+  	$scope.specRules = ["",""];
+  }
   $scope.$on('$ionicView.enter', function(){
     if (localStorage.getItem('registered')!=='true') {
       localStorage.setItem('registered', 'true');
@@ -261,6 +270,7 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
 .controller('itemlistCtrl', function($scope,$http,$ionicScrollDelegate,$stateParams,$state) {
   $scope.n = $stateParams["n"];
   $scope.title = categories[$scope.n][$scope.lang];
+  $scope.globalItems = $scope.$parent.items;
   $scope.items = _.filter($scope.$parent.items,function (item) {
     return item["categoryId"] == $scope.n;
   });
@@ -268,6 +278,7 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
     $ionicScrollDelegate.scrollTop(true);
   };
   $scope.showDetails = function(n) {
+  	console.log(n);
     $state.go("itemdetails", {n:n});
   };
   $scope.showPreview = function (n) {

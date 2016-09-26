@@ -6,10 +6,17 @@ var sass = require('gulp-sass');
 var minifyCss = require('gulp-minify-css');
 var rename = require('gulp-rename');
 var sh = require('shelljs');
+var templateCache = require('gulp-angular-templatecache');
 
 var paths = {
   sass: ['./scss/**/*.scss']
 };
+
+gulp.task('templates', function () {
+  return gulp.src('www/pages/**/*.html')
+    .pipe(templateCache())
+    .pipe(gulp.dest('www/lib'));
+});
 
 gulp.task('default', ['sass']);
 

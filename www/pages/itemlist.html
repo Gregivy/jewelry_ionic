@@ -2,16 +2,16 @@
 	<ion-content class="has-footer padding">
 	  <div class="jewelrylist">
 	  	<div class="jewelry" ng-repeat="item in items">
-	  	  <img src="./store/{{item.imgs[0]}}" class="centered" ng-click="showDetails($index)">
-	  	  <h3 ng-click="showDetails($index)">{{item.name}}</h3>
+	  	  <img src="./store/{{item.imgs[0]}}" class="centered" ng-click="showDetails(globalItems.indexOf(item))">
+	  	  <h3 ng-click="showDetails(globalItems.indexOf(item))">{{item.name}}</h3>
 	  	  <div class="centered" style="width:250px">
-		  <button class="button button-dark button-outline" style="width:120px" ng-click="showPreview($index)">
-  			{{localization.tryiton[lang]}}
-		  </button>
+			  <button class="button button-dark button-outline" style="width:120px" ng-click="showPreview(globalItems.indexOf(item))">
+	  			{{localization.tryiton[lang]}}
+			  </button>
 
-		  <button class="button button-dark" style="width:120px" ng-click="openPreorder()">
-  			{{localization.preorder[lang]}}
-		  </button>
+			  <button class="button button-dark" style="width:120px" ng-click="openPreorder()">
+	  			{{localization.preorder[lang]}}
+			  </button>
 		  </div>
 	  	</div>
 	  </div>
