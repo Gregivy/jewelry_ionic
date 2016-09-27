@@ -321,10 +321,10 @@ angular.module('starter', ['ionic','templates','ngCordova','ngMessages'])
 
   var createPrevPhoto = function () {
     fabric.Image.fromURL("./store/"+$scope.item.tryitonImg, function(oImg) {
-      oImg.scale(0.2);
+      oImg.scaleToWidth(Math.round(window.innerWidth/6));
       oImg.set('lockUniScaling',true);
-      oImg.set('left',(window.innerWidth-oImg.width*0.2)/2);
-      oImg.set('top',(window.innerHeight-44-oImg.height*0.2)/2);
+      oImg.set('left',(window.innerWidth-oImg.width*oImg.getScaleX())/2);
+      oImg.set('top',(window.innerHeight-44-oImg.height*oImg.getScaleX())/2);
       //oImg.center();
       //oImg.setCoords();
       oImg.set('selectable', false);
