@@ -432,7 +432,7 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
 	      } else if ($scope.cat==3) {
 	      	alert(1);
 	      	$scope.tryitonImg[0].scaleToWidth(Math.round(window.innerWidth*0.1));
-	      	$scope.tryitonImg[1].scaleToWidth(Math.round(window.innerWidth*0.1));
+	      	//$scope.tryitonImg[1].scaleToWidth(Math.round(window.innerWidth*0.1));
 	      }
   	  }
       //alert(fImg.get('width')*fImg.getScaleX());
@@ -449,8 +449,8 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
       	alert(2);
       	$scope.tryitonImg[0].set('selectable', true);
       	$scope.tryitonImg[0].set('top', $scope.tryitonImg[0].get('top')+16);
-      	$scope.tryitonImg[1].set('selectable', true);
-      	$scope.tryitonImg[1].set('top', $scope.tryitonImg[1].get('top')+16);
+      	//$scope.tryitonImg[1].set('selectable', true);
+      	//$scope.tryitonImg[1].set('top', $scope.tryitonImg[1].get('top')+16);
       }
       canvas.add(fImg);
       fImg.sendBackwards();
@@ -486,7 +486,7 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
     	$scope.tryitonImg.remove();
     } else {
     	$scope.tryitonImg[0].remove();
-    	$scope.tryitonImg[1].remove();
+    	//$scope.tryitonImg[1].remove();
     }
     createPrevPhoto();
     $scope.photo.remove();
