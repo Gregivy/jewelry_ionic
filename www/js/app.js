@@ -395,6 +395,8 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
 			});
 			canvas.add(oImg);
 			$scope.tryitonImg = [oImg,oImg2];
+			alert(oImg);
+			alert(oImg2);
 		});
 	}
   }
