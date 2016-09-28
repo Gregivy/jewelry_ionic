@@ -232,7 +232,7 @@ var items = [
 		"imgs": [
 			"Plates01D.jpg","Plates02D.jpg"
 		],
-		"tryitonImg": "platesblack_t.png",
+		"tryitonImg": "t_plates.png",
 		"desc": {
 			"ru": "",
 			"en": ""
