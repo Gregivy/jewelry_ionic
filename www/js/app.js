@@ -171,7 +171,7 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
     $scope.modal = modal;
   });
   document.addEventListener("deviceready", function () {
-	  if (false && device.platform=="iOS") {
+	  if (device.platform=="iOS") {
 	  	$scope.specRules = ["top: 20px !important;","bottom: 20px !important;"];
 	  } else {
 	  	$scope.specRules = ["",""];
