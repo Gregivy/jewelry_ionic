@@ -370,7 +370,8 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
 	    });
 	} else {
 		fabric.Image.fromURL("./store/"+$scope.item.tryitonImg, function(oImg) {
-			var oImg2;
+			$scope.tryitonImg = [];
+			$scope.tryitonImg.push(oImg);
 			oImg.set('lockUniScaling',true);
 			oImg.scaleToWidth(Math.round(window.innerWidth/9));
 			oImg.set('left',(window.innerWidth*0.1));
@@ -390,13 +391,12 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
 				c.set('hasBorders', false);
 				c.set('padding', Math.round(window.innerWidth/20));
 				c.set('flipX', true);
-				oImg2 = c;
+				$scope.tryitonImg.push(c);
    				canvas.add(c);
 			});
 			canvas.add(oImg);
-			$scope.tryitonImg = [oImg,oImg2];
-			alert(oImg);
-			alert(oImg2);
+			alert($scope.tryitonImg[0]);
+			alert($scope.tryitonImg[1]);
 		});
 	}
   }
