@@ -444,9 +444,9 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
       	$scope.tryitonImg.set('top', $scope.tryitonImg.get('top')+16);
       } else {
       	$scope.tryitonImg[0].set('selectable', true);
-      	$scope.tryitonImg[0].set('top', $scope.tryitonImg.get('top')+16);
+      	$scope.tryitonImg[0].set('top', $scope.tryitonImg[0].get('top')+16);
       	$scope.tryitonImg[1].set('selectable', true);
-      	$scope.tryitonImg[1].set('top', $scope.tryitonImg.get('top')+16);
+      	$scope.tryitonImg[1].set('top', $scope.tryitonImg[1].get('top')+16);
       }
       canvas.add(fImg);
       fImg.sendBackwards();
