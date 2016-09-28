@@ -428,6 +428,7 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
 	      } else if ($scope.cat==1) {
 	      	$scope.tryitonImg.scaleToWidth(Math.round(window.innerWidth*0.3));
 	      } else if ($scope.cat==3) {
+	      	alert(1);
 	      	$scope.tryitonImg[0].scaleToWidth(Math.round(window.innerWidth*0.1));
 	      	$scope.tryitonImg[1].scaleToWidth(Math.round(window.innerWidth*0.1));
 	      }
@@ -443,6 +444,7 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
       	$scope.tryitonImg.set('selectable', true);
       	$scope.tryitonImg.set('top', $scope.tryitonImg.get('top')+16);
       } else {
+      	alert(2);
       	$scope.tryitonImg[0].set('selectable', true);
       	$scope.tryitonImg[0].set('top', $scope.tryitonImg[0].get('top')+16);
       	$scope.tryitonImg[1].set('selectable', true);
