@@ -427,15 +427,16 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
 	  fImg.set('left', -0.5*(fImg.get('width')*fImg.getScaleY()-window.innerWidth));
 	  //alert(-0.5*(fImg.get('height')*fImg.getScaleY()-window.innerHeight));
 	  if (device.platform=="Android") {
-	  	  /*if ($scope.cat==0) {
+	  	  if ($scope.cat==0) {
 	      	$scope.tryitonImg.scaleToWidth(Math.round(window.innerWidth*0.14));
 	      } else if ($scope.cat==1) {
 	      	$scope.tryitonImg.scaleToWidth(Math.round(window.innerWidth*0.3));
 	      } else if ($scope.cat==3) {
-	      	alert(1);
-	      	$scope.tryitonImg[0].scaleToWidth(Math.round(window.innerWidth*0.1));
-	      	$scope.tryitonImg[1].scaleToWidth(Math.round(window.innerWidth*0.1));
-	      }*/
+	      	$scope.tryitonImg[0].set('left',$scope.tryitonImg[0].get('left')+fImg.get('left'));
+	      	$scope.tryitonImg[1].set('left',$scope.tryitonImg[1].get('left')+fImg.get('left'));
+	      	//$scope.tryitonImg[0].scaleToWidth(Math.round(window.innerWidth*0.1));
+	      	//$scope.tryitonImg[1].scaleToWidth(Math.round(window.innerWidth*0.1));
+	      }
   	  }
       //alert(fImg.get('width')*fImg.getScaleX());
       //var m = (fImg.get('width')*fImg.getScaleX()-window.innerWidth)/2;
