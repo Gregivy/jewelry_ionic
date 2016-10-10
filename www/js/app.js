@@ -380,7 +380,7 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
 		    oImg.set('selectable', false);
 			oImg.set('hasControls', false);
 			oImg.set('hasBorders', false);
-			oImg.set('padding', Math.round(window.innerWidth/20));
+			oImg.set('padding', Math.round(window.innerWidth/10));
 			console.log(oImg);
 			canvas.add(oImg);
 			oImg.clone(function(c) {
@@ -392,7 +392,7 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
 				c.set('selectable', false);
 				c.set('hasControls', false);
 				c.set('hasBorders', false);
-				c.set('padding', Math.round(window.innerWidth/20));
+				c.set('padding', Math.round(window.innerWidth/10));
 				c.set('flipX', true);
 				canvas.add(c);
 				$scope.tryitonImg.push(c);
@@ -422,10 +422,10 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
         left:0
       });
       fImg.set('selectable', false);
-	  fImg.scaleToHeight(window.innerHeight-44);
-	  fImg.set('left', -0.5*(fImg.get('width')*fImg.getScaleX()-window.innerWidth));
+	  fImg.scaleToWidth(window.innerWidth);
+	  fImg.set('top', -0.5*(fImg.get('height')*fImg.getScaleY()-window.innerHeight));
 	  if (device.platform=="Android") {
-	  	  if ($scope.cat==0) {
+	  	  /*if ($scope.cat==0) {
 	      	$scope.tryitonImg.scaleToWidth(Math.round(window.innerWidth*0.14));
 	      } else if ($scope.cat==1) {
 	      	$scope.tryitonImg.scaleToWidth(Math.round(window.innerWidth*0.3));
@@ -433,7 +433,7 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
 	      	alert(1);
 	      	$scope.tryitonImg[0].scaleToWidth(Math.round(window.innerWidth*0.1));
 	      	$scope.tryitonImg[1].scaleToWidth(Math.round(window.innerWidth*0.1));
-	      }
+	      }*/
   	  }
       //alert(fImg.get('width')*fImg.getScaleX());
       //var m = (fImg.get('width')*fImg.getScaleX()-window.innerWidth)/2;
@@ -446,11 +446,10 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
       	$scope.tryitonImg.set('selectable', true);
       	$scope.tryitonImg.set('top', $scope.tryitonImg.get('top')+16);
       } else {
-      	alert(2);
       	$scope.tryitonImg[0].set('selectable', true);
-      	$scope.tryitonImg[0].set('top', $scope.tryitonImg[0].get('top')+16);
+      	//$scope.tryitonImg[0].set('top', $scope.tryitonImg[0].get('top')+16);
       	$scope.tryitonImg[1].set('selectable', true);
-      	$scope.tryitonImg[1].set('top', $scope.tryitonImg[1].get('top')+16);
+      	//$scope.tryitonImg[1].set('top', $scope.tryitonImg[1].get('top')+16);
       }
       canvas.add(fImg);
       fImg.sendToBack();
