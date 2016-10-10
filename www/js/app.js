@@ -381,7 +381,7 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
 		    oImg.set('selectable', false);
 			oImg.set('hasControls', false);
 			oImg.set('hasBorders', false);
-			oImg.set('padding', Math.round(window.innerWidth/10));
+			oImg.set('padding', Math.round(window.innerWidth/5));
 			console.log(oImg);
 			canvas.add(oImg);
 			oImg.clone(function(c) {
@@ -393,7 +393,7 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
 				c.set('selectable', false);
 				c.set('hasControls', false);
 				c.set('hasBorders', false);
-				c.set('padding', Math.round(window.innerWidth/10));
+				c.set('padding', Math.round(window.innerWidth/5));
 				c.set('flipX', true);
 				canvas.add(c);
 				$scope.tryitonImg.push(c);
@@ -423,10 +423,8 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
         left:0
       });
       fImg.set('selectable', false);
-	  //fImg.scaleToWidth(window.innerWidth);
-	  fImg.set("width", window.innerWidth);
-	  fImg.set("height", window.innerHeight-44);
-	  //fImg.set('top', -0.5*(fImg.get('height')*fImg.getScaleY()-window.innerHeight));
+	  fImg.scaleToHeight(window.innerHeight-44);
+	  fImg.set('left', -0.5*(fImg.get('width')*fImg.getScaleY()-window.innerWidth));
 	  //alert(-0.5*(fImg.get('height')*fImg.getScaleY()-window.innerHeight));
 	  if (device.platform=="Android") {
 	  	  /*if ($scope.cat==0) {
