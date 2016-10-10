@@ -453,7 +453,7 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
       	$scope.tryitonImg[1].set('top', $scope.tryitonImg[1].get('top')+16);
       }
       canvas.add(fImg);
-      fImg.sendBackwards();
+      fImg.sendToBack();
       CameraPreview.stopCamera();
       //cordova.plugins.camerapreview.stopCamera();
       $ionicLoading.hide();
