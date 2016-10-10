@@ -428,9 +428,9 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
 	  //alert(-0.5*(fImg.get('height')*fImg.getScaleY()-window.innerHeight));
 	  if (device.platform=="Android") {
 	  	  if ($scope.cat==0) {
-	      	$scope.tryitonImg[0].scale($scope.tryitonImg[0].getScaleX()*0.9);
+	      	$scope.tryitonImg.scale($scope.tryitonImg.getScaleX()*0.8);
 	      } else if ($scope.cat==1) {
-	      	$scope.tryitonImg[0].scale($scope.tryitonImg[0].getScaleX()*0.9);
+	      	$scope.tryitonImg.scale($scope.tryitonImg.getScaleX()*0.9);
 	      } else if ($scope.cat==3) {
 	      	$scope.tryitonImg[0].set('left',$scope.tryitonImg[0].get('left')+fImg.get('left'));
 	      	$scope.tryitonImg[1].set('left',$scope.tryitonImg[1].get('left')-fImg.get('left'));
