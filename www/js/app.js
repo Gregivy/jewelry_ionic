@@ -370,6 +370,7 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
 	    });
 	} else {
 		fabric.Image.fromURL("./store/"+$scope.item.tryitonImg, function(oImg) {
+			console.log($scope.item.tryitonImg);
 			$scope.tryitonImg = [];
 			$scope.tryitonImg.push(oImg);
 			oImg.set('lockUniScaling',true);
@@ -380,6 +381,8 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
 			oImg.set('hasControls', false);
 			oImg.set('hasBorders', false);
 			oImg.set('padding', Math.round(window.innerWidth/20));
+			console.log(oImg);
+			canvas.add(oImg);
 			oImg.clone(function(c) {
 				c.set('lockUniScaling',true);
 				c.scaleToWidth(Math.round(window.innerWidth/9));
@@ -391,12 +394,9 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
 				c.set('hasBorders', false);
 				c.set('padding', Math.round(window.innerWidth/20));
 				c.set('flipX', true);
+				canvas.add(c);
 				$scope.tryitonImg.push(c);
-   				canvas.add(c);
 			});
-			canvas.add(oImg);
-			alert($scope.tryitonImg[0]);
-			alert($scope.tryitonImg[1]);
 		});
 	}
   }
@@ -432,7 +432,7 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
 	      } else if ($scope.cat==3) {
 	      	alert(1);
 	      	$scope.tryitonImg[0].scaleToWidth(Math.round(window.innerWidth*0.1));
-	      	//$scope.tryitonImg[1].scaleToWidth(Math.round(window.innerWidth*0.1));
+	      	$scope.tryitonImg[1].scaleToWidth(Math.round(window.innerWidth*0.1));
 	      }
   	  }
       //alert(fImg.get('width')*fImg.getScaleX());
@@ -449,8 +449,8 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
       	alert(2);
       	$scope.tryitonImg[0].set('selectable', true);
       	$scope.tryitonImg[0].set('top', $scope.tryitonImg[0].get('top')+16);
-      	//$scope.tryitonImg[1].set('selectable', true);
-      	//$scope.tryitonImg[1].set('top', $scope.tryitonImg[1].get('top')+16);
+      	$scope.tryitonImg[1].set('selectable', true);
+      	$scope.tryitonImg[1].set('top', $scope.tryitonImg[1].get('top')+16);
       }
       canvas.add(fImg);
       fImg.sendBackwards();
@@ -470,6 +470,7 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
     //cordova.plugins.camerapreview.switchCamera();
   }
   $scope.takePhoto = function () {
+
     CameraPreview.takePicture();
     //cordova.plugins.camerapreview.takePicture();
     $scope.photoTaken = true;
@@ -486,7 +487,7 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
     	$scope.tryitonImg.remove();
     } else {
     	$scope.tryitonImg[0].remove();
-    	//$scope.tryitonImg[1].remove();
+    	$scope.tryitonImg[1].remove();
     }
     createPrevPhoto();
     $scope.photo.remove();
