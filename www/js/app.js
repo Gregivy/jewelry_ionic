@@ -172,6 +172,7 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
   });
   document.addEventListener("deviceready", function () {
 	  if (device.platform=="iOS") {
+	  	alert("ios");
 	  	$scope.specRules = ["top: 20px !important;","bottom: 20px !important;"];
 	  } else {
 	  	$scope.specRules = ["",""];
@@ -424,6 +425,7 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
       fImg.set('selectable', false);
 	  fImg.scaleToWidth(window.innerWidth);
 	  fImg.set('top', -0.5*(fImg.get('height')*fImg.getScaleY()-window.innerHeight));
+	  alert(-0.5*(fImg.get('height')*fImg.getScaleY()-window.innerHeight));
 	  if (device.platform=="Android") {
 	  	  /*if ($scope.cat==0) {
 	      	$scope.tryitonImg.scaleToWidth(Math.round(window.innerWidth*0.14));
