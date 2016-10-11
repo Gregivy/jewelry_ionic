@@ -172,7 +172,7 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
   });
   document.addEventListener("deviceready", function () {
 	  if (device.platform=="iOS") {
-	  	$scope.specRules = ["top: 44px !important;","bottom: 0px !important;"];
+	  	$scope.specRules = ["top: 20px !important;","bottom: 0px !important;"];
 	  } else {
 	  	$scope.specRules = ["",""];
 	  }
