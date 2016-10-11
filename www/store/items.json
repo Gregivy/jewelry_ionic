@@ -1,0 +1,540 @@
+var items = [
+	{
+		"name": "Cannon",
+		"imgs": [
+			"cannon_preview.jpg","cannon01l.jpg","cannon02l.jpg","cannon03l.jpg"
+		],
+		"tryitonImg": "cannon_t.png",
+		"desc": {
+			"ru": "",
+			"en": "Recycled sterling silver with black onyx. All sizes available for pre-order."
+		},
+		"categoryId": 0
+	},
+	{
+		"name": "Cannon Black",
+		"imgs": [
+			"cannon_b_preview.jpg","dsc_8290_1.jpg","dsc_8290.jpg","dsc_8290_2.jpg"
+		],
+		"tryitonImg": "cannonblack_t.png",
+		"desc": {
+			"ru": "",
+			"en": "Ruthenium polished recycled sterling silver with black onyx. All sizes available for pre-order."
+		},
+		"categoryId": 0
+	},
+	{
+		"name": "Verge",
+		"imgs": [
+			"verge_preview.jpg","verge02l.jpg","verge03l.jpg"
+		],
+		"tryitonImg": "verge_t.png",
+		"desc": {
+			"ru": "",
+			"en": "Recycled sterling silver with black onyx. All sizes available for pre-order"
+		},
+		"categoryId": 0
+	},
+	{
+		"name": "Verge Black",
+		"imgs": [
+			"verge_b_preview.jpg","dsc_8295.jpg","dsc_8296-2.jpg"
+		],
+		"tryitonImg": "vergeblack_t.png",
+		"desc": {
+			"ru": "",
+			"en": "Ruthenium polished recycled sterling silver with black onyx. All sizes available for pre-order."
+		},
+		"categoryId": 0
+	},
+	{
+		"name": "Curl",
+		"imgs": [
+			"curl_preview.jpg","laminatio01L.jpg","lamination02L.jpg"
+		],
+		"tryitonImg": "curl_t.png",
+		"desc": {
+			"ru": "",
+			"en": "Recycled sterling silver with silver ruthenium polished elements. All sizes available for pre-order."
+		},
+		"categoryId": 0
+	},
+	{
+		"name": "Curl Black",
+		"imgs": [
+			"curl_b_preview.jpg","dsc_8307-2.jpg","dsc_8307.jpg"
+		],
+		"tryitonImg": "curlblack_t.png",
+		"desc": {
+			"ru": "",
+			"en": "Recycled sterling silver with silver ruthenium polished elements. All sizes available for pre-order."
+		},
+		"categoryId": 0
+	},
+	{
+		"name": "Lamina",
+		"imgs": [
+			"lamina_preview.jpg","dsc_8303.jpg","dsc_8303-2.jpg"
+		],
+		"tryitonImg": "",
+		"desc": {
+			"ru": "",
+			"en": "Recycled sterling silver with silver ruthenium polished elements. All sizes available for pre-order."
+		},
+		"categoryId": 0
+	},
+	{
+		"name": "Lamina Black",
+		"imgs": [
+			"lamina_b_preview.jpg","dsc_8305-2.jpg","dsc_8305.jpg"
+		],
+		"tryitonImg": "",
+		"desc": {
+			"ru": "",
+			"en": "Recycled sterling silver with silver ruthenium polished elements. All sizes available for pre-order."
+		},
+		"categoryId": 0
+	},
+	{
+		"name": "Anchorage",
+		"imgs": [
+			"anchorage_preview.jpg","dsc_8299.jpg","dsc_8299-3.jpg","dsc_8299-2.jpg"
+		],
+		"tryitonImg": "",
+		"desc": {
+			"ru": "",
+			"en": "Recycled sterling silver with silver ruthenium polished elements. All sizes available for pre-order."
+		},
+		"categoryId": 0
+	},
+	{
+		"name": "Anchorage Black",
+		"imgs": [
+			"anchorage_b_preview.jpg","anchorage02d.jpg","anchorage03d.jpg","anchorage04d.jpg"
+		],
+		"tryitonImg": "",
+		"desc": {
+			"ru": "",
+			"en": "Recycled sterling silver with silver ruthenium polished elements. All sizes available for pre-order."
+		},
+		"categoryId": 0
+	},
+	{
+		"name": "Pace",
+		"imgs": [
+			"pace_preview.jpg","pace02l.jpg","pace03l.jpg"
+		],
+		"tryitonImg": "pace_t.png",
+		"desc": {
+			"ru": "",
+			"en": "Recycled sterling silver with black onyx . All sizes available for pre-order."
+		},
+		"categoryId": 0
+	},
+	{
+		"name": "Pace Black",
+		"imgs": [
+			"pace_b_preview.jpg","dsc_8291.jpg","dsc_8292-1.jpg"
+		],
+		"tryitonImg": "paceblack_t.png",
+		"desc": {
+			"ru": "",
+			"en": "Ruthenium polished recycled sterling silver with black onyx. All sizes available for pre-order."
+		},
+		"categoryId": 0
+	},
+	{
+		"name": "Spin",
+		"imgs": [
+			"spin_preview.jpg","spin02l.jpg","spin03l.jpg"
+		],
+		"tryitonImg": "spin_t.png",
+		"desc": {
+			"ru": "",
+			"en": "Recycled sterling silver with black onyx. All sizes available for pre-order."
+		},
+		"categoryId": 0
+	},
+	{
+		"name": "Spin Black",
+		"imgs": [
+			"spin_b_preview.jpg","dsc_8298-2.jpg","dsc_8298.jpg"
+		],
+		"tryitonImg": "spinblack_t.png",
+		"desc": {
+			"ru": "",
+			"en": "Ruthenium polished recycled sterling silver with black onyx. All sizes available for pre-order."
+		},
+		"categoryId": 0
+	},
+	{
+		"name": "Relievo",
+		"imgs": [
+			"relievo_preview.jpg","relievo02l.jpg","relievo03l.jpg","relievo04l.jpg"
+		],
+		"tryitonImg": "relievo_t.png",
+		"desc": {
+			"ru": "",
+			"en": "Recycled sterling silver. All sizes available for pre-order."
+		},
+		"categoryId": 0
+	},
+	{
+		"name": "Relievo Black",
+		"imgs": [
+			"relievo_b_preview.jpg","dsc_8294-2.jpg","dsc_8294-3.jpg", "dsc_8294.jpg"
+		],
+		"tryitonImg": "relievoblack_t.png",
+		"desc": {
+			"ru": "",
+			"en": "Ruthenium polished recycled sterling silver. All sizes available for pre-order."
+		},
+		"categoryId": 0
+	},
+	{
+		"name": "Flexy",
+		"imgs": [
+			"flexy_preview.jpg","dsc_8315-2.jpg","dsc_8315-3.jpg", "dsc_8315-4.jpg"
+		],
+		"tryitonImg": "flexy_t.png",
+		"desc": {
+			"ru": "",
+			"en": "Recycled sterling silver. All sizes available for pre-order."
+		},
+		"categoryId": 0
+	},
+	{
+		"name": "Flexy Black",
+		"imgs": [
+			"flexy_b_preview.jpg","dsc_8315-2-b.jpg","dsc_8315-3-b.jpg", "dsc_8315-4-b.jpg"
+		],
+		"tryitonImg": "flexyblack_t.png",
+		"desc": {
+			"ru": "",
+			"en": "Ruthenium polished recycled sterling silver. All sizes available for pre-order."
+		},
+		"categoryId": 0
+	},
+	{
+		"name": "Embrace",
+		"imgs": [
+			"embrace_preview.jpg","dsc_8613.jpg"
+		],
+		"tryitonImg": "embrace_t.png",
+		"desc": {
+			"ru": "",
+			"en": "Recycled sterling silver with black onyx."
+		},
+		"categoryId": 1
+	},
+	{
+		"name": "Embrace Black",
+		"imgs": [
+			"embrace_b_preview.jpg","dsc_8612.jpg"
+		],
+		"tryitonImg": "embraceblack_t.png",
+		"desc": {
+			"ru": "",
+			"en": "Ruthenium recycled sterling silver with black onyx."
+		},
+		"categoryId": 1
+	},
+	{
+		"name": "Rete",
+		"imgs": [
+			"rete_preview.jpg","dsc_8614.jpg","dsc_8608-2.jpg"
+		],
+		"tryitonImg": "rete_t.png",
+		"desc": {
+			"ru": "",
+			"en": "Recycled sterling silver with silver ruthenium polished elements."
+		},
+		"categoryId": 1
+	},
+	{
+		"name": "Rete Black",
+		"imgs": [
+			"rete_b_preview.jpg","dsc_8615-b.jpg","dsc_8608-2-b.jpg"
+		],
+		"tryitonImg": "reteblack_t.png",
+		"desc": {
+			"ru": "",
+			"en": "Recycled sterling silver with silver ruthenium polished elements."
+		},
+		"categoryId": 1
+	},
+	{
+		"name": "Evenness",
+		"imgs": [
+			"evenness_preview.jpg","dsc_8617.jpg"
+		],
+		"tryitonImg": "evenness_t.png",
+		"desc": {
+			"ru": "",
+			"en": "Recycled sterling silver."
+		},
+		"categoryId": 1
+	},
+	{
+		"name": "Evenness Black",
+		"imgs": [
+			"evenness_b_preview.jpg","dsc_8618.jpg"
+		],
+		"tryitonImg": "evennessblack_t.png",
+		"desc": {
+			"ru": "",
+			"en": "Ruthenium polished recycled sterling silver."
+		},
+		"categoryId": 1
+	},
+	{
+		"name": "Fusion",
+		"imgs": [
+			"fusion_preview.jpg","dsc_8598.jpg"
+		],
+		"tryitonImg": "fusion_t.png",
+		"desc": {
+			"ru": "",
+			"en": "Recycled sterling silver with silver ruthenium polished elements. All sizes available for pre-order."
+		},
+		"categoryId": 2
+	},
+	{
+		"name": "Fusion Black",
+		"imgs": [
+			"fusion_b_preview.jpg","dsc_8597.jpg"
+		],
+		"tryitonImg": "fusionblack_t.png",
+		"desc": {
+			"ru": "",
+			"en": "Recycled sterling silver with silver ruthenium polished elements. All sizes available for pre-order."
+		},
+		"categoryId": 2
+	},
+	{
+		"name": "Loop",
+		"imgs": [
+			"loop_preview.jpg","dsc_8603.jpg"
+		],
+		"tryitonImg": "loop_t.png",
+		"desc": {
+			"ru": "",
+			"en": "Recycled sterling silver with silver ruthenium polished elements and black onyx. All sizes available for pre-order."
+		},
+		"categoryId": 2
+	},
+	{
+		"name": "Loop Black",
+		"imgs": [
+			"loop_b_preview.jpg","dsc_8601.jpg"
+		],
+		"tryitonImg": "loopblack_t.png",
+		"desc": {
+			"ru": "",
+			"en": "Recycled sterling silver with silver ruthenium polished elements and black onyx. All sizes available for pre-order."
+		},
+		"categoryId": 2
+	},
+	{
+		"name": "Hoop",
+		"imgs": [
+			"hoop_preview.jpg","dsc_8594-2.jpg"
+		],
+		"tryitonImg": "hoop_t.png",
+		"desc": {
+			"ru": "",
+			"en": "Recycled sterling silver. All sizes available for pre-order."
+		},
+		"categoryId": 2
+	},
+	{
+		"name": "Hoop Black",
+		"imgs": [
+			"hoop_b_preview.jpg","dsc_8594-2-b.jpg"
+		],
+		"tryitonImg": "hoopblack_t.png",
+		"desc": {
+			"ru": "",
+			"en": "Ruthenium polished recycled sterling silver. All sizes available for pre-order."
+		},
+		"categoryId": 2
+	},
+	{
+		"name": "Delta",
+		"imgs": [
+			"delta_preview.jpg","dsc_8319.jpg","dsc_8318.jpg"
+		],
+		"tryitonImg": "",
+		"desc": {
+			"ru": "",
+			"en": "Recycled sterling silver with silver ruthenium polished elements."
+		},
+		"categoryId": 3
+	},
+	{
+		"name": "Delta Black",
+		"imgs": [
+			"delta_b_preview.jpg","dsc_8320.jpg"
+		],
+		"tryitonImg": "",
+		"desc": {
+			"ru": "",
+			"en": "Recycled sterling silver with silver ruthenium polished elements."
+		},
+		"categoryId": 3
+	},
+	{
+		"name": "Plates",
+		"imgs": [
+			"plates_preview.jpg"
+		],
+		"tryitonImg": "",
+		"desc": {
+			"ru": "",
+			"en": "Recycled sterling silver with silver ruthenium polished elements."
+		},
+		"categoryId": 3
+	},
+	{
+		"name": "Plates Black",
+		"imgs": [
+			"plates_b_preview.jpg"
+		],
+		"tryitonImg": "platesblack_t.png",
+		"desc": {
+			"ru": "",
+			"en": "Recycled sterling silver with silver ruthenium polished elements."
+		},
+		"categoryId": 3
+	},
+	{
+		"name": "Passage",
+		"imgs": [
+			"passage_preview.jpg"
+		],
+		"tryitonImg": "passage_t.png",
+		"desc": {
+			"ru": "",
+			"en": "Recycled sterling silver."
+		},
+		"categoryId": 3
+	},
+	{
+		"name": "Passage Black",
+		"imgs": [
+			"passage_b_preview.jpg"
+		],
+		"tryitonImg": "passageblack_t.png",
+		"desc": {
+			"ru": "",
+			"en": "Ruthenium polished recycled sterling silver."
+		},
+		"categoryId": 3
+	},
+	{
+		"name": "Ferrule",
+		"imgs": [
+			"ferrule_preview.jpg"
+		],
+		"tryitonImg": "ferrule_t.png",
+		"desc": {
+			"ru": "",
+			"en": "Recycled sterling silver."
+		},
+		"categoryId": 3
+	},
+	{
+		"name": "Ferrule Black",
+		"imgs": [
+			"ferrule_b_preview.jpg"
+		],
+		"tryitonImg": "ferruleblack_t.jpg",
+		"desc": {
+			"ru": "",
+			"en": "Ruthenium polished recycled sterling silver."
+		},
+		"categoryId": 3
+	},
+	{
+		"name": "Terret",
+		"imgs": [
+			"terret_preview.jpg", "dsc_8594-2.jpg"
+		],
+		"tryitonImg": "",
+		"desc": {
+			"ru": "",
+			"en": "Recycled sterling silver."
+		},
+		"categoryId": 3
+	},
+	{
+		"name": "Terret Black",
+		"imgs": [
+			"terret_b_preview.jpg", "dsc_8594-2-b.jpg"
+		],
+		"tryitonImg": "",
+		"desc": {
+			"ru": "",
+			"en": "Ruthenium polished recycled sterling silver."
+		},
+		"categoryId": 3
+	},
+	{
+		"name": "Twig",
+		"imgs": [
+			"twig_preview.jpg"
+		],
+		"tryitonImg": "twig_t.png",
+		"desc": {
+			"ru": "",
+			"en": "Recycled sterling silver with silver ruthenium polished elements."
+		},
+		"categoryId": 4
+	},
+	{
+		"name": "Twig Black",
+		"imgs": [
+			"twig_b_preview.jpg"
+		],
+		"tryitonImg": "twigblack_t.png",
+		"desc": {
+			"ru": "",
+			"en": "Recycled sterling silver with silver ruthenium polished elements."
+		},
+		"categoryId": 4
+	}
+	
+];
+
+var categories = [
+	{
+		"ru": "Кольца",
+		"en": "Rings",
+		"imgs": ["r_0.png","r_1.png","r_2.png","r_3.png","r_4.png","r_5.png","r_6.png","r_7.png","r_8.png","r_9.png"],
+		"priority_front": false
+	},
+	{
+		"ru": "Подвески",
+		"en": "Necklaces",
+		"imgs": ["n_0.png","n_1.png","n_2.png","n_3.png","n_4.png","n_5.png","n_6.png","n_7.png","n_8.png"],
+		"priority_front": true
+	},
+	{
+		"ru": "Браслеты",
+		"en": "Bracelets",
+		"imgs": ["b_0.png","b_1.png","b_2.png","b_3.png","b_4.png","b_5.png","b_6.png","b_7.png","b_8.png"],
+		"priority_front": false
+	},
+	{
+		"ru": "Серьги",
+		"en": "Earrings",
+		"imgs": ["e_0.png","e_1.png","e_2.png","e_3.png","e_4.png","e_5.png","e_6.png"],
+		"priority_front": true
+	},
+	{
+		"ru": "Броши",
+		"en": "Brooches",
+		"imgs": ["br_0.png","br_1.png","br_2.png","br_3.png","br_4.png","br_5.png","br_6.png","br_7.png","br_8.png"],
+		"priority_front": true
+	},
+];
