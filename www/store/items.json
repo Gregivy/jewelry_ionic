@@ -2,7 +2,7 @@ var items = [
 	{
 		"name": "Cannon",
 		"imgs": [
-			"Cannon_PREVIEW.jpg","Cannon01L.jpg","Cannon02L.jpg","Cannon03L.jpg"
+			"cannon_preview.jpg","cannon01l.jpg","cannon02l.jpg","cannon03l.jpg"
 		],
 		"tryitonImg": "cannon_t.png",
 		"desc": {
@@ -14,7 +14,7 @@ var items = [
 	{
 		"name": "Cannon Black",
 		"imgs": [
-			"Cannon_b_PREVIEW.jpg","DSC_8290_1.jpg","DSC_8290.jpg","DSC_8290_2.jpg"
+			"cannon_b_preview.jpg","dsc_8290_1.jpg","dsc_8290.jpg","dsc_8290_2.jpg"
 		],
 		"tryitonImg": "cannonblack_t.png",
 		"desc": {
@@ -26,7 +26,7 @@ var items = [
 	{
 		"name": "Verge",
 		"imgs": [
-			"Verge_PREVIEW.jpg","Verge02L.jpg","Verge03L.jpg"
+			"verge_preview.jpg","verge02l.jpg","verge03l.jpg"
 		],
 		"tryitonImg": "verge_t.png",
 		"desc": {
@@ -38,7 +38,7 @@ var items = [
 	{
 		"name": "Verge Black",
 		"imgs": [
-			"Verge_b_PREVIEW.jpg","DSC_8295.jpg","DSC_8296-2.jpg"
+			"verge_b_preview.jpg","dsc_8295.jpg","dsc_8296-2.jpg"
 		],
 		"tryitonImg": "vergeblack_t.png",
 		"desc": {
@@ -50,7 +50,7 @@ var items = [
 	{
 		"name": "Curl",
 		"imgs": [
-			"Curl_PREVIEW.jpg","Laminatio01L.jpg","Lamination02L.jpg"
+			"curl_preview.jpg","laminatio01L.jpg","lamination02L.jpg"
 		],
 		"tryitonImg": "curl_t.png",
 		"desc": {
@@ -62,7 +62,7 @@ var items = [
 	{
 		"name": "Curl Black",
 		"imgs": [
-			"Curl_b_PREVIEW.jpg","DSC_8307-2.jpg","DSC_8307.jpg"
+			"curl_b_preview.jpg","dsc_8307-2.jpg","dsc_8307.jpg"
 		],
 		"tryitonImg": "curlblack_t.png",
 		"desc": {
@@ -74,7 +74,7 @@ var items = [
 	{
 		"name": "Lamina",
 		"imgs": [
-			"Lamina_PREVIEW.jpg","DSC_8303.jpg","DSC_8303-2.jpg"
+			"lamina_preview.jpg","dsc_8303.jpg","dsc_8303-2.jpg"
 		],
 		"tryitonImg": "",
 		"desc": {
@@ -86,7 +86,7 @@ var items = [
 	{
 		"name": "Lamina Black",
 		"imgs": [
-			"Lamina_b_PREVIEW.jpg","DSC_8305-2.jpg","DSC_8305.jpg"
+			"lamina_b_preview.jpg","dsc_8305-2.jpg","dsc_8305.jpg"
 		],
 		"tryitonImg": "",
 		"desc": {
@@ -98,7 +98,7 @@ var items = [
 	{
 		"name": "Anchorage",
 		"imgs": [
-			"Anchorage_PREVIEW.jpg","DSC_8299.jpg","DSC_8299-3.jpg","DSC_8299-2.jpg"
+			"anchorage_preview.jpg","dsc_8299.jpg","dsc_8299-3.jpg","dsc_8299-2.jpg"
 		],
 		"tryitonImg": "",
 		"desc": {
@@ -110,7 +110,7 @@ var items = [
 	{
 		"name": "Anchorage Black",
 		"imgs": [
-			"Anchorage_b_PREVIEW.jpg","Anchorage02D.jpg","Anchorage03D.jpg","Anchorage04D.jpg"
+			"anchorage_b_preview.jpg","anchorage02d.jpg","anchorage03d.jpg","anchorage04d.jpg"
 		],
 		"tryitonImg": "",
 		"desc": {
@@ -122,7 +122,7 @@ var items = [
 	{
 		"name": "Pace",
 		"imgs": [
-			"Pace_PREVIEW.jpg","Pace02L.jpg","Pace03L.jpg"
+			"pace_preview.jpg","pace02l.jpg","pace03l.jpg"
 		],
 		"tryitonImg": "pace_t.png",
 		"desc": {
@@ -134,7 +134,7 @@ var items = [
 	{
 		"name": "Pace Black",
 		"imgs": [
-			"Pace_b_PREVIEW.jpg","DSC_8291.jpg","DSC_8292-1.jpg"
+			"pace_b_preview.jpg","dsc_8291.jpg","dsc_8292-1.jpg"
 		],
 		"tryitonImg": "paceblack_t.png",
 		"desc": {
@@ -146,7 +146,7 @@ var items = [
 	{
 		"name": "Spin",
 		"imgs": [
-			"Spin_PREVIEW.jpg","Spin02L.jpg","Spin03L.jpg"
+			"spin_preview.jpg","spin02l.jpg","spin03l.jpg"
 		],
 		"tryitonImg": "spin_t.png",
 		"desc": {
@@ -158,7 +158,7 @@ var items = [
 	{
 		"name": "Spin Black",
 		"imgs": [
-			"Spin_b_PREVIEW.jpg","DSC_8298-2.jpg","DSC_8298.jpg"
+			"spin_b_preview.jpg","dsc_8298-2.jpg","dsc_8298.jpg"
 		],
 		"tryitonImg": "spinblack_t.png",
 		"desc": {
@@ -170,7 +170,7 @@ var items = [
 	{
 		"name": "Relievo",
 		"imgs": [
-			"Relievo_PREVIEW.jpg","Relievo02L.jpg","Relievo03L.jpg","Relievo04L.jpg"
+			"relievo_preview.jpg","relievo02l.jpg","relievo03l.jpg","relievo04l.jpg"
 		],
 		"tryitonImg": "relievo_t.png",
 		"desc": {
@@ -182,7 +182,7 @@ var items = [
 	{
 		"name": "Relievo Black",
 		"imgs": [
-			"Relievo_b_PREVIEW.jpg","DSC_8294-2.jpg","DSC_8294-3.jpg", "DSC_8294.jpg"
+			"relievo_b_preview.jpg","dsc_8294-2.jpg","dsc_8294-3.jpg", "dsc_8294.jpg"
 		],
 		"tryitonImg": "relievoblack_t.png",
 		"desc": {
@@ -194,7 +194,7 @@ var items = [
 	{
 		"name": "Flexy",
 		"imgs": [
-			"Flexy_PREVIEW.jpg","DSC_8315-2.jpg","DSC_8315-3.jpg", "DSC_8315-4.jpg"
+			"flexy_preview.jpg","dsc_8315-2.jpg","dsc_8315-3.jpg", "dsc_8315-4.jpg"
 		],
 		"tryitonImg": "flexy_t.png",
 		"desc": {
@@ -206,7 +206,7 @@ var items = [
 	{
 		"name": "Flexy Black",
 		"imgs": [
-			"Flexy_b_PREVIEW.jpg","DSC_8315-2-b.jpg","DSC_8315-3-b.jpg", "DSC_8315-4-b.jpg"
+			"flexy_b_preview.jpg","dsc_8315-2-b.jpg","dsc_8315-3-b.jpg", "dsc_8315-4-b.jpg"
 		],
 		"tryitonImg": "flexyblack_t.png",
 		"desc": {
@@ -218,7 +218,7 @@ var items = [
 	{
 		"name": "Embrace",
 		"imgs": [
-			"Embrace_PREVIEW.jpg","DSC_8613.jpg"
+			"embrace_preview.jpg","dsc_8613.jpg"
 		],
 		"tryitonImg": "embrace_t.png",
 		"desc": {
@@ -230,7 +230,7 @@ var items = [
 	{
 		"name": "Embrace Black",
 		"imgs": [
-			"Embrace_b_PREVIEW.jpg","DSC_8612.jpg"
+			"embrace_b_preview.jpg","dsc_8612.jpg"
 		],
 		"tryitonImg": "embraceblack_t.png",
 		"desc": {
@@ -242,7 +242,7 @@ var items = [
 	{
 		"name": "Rete",
 		"imgs": [
-			"Rete_PREVIEW.jpg","DSC_8614.jpg","DSC_8608-2.jpg"
+			"rete_preview.jpg","dsc_8614.jpg","dsc_8608-2.jpg"
 		],
 		"tryitonImg": "rete_t.png",
 		"desc": {
@@ -254,7 +254,7 @@ var items = [
 	{
 		"name": "Rete Black",
 		"imgs": [
-			"Rete_b_PREVIEW.jpg","DSC_8615-b.jpg","DSC_8608-2-b.jpg"
+			"rete_b_preview.jpg","dsc_8615-b.jpg","dsc_8608-2-b.jpg"
 		],
 		"tryitonImg": "reteblack_t.png",
 		"desc": {
@@ -266,7 +266,7 @@ var items = [
 	{
 		"name": "Evenness",
 		"imgs": [
-			"Evenness_PREVIEW.jpg","DSC_8617.jpg"
+			"evenness_preview.jpg","dsc_8617.jpg"
 		],
 		"tryitonImg": "evenness_t.png",
 		"desc": {
@@ -278,7 +278,7 @@ var items = [
 	{
 		"name": "Evenness Black",
 		"imgs": [
-			"Evenness_b_PREVIEW.jpg","DSC_8618.jpg"
+			"evenness_b_preview.jpg","dsc_8618.jpg"
 		],
 		"tryitonImg": "evennessblack_t.png",
 		"desc": {
@@ -290,7 +290,7 @@ var items = [
 	{
 		"name": "Fusion",
 		"imgs": [
-			"Fusion_PREVIEW.jpg","DSC_8598.jpg"
+			"fusion_preview.jpg","dsc_8598.jpg"
 		],
 		"tryitonImg": "fusion_t.png",
 		"desc": {
@@ -302,7 +302,7 @@ var items = [
 	{
 		"name": "Fusion Black",
 		"imgs": [
-			"Fusion_b_PREVIEW.jpg","DSC_8597.jpg"
+			"fusion_b_preview.jpg","dsc_8597.jpg"
 		],
 		"tryitonImg": "fusionblack_t.png",
 		"desc": {
@@ -314,7 +314,7 @@ var items = [
 	{
 		"name": "Loop",
 		"imgs": [
-			"Loop_PREVIEW.jpg","DSC_8603.jpg"
+			"loop_preview.jpg","dsc_8603.jpg"
 		],
 		"tryitonImg": "loop_t.png",
 		"desc": {
@@ -326,7 +326,7 @@ var items = [
 	{
 		"name": "Loop Black",
 		"imgs": [
-			"Loop_b_PREVIEW.jpg","DSC_8601.jpg"
+			"loop_b_preview.jpg","dsc_8601.jpg"
 		],
 		"tryitonImg": "loopblack_t.png",
 		"desc": {
@@ -338,7 +338,7 @@ var items = [
 	{
 		"name": "Hoop",
 		"imgs": [
-			"Hoop_PREVIEW.jpg","DSC_8594-2.jpg"
+			"hoop_preview.jpg","dsc_8594-2.jpg"
 		],
 		"tryitonImg": "hoop_t.png",
 		"desc": {
@@ -350,7 +350,7 @@ var items = [
 	{
 		"name": "Hoop Black",
 		"imgs": [
-			"Hoop_b_PREVIEW.jpg","DSC_8594-2-b.jpg"
+			"hoop_b_preview.jpg","dsc_8594-2-b.jpg"
 		],
 		"tryitonImg": "hoopblack_t.png",
 		"desc": {
@@ -362,7 +362,7 @@ var items = [
 	{
 		"name": "Delta",
 		"imgs": [
-			"Delta_PREVIEW.jpg","DSC_8319.jpg","DSC_8318.jpg"
+			"delta_preview.jpg","dsc_8319.jpg","dsc_8318.jpg"
 		],
 		"tryitonImg": "",
 		"desc": {
@@ -374,7 +374,7 @@ var items = [
 	{
 		"name": "Delta Black",
 		"imgs": [
-			"Delta_b_PREVIEW.jpg","DSC_8320.jpg"
+			"delta_b_preview.jpg","dsc_8320.jpg"
 		],
 		"tryitonImg": "",
 		"desc": {
@@ -386,7 +386,7 @@ var items = [
 	{
 		"name": "Plates",
 		"imgs": [
-			"Plates_PREVIEW.jpg"
+			"plates_preview.jpg"
 		],
 		"tryitonImg": "",
 		"desc": {
@@ -398,7 +398,7 @@ var items = [
 	{
 		"name": "Plates Black",
 		"imgs": [
-			"Plates_b_PREVIEW.jpg"
+			"plates_b_preview.jpg"
 		],
 		"tryitonImg": "platesblack_t.png",
 		"desc": {
@@ -410,7 +410,7 @@ var items = [
 	{
 		"name": "Passage",
 		"imgs": [
-			"Passage_PREVIEW.jpg"
+			"passage_preview.jpg"
 		],
 		"tryitonImg": "passage_t.png",
 		"desc": {
@@ -422,7 +422,7 @@ var items = [
 	{
 		"name": "Passage Black",
 		"imgs": [
-			"Passage_b_PREVIEW.jpg"
+			"passage_b_preview.jpg"
 		],
 		"tryitonImg": "passageblack_t.png",
 		"desc": {
@@ -434,7 +434,7 @@ var items = [
 	{
 		"name": "Ferrule",
 		"imgs": [
-			"Ferrule_PREVIEW.jpg"
+			"ferrule_preview.jpg"
 		],
 		"tryitonImg": "ferrule_t.png",
 		"desc": {
@@ -446,9 +446,9 @@ var items = [
 	{
 		"name": "Ferrule Black",
 		"imgs": [
-			"ferruleblack_t.jpg"
+			"ferrule_b_preview.jpg"
 		],
-		"tryitonImg": "",
+		"tryitonImg": "ferruleblack_t.jpg",
 		"desc": {
 			"ru": "",
 			"en": "Ruthenium polished recycled sterling silver."
@@ -458,7 +458,7 @@ var items = [
 	{
 		"name": "Terret",
 		"imgs": [
-			"Terret_PREVIEW.jpg", "DSC_8594-2.jpg"
+			"terret_preview.jpg", "dsc_8594-2.jpg"
 		],
 		"tryitonImg": "",
 		"desc": {
@@ -470,7 +470,7 @@ var items = [
 	{
 		"name": "Terret Black",
 		"imgs": [
-			"Terret_b_PREVIEW.jpg", "DSC_8594-2-b.jpg"
+			"terret_b_preview.jpg", "dsc_8594-2-b.jpg"
 		],
 		"tryitonImg": "",
 		"desc": {
@@ -482,7 +482,7 @@ var items = [
 	{
 		"name": "Twig",
 		"imgs": [
-			"Twig_PREVIEW.jpg"
+			"twig_preview.jpg"
 		],
 		"tryitonImg": "twig_t.png",
 		"desc": {
@@ -494,7 +494,7 @@ var items = [
 	{
 		"name": "Twig Black",
 		"imgs": [
-			"Twig_b_PREVIEW.jpg"
+			"twig_b_preview.jpg"
 		],
 		"tryitonImg": "twigblack_t.png",
 		"desc": {
