@@ -2,7 +2,7 @@ var items = [
 	{
 		"name": "Cannon",
 		"imgs": [
-			"cannon_preview.jpg","cannon01l.jpg","cannon02l.jpg","cannon03l.jpg"
+			"cannon_preview.jpg","cannon02l.jpg","cannon03l.jpg"
 		],
 		"tryitonImg": "cannon_t.png",
 		"desc": {
@@ -50,7 +50,7 @@ var items = [
 	{
 		"name": "Curl",
 		"imgs": [
-			"curl_preview.jpg","laminatio01L.jpg","lamination02L.jpg"
+			"curl_preview.jpg","laminatio01l.jpg","lamination02l.jpg"
 		],
 		"tryitonImg": "curl_t.png",
 		"desc": {

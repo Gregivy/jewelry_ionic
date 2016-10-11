@@ -489,7 +489,7 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
   }
   $scope.takePhoto = function () {
 
-    CameraPreview.takePicture();
+    CameraPreview.takePicture({maxWidth:window.innerWidth, maxHeight:window.innerHeight-44});
     //cordova.plugins.camerapreview.takePicture();
     $scope.photoTaken = true;
     $ionicLoading.show({
