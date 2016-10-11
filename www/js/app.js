@@ -361,6 +361,18 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
 		      oImg.set('top',(window.innerHeight-100-oImg.height*oImg.getScaleX()));
 		      //oImg.center();
 		      //oImg.setCoords();
+	  	  } else if ($scope.cat==2) {
+	  	  	  oImg.scaleToWidth(Math.round(window.innerWidth/2));
+		      oImg.set('left',(window.innerWidth-oImg.width*oImg.getScaleX())/2);
+		      oImg.set('top',(window.innerHeight-44-oImg.height*oImg.getScaleX())/2);
+		      //oImg.center();
+		      //oImg.setCoords();
+	  	  } else if ($scope.cat==4) {
+	  	  	  oImg.scaleToWidth(Math.round(window.innerWidth/3));
+		      oImg.set('left',(window.innerWidth+100-oImg.width*oImg.getScaleX())/4);
+		      oImg.set('top',(window.innerHeight-44-oImg.height*oImg.getScaleX())/2);
+		      //oImg.center();
+		      //oImg.setCoords();
 	  	  }
 	      oImg.set('selectable', false);
 		  oImg.set('hasControls', false);
@@ -424,13 +436,17 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
       });
       fImg.set('selectable', false);
 	  fImg.scaleToHeight(window.innerHeight-44);
-	  fImg.set('left', -0.5*(fImg.get('width')*fImg.getScaleY()-window.innerWidth));
+	  fImg.set('left', -0.5*(fImg.get('width')*fImg.getScaleX()-window.innerWidth));
 	  //alert(-0.5*(fImg.get('height')*fImg.getScaleY()-window.innerHeight));
 	  if (device.platform=="Android") {
 	  	  if ($scope.cat==0) {
 	      	$scope.tryitonImg.scale($scope.tryitonImg.getScaleX()*0.8);
 	      } else if ($scope.cat==1) {
 	      	$scope.tryitonImg.scale($scope.tryitonImg.getScaleX()*0.9);
+	      } else if ($scope.cat==2) {
+	      	$scope.tryitonImg.scale($scope.tryitonImg.getScaleX()*0.8);
+	      } else if ($scope.cat==4) {
+	      	$scope.tryitonImg.scale($scope.tryitonImg.getScaleX()*0.8);
 	      } else if ($scope.cat==3) {
 	      	$scope.tryitonImg[0].set('left',$scope.tryitonImg[0].get('left')+fImg.get('left'));
 	      	$scope.tryitonImg[1].set('left',$scope.tryitonImg[1].get('left')-fImg.get('left'));
