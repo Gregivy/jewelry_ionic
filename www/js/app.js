@@ -206,6 +206,7 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
 
   $scope.lang = navigator.language.indexOf('ru')>-1?'ru':'en';
   $scope.localization = localization;
+  $scope.shownCats = [];
   //$scope.lang = gLang;
   $scope.items = items;
   $scope.preorderLink = preorderLink;
@@ -229,11 +230,10 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
   $scope.canBeScrolled = false;
   $scope.$on('$ionicView.loaded', function () {
   	$scope.canBeScrolled = true;
-  	$timeout($scope.showCats);
+  	$timeout($scope.showCats,2000);
   	//$ionicScrollDelegate.$getByHandle('handler').freezeScroll(false);
   } );
   $scope.categories = categories;
-  $scope.shownCats = [];
   $scope.showCats = function () {
   	if ($scope.canBeScrolled) {
 	    var top = $ionicScrollDelegate.$getByHandle('handler').getScrollPosition().top;
@@ -246,9 +246,9 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
 	        //alert(screen.height);
 	        break;
 	      } else if (sum>=top) {
-	        if (_.indexOf($scope.showCats,i)==-1) {
+	        if (_.indexOf($scope.shownCats,i)==-1) {
 	          $scope.shownCats.push(i);
-	          $scope.animateElementIn([cats[i]]);
+	          $scope.animateElementIn([cats[i]],i);
 	        }
 	      }
 	    }
@@ -259,24 +259,34 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
   };
   //$timeout($scope.showCats);
   $scope.animated = false;
-  $scope.animateElementIn = function ($el) {
+  $scope.animateElementIn = function ($el,n) {
     //console.log(($el).querySelectorAll("img"));
     //for (var i=0; i<$el[0].getElementsByTagName("img").length; i++) {
       var anim = function (i) {
         $scope.animated = true;
+        console.log($scope.categories[n].imgs);
         $el[0].getElementsByTagName("img")[i].classList.remove('not-visible');
         $el[0].getElementsByTagName("img")[i].classList.add('animated');
         $el[0].getElementsByTagName("img")[i].classList.add('fadeIn');
         if ((i+1)<$el[0].getElementsByTagName("img").length) {setTimeout(function(){anim(i+1);},120+10*i);} else {
           $scope.animated = false;
+          console.log(n);
+          $scope.$apply(function() {
+          	
+          	$timeout(function() {
+          		$el[0].getElementsByTagName("img")[0].classList.remove('not-visible');
+          		$scope.categories[n].imgs = [];
+          	},100);
+          });
+          console.log($scope.categories[n].imgs);
         }
       }
-      anim(0);
+      anim(1);
     //}
     //$el.addClass('animated fadeInUp');
   };
   $scope.repeatAnimation = function () {
-    if (!$scope.animated) {
+    /*if (!$scope.animated) {
       var imgs = document.querySelectorAll(".category img");
       for (var i=0;i<imgs.length;i++) {
         imgs[i].classList.add('not-visible');
@@ -285,7 +295,7 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
       }
       $scope.shownCats = [];
       $scope.showCats();
-    }
+    }*/
   }
   $scope.showCategory = function (n) {
     $state.go("category", {n:n});
@@ -368,9 +378,9 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
 		      //oImg.center();
 		      //oImg.setCoords();
 	  	  } else if ($scope.cat==4) {
-	  	  	  oImg.scaleToWidth(Math.round(window.innerWidth/3));
-		      oImg.set('left',(window.innerWidth+100-oImg.width*oImg.getScaleX())/4);
-		      oImg.set('top',(window.innerHeight-44-oImg.height*oImg.getScaleX())/2);
+	  	  	  oImg.scaleToHeight(Math.round((window.innerHeight-44)/2.5));
+		      oImg.set('left',(window.innerWidth-oImg.width*oImg.getScaleX())/2);
+		      oImg.set('top',(window.innerHeight-44-oImg.height*oImg.getScaleY())/2);
 		      //oImg.center();
 		      //oImg.setCoords();
 	  	  }

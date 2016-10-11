@@ -86,6 +86,10 @@ a {
 	bottom: 0px !important;
 }
 
+.nodisplay {
+	display: none;
+}
+
     .my-swiper-container {
         width: 100%;
         padding-top: 10px;

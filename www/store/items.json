@@ -76,7 +76,7 @@ var items = [
 		"imgs": [
 			"lamina_preview.jpg","dsc_8303.jpg","dsc_8303-2.jpg"
 		],
-		"tryitonImg": "",
+		"tryitonImg": "lamina_t.png",
 		"desc": {
 			"ru": "",
 			"en": "Recycled sterling silver with silver ruthenium polished elements. All sizes available for pre-order."
@@ -88,7 +88,7 @@ var items = [
 		"imgs": [
 			"lamina_b_preview.jpg","dsc_8305-2.jpg","dsc_8305.jpg"
 		],
-		"tryitonImg": "",
+		"tryitonImg": "laminablack_t.png",
 		"desc": {
 			"ru": "",
 			"en": "Recycled sterling silver with silver ruthenium polished elements. All sizes available for pre-order."
@@ -100,7 +100,7 @@ var items = [
 		"imgs": [
 			"anchorage_preview.jpg","dsc_8299.jpg","dsc_8299-3.jpg","dsc_8299-2.jpg"
 		],
-		"tryitonImg": "",
+		"tryitonImg": "anchorage_t.png",
 		"desc": {
 			"ru": "",
 			"en": "Recycled sterling silver with silver ruthenium polished elements. All sizes available for pre-order."
@@ -112,7 +112,7 @@ var items = [
 		"imgs": [
 			"anchorage_b_preview.jpg","anchorage02d.jpg","anchorage03d.jpg","anchorage04d.jpg"
 		],
-		"tryitonImg": "",
+		"tryitonImg": "anchorageblack_t.png",
 		"desc": {
 			"ru": "",
 			"en": "Recycled sterling silver with silver ruthenium polished elements. All sizes available for pre-order."
@@ -364,7 +364,7 @@ var items = [
 		"imgs": [
 			"delta_preview.jpg","dsc_8319.jpg","dsc_8318.jpg"
 		],
-		"tryitonImg": "",
+		"tryitonImg": "delta_t.png",
 		"desc": {
 			"ru": "",
 			"en": "Recycled sterling silver with silver ruthenium polished elements."
@@ -376,7 +376,7 @@ var items = [
 		"imgs": [
 			"delta_b_preview.jpg","dsc_8320.jpg"
 		],
-		"tryitonImg": "",
+		"tryitonImg": "deltablack_t.png",
 		"desc": {
 			"ru": "",
 			"en": "Recycled sterling silver with silver ruthenium polished elements."
@@ -388,7 +388,7 @@ var items = [
 		"imgs": [
 			"plates_preview.jpg"
 		],
-		"tryitonImg": "",
+		"tryitonImg": "plates_t.png",
 		"desc": {
 			"ru": "",
 			"en": "Recycled sterling silver with silver ruthenium polished elements."
@@ -511,30 +511,35 @@ var categories = [
 		"ru": "Кольца",
 		"en": "Rings",
 		"imgs": ["r_0.png","r_1.png","r_2.png","r_3.png","r_4.png","r_5.png","r_6.png","r_7.png","r_8.png","r_9.png"],
+		"statImg": "r.png",
 		"priority_front": false
 	},
 	{
 		"ru": "Подвески",
 		"en": "Necklaces",
 		"imgs": ["n_0.png","n_1.png","n_2.png","n_3.png","n_4.png","n_5.png","n_6.png","n_7.png","n_8.png"],
+		"statImg": "n.png",
 		"priority_front": true
 	},
 	{
 		"ru": "Браслеты",
 		"en": "Bracelets",
 		"imgs": ["b_0.png","b_1.png","b_2.png","b_3.png","b_4.png","b_5.png","b_6.png","b_7.png","b_8.png"],
+		"statImg": "b.png",
 		"priority_front": false
 	},
 	{
 		"ru": "Серьги",
 		"en": "Earrings",
 		"imgs": ["e_0.png","e_1.png","e_2.png","e_3.png","e_4.png","e_5.png","e_6.png"],
+		"statImg": "e.png",
 		"priority_front": true
 	},
 	{
 		"ru": "Броши",
 		"en": "Brooches",
 		"imgs": ["br_0.png","br_1.png","br_2.png","br_3.png","br_4.png","br_5.png","br_6.png","br_7.png","br_8.png"],
+		"statImg": "br.png",
 		"priority_front": true
 	},
 ];
