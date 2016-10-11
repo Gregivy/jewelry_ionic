@@ -114,7 +114,7 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
     var myStyle = document.styleSheets[0];
-    myStyle.insertRule(".swiper-slide { width: "+0.6*window.innerWidth+"px !important; height: "+0.8*window.innerWidth+"px !important}", 1);
+    myStyle.insertRule(".swiper-slide { width: "+0.6*window.innerWidth+"px !important; height: "+0.75*window.innerWidth+"px !important}", 1);
     if(window.cordova && window.cordova.plugins.Keyboard) {
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
       // for form inputs)

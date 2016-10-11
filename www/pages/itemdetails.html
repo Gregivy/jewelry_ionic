@@ -3,7 +3,9 @@
 		<!-- Swiper -->
 	    <div class="my-swiper-container">
 	        <div class="swiper-wrapper">
-	            <div class="swiper-slide" style="background-image:url(./store/{{img}})" ng-repeat="img in item.imgs"></div>
+	            <div class="swiper-slide" ng-repeat="img in item.imgs">
+	            	<img src="./store/{{img}}">
+	            </div>
 	        </div>
 	    </div>
 	    <button class="button button-dark button-outline centered button-small bottom-margin" ng-click="showPreview()">
@@ -13,7 +15,7 @@
   			Pre-order
 		</button>
 		<div class="desc">
-			{{item.desc[lang]}}
+			{{item.desc["en"]}}
 		</div>
 	</ion-content>
 </ion-view>
