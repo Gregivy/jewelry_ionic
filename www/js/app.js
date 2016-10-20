@@ -356,6 +356,10 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
   var createPrevPhoto = function () {
   	if ($scope.cat!=3) {
 	    fabric.Image.fromURL("./store/"+$scope.item.tryitonImg, function(oImg) {
+	      var scaling = canvas.getHeight() / oImg.height;
+	      oImg.filters.push(new fabric.Image.filters.Resize({
+        	resizeType: 'sliceHack', scaleX: scaling , scaleY: scaling 
+    	  }));
 	      oImg.set('lockUniScaling',true);
 	      if ($scope.cat==0) {
 		      oImg.scaleToWidth(Math.round(window.innerWidth/6));
@@ -389,9 +393,14 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
 		  oImg.set('padding', 10000);
 		  canvas.add(oImg);
 	      $scope.tryitonImg = oImg;
+	      oImg.applyFilters(canvas.renderAll.bind(canvas));
 	    });
 	} else {
 		fabric.Image.fromURL("./store/"+$scope.item.tryitonImg, function(oImg) {
+			var scaling = canvas.getHeight() / oImg.height;
+	      	oImg.filters.push(new fabric.Image.filters.Resize({
+        		resizeType: 'sliceHack', scaleX: scaling , scaleY: scaling 
+    	  	}));
 			console.log($scope.item.tryitonImg);
 			$scope.tryitonImg = [];
 			$scope.tryitonImg.push(oImg);
@@ -405,7 +414,11 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
 			oImg.set('padding', Math.round(window.innerWidth/5));
 			console.log(oImg);
 			canvas.add(oImg);
+			oImg.applyFilters(canvas.renderAll.bind(canvas));
 			oImg.clone(function(c) {
+				c.filters.push(new fabric.Image.filters.Resize({
+        			resizeType: 'sliceHack', scaleX: scaling , scaleY: scaling 
+    	  		}));
 				c.set('lockUniScaling',true);
 				c.scaleToWidth(Math.round(window.innerWidth/9));
 				c.set('left',(window.innerWidth)*0.9-c.width*c.getScaleX());
@@ -418,6 +431,7 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
 				c.set('flipX', true);
 				canvas.add(c);
 				$scope.tryitonImg.push(c);
+				c.applyFilters(canvas.renderAll.bind(canvas));
 			});
 		});
 	}
