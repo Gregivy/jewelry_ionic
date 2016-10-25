@@ -347,19 +347,53 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
   $scope.savingphoto = false;
   $scope.tryitonImg = null;
   $scope.photo = null;
+  $scope.imgControls = null;
 
-  document.querySelector("#photo").width = window.innerWidth;
-  document.querySelector("#photo").height = window.innerHeight-44;
-  var canvas = new fabric.Canvas('photo');
-  canvas.selection = false;
+
+  var canvas = new fabric.Canvas('photo', {
+  	selection: false,
+  	enableRetinaScaling: true
+  });
+  canvas.setHeight(window.innerHeight-44);
+  canvas.setWidth(window.innerWidth);
+  var c = canvas.getElement(); // canvas = fabric.Canvas
+      var w = c.width, h = c.height;
+
+    // Scale the canvas up by two for retina
+    // just like for an image
+      c.setAttribute('width', w*window.devicePixelRatio);
+      c.setAttribute('height', h*window.devicePixelRatio);
+
+    // then use css to bring it back to regular size
+    // or set it here
+    //    c.setAttribute('style', 'width="'+w+'"; height="'+h+'";')
+    // or jQuery  $(c).css('width', w);
+    //      $(c).css('width', w);
+    //      $(c).css('height', h);
+
+      // finally set the scale of the context
+      c.getContext('2d').scale(window.devicePixelRatio, window.devicePixelRatio);
+  canvas.renderAll();
+  /*canvas.on('mouse:up', function(event){ 
+  	//alert(event.target);
+  	var el = event.target;
+  	el.filters.push(new fabric.Image.filters.Resize({
+      	 resizeType: 'bilinear', // typo fixed
+      	 scaleX: 1,
+      	 scaleY: 1
+    }));
+    el.applyFilters(function () {
+    	//canvas.renderAll();
+    });
+  });*/
 
   var createPrevPhoto = function () {
   	if ($scope.cat!=3) {
 	    fabric.Image.fromURL("./store/"+$scope.item.tryitonImg, function(oImg) {
-	      var scaling = canvas.getHeight() / oImg.height;
+	      /*var scaling = canvas.getHeight() / oImg.height;
 	      oImg.filters.push(new fabric.Image.filters.Resize({
         	resizeType: 'sliceHack', scaleX: scaling , scaleY: scaling 
-    	  }));
+    	  }));*/
 	      oImg.set('lockUniScaling',true);
 	      if ($scope.cat==0) {
 		      oImg.scaleToWidth(Math.round(window.innerWidth/6));
@@ -391,16 +425,15 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
 		  oImg.set('hasControls', false);
 		  oImg.set('hasBorders', false);
 		  oImg.set('padding', 10000);
+		  /*oImg.resizeFilters.push(new fabric.Image.filters.Resize({
+    			resizeType: 'bilinear'
+			}));*/
 		  canvas.add(oImg);
 	      $scope.tryitonImg = oImg;
-	      oImg.applyFilters(canvas.renderAll.bind(canvas));
+	      
 	    });
 	} else {
 		fabric.Image.fromURL("./store/"+$scope.item.tryitonImg, function(oImg) {
-			var scaling = canvas.getHeight() / oImg.height;
-	      	oImg.filters.push(new fabric.Image.filters.Resize({
-        		resizeType: 'sliceHack', scaleX: scaling , scaleY: scaling 
-    	  	}));
 			console.log($scope.item.tryitonImg);
 			$scope.tryitonImg = [];
 			$scope.tryitonImg.push(oImg);
@@ -414,11 +447,7 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
 			oImg.set('padding', Math.round(window.innerWidth/5));
 			console.log(oImg);
 			canvas.add(oImg);
-			oImg.applyFilters(canvas.renderAll.bind(canvas));
 			oImg.clone(function(c) {
-				c.filters.push(new fabric.Image.filters.Resize({
-        			resizeType: 'sliceHack', scaleX: scaling , scaleY: scaling 
-    	  		}));
 				c.set('lockUniScaling',true);
 				c.scaleToWidth(Math.round(window.innerWidth/9));
 				c.set('left',(window.innerWidth)*0.9-c.width*c.getScaleX());
@@ -431,12 +460,67 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
 				c.set('flipX', true);
 				canvas.add(c);
 				$scope.tryitonImg.push(c);
-				c.applyFilters(canvas.renderAll.bind(canvas));
 			});
 		});
 	}
   }
   createPrevPhoto();
+
+  /*var hammertime = Hammer(document.getElementById('zoomwrapper1'), {
+        transform_always_block: true,
+        transform_min_scale: 1,
+        drag_block_horizontal: true,
+        drag_block_vertical: true,
+        drag_min_distance: 0
+    });
+ 
+    var posX=0, posY=0,
+		lastPosX=0, lastPosY=0,
+		bufferX=0, bufferY=0,
+        scale=1, last_scale,
+        rotation= 1, last_rotation, dragReady=0;
+ 
+    hammertime.on('touch drag dragend transform', function(ev) {
+        elemRect = document.getElementById('zoom1');
+		manageMultitouch(ev);
+    });
+
+function manageMultitouch(ev){
+ 
+		switch(ev.type) {
+            case 'touch':
+                last_scale = scale;
+                last_rotation = rotation;
+ 
+                break;
+ 
+            case 'drag':
+                	posX = ev.gesture.deltaX + lastPosX;
+                	posY = ev.gesture.deltaY + lastPosY;
+                break;
+ 
+            case 'transform':
+                rotation = last_rotation + ev.gesture.rotation;
+                scale = last_scale * ev.gesture.scale;
+                break;
+ 
+			case 'dragend':
+				lastPosX = posX;
+				lastPosY = posY;
+				break;
+        }
+ 
+        var transform =
+                "translate3d("+posX+"px,"+posY+"px, 0) " +
+                "scale3d("+scale+","+scale+", 1) " +
+                "rotate("+rotation+"deg) ";
+ 
+        elemRect.style.transform = transform;
+        elemRect.style.oTransform = transform;
+        elemRect.style.msTransform = transform;
+        elemRect.style.mozTransform = transform;
+        elemRect.style.webkitTransform = transform;
+	}*/
 
 
   var cameraPriority = categories[$scope.item.categoryId].priority_front;
@@ -451,6 +535,16 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
   //cordova.plugins.camerapreview.setOnPictureTakenHandler(function (result) {
     //$scope.photo = picture; // base64 picture;
     //var picture = result[0];
+    var arrows = fabric.Image.fromURL("./img/arrows.png", function(ar) {
+    	ar.scaleToWidth(window.innerWidth/12);
+    	ar.set('top',window.innerHeight-44-ar.height*getScaleY());
+    	ar.set('left',window.innerWidth-ar.width*getScaleX());
+    	ar.set('lockUniScaling',true);
+		ar.set('selectable', false);
+		ar.set('hasControls', false);
+		ar.set('hasBorders', false);
+		canvas.add(ar);
+    });
     var img = document.createElement("img");
     img.onload = function(){
       var fImg = new fabric.Image(img, {
@@ -518,11 +612,23 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
     $ionicLoading.show({
       template: $scope.localization.pleasewait[$scope.lang]
     });
+    /*var imgElement = document.getElementById('zoomwrapper1');
+    domtoimage.toSvg(imgElement)
+    .then(function (dataUrl) {;
+		var img = new Image();
+		img.src = dataUrl;
+        document.getElementById('canvasplaceholder').appendChild(img);
+        //document.getElementById('canvasplaceholder').appendChild(Pablo(img).toImage("jpg"));
+    })
+    .catch(function (error) {
+        console.error('oops, something went wrong!', error);
+    });*/
   }
   $scope.retakePhoto = function () {
     /*$ionicLoading.show({
       template: $scope.localization.pleasewait[$scope.lang]
     });*/
+    $scope.imgControls.remove();
     $scope.photoTaken = false;
     if ($scope.cat!=3) {
     	$scope.tryitonImg.remove();
@@ -537,8 +643,9 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
   }
   $scope.savePhoto = function () {
   	$scope.savingphoto = true;
+  	$scope.imgControls.remove();
     canvas.deactivateAll().renderAll();
-    /*window.canvas2ImagePlugin.saveImageDataToLibrary(function(m){
+    window.canvas2ImagePlugin.saveImageDataToLibrary(function(m){
       $ionicPopup.alert({
         title: $scope.localization.savesuccess[$scope.lang],
         template: m
@@ -548,7 +655,7 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
       alert(e);
       $ionicHistory.goBack();
     },
-    document.getElementById('photo'));*/
+    document.getElementById('photo'));
     var options = {
   		//message: 'share this', // not supported on some apps (Facebook, Instagram)
   		//subject: 'the subject', // fi. for email

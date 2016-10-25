@@ -44,7 +44,7 @@ ion-footer-bar.photobar {
 }
 
 .category {
-	padding-bottom: 50px;
+	padding-bottom: 80px;
 }
 
 video {
@@ -71,7 +71,8 @@ video {
 	width:60%;
 }
 .jewelry h3, .category h3 {
-	font-weight: 100;
+	margin-top: 10px;
+	font-weight: 300;
 	text-align: center;
 }
 a {
@@ -103,6 +104,7 @@ a {
 .desc {
 	margin-top:20px;
 	font-size: inherit;
+	text-align: center;
 }
 .not-visible {
   visibility: hidden;
@@ -115,7 +117,26 @@ a {
 	top:0;
 	left:0;
 	right:0;
-	width:60%;
+}
+
+.cat-0 img {
+	width:45%;
+}
+
+.cat-1 img {
+	width:68%;
+}
+
+.cat-2 img {
+	width:45%;
+}
+
+.cat-3 img {
+	width:58%;
+}
+
+.cat-4 img {
+	width:75%;
 }
 
 /** Styling for the password field when an error exists**/
@@ -137,4 +158,8 @@ label.item.valid-lr {
 .form-error {
   padding: 2px 0 2px 16px;
   color: red;
+}
+
+canvas {
+	width:100% !important;
 }
