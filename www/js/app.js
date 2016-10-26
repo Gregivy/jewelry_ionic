@@ -50,7 +50,7 @@ document.addEventListener("deviceready", function () {
 
 });
 
-var preorderLink = "http://yandex.ru/";
+var preorderLink = "http://grani-store.com/";
 
 var visitusLink = "http://grani-store.com/"
 
@@ -162,6 +162,9 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
 })
 
 .controller('index', function($scope,$http,$ionicScrollDelegate,$stateParams,$state,$ionicModal) {
+  $http.get("http://138.201.20.220:4000/link.php").then(function (rsp) {
+  	if (rsp.status==200) preorderLink = rsp.data;
+  });
   $ionicModal.fromTemplateUrl('pages/mymodal.html', {
     scope: $scope,
     animation: 'slide-in-up',
@@ -267,7 +270,7 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
         $el[0].getElementsByTagName("img")[i].classList.remove('not-visible');
         $el[0].getElementsByTagName("img")[i].classList.add('animated');
         $el[0].getElementsByTagName("img")[i].classList.add('fadeIn');
-        if ((i+1)<$el[0].getElementsByTagName("img").length) {setTimeout(function(){anim(i+1);},120+10*i);} else {
+        if ((i+1)<$el[0].getElementsByTagName("img").length) {setTimeout(function(){anim(i+1);},120+30*i);} else {
           $scope.animated = false;
           console.log(n);
           $scope.$apply(function() {
@@ -403,21 +406,21 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
 		      //oImg.center();
 		      //oImg.setCoords();
 	  	  } else if ($scope.cat==1) {
-	  	  	  oImg.scaleToWidth(Math.round(window.innerWidth/3));
+	  	  	  oImg.scaleToWidth(Math.round(window.innerWidth/2.5));
 		      oImg.set('left',(window.innerWidth-oImg.width*oImg.getScaleX())/2);
-		      oImg.set('top',(window.innerHeight-100-oImg.height*oImg.getScaleX()));
+		      oImg.set('top',(window.innerHeight-44-oImg.height*oImg.getScaleX())/1.8);
 		      //oImg.center();
 		      //oImg.setCoords();
 	  	  } else if ($scope.cat==2) {
-	  	  	  oImg.scaleToWidth(Math.round(window.innerWidth/2));
+	  	  	  oImg.scaleToHeight(Math.round(window.innerWidth/1.8));
 		      oImg.set('left',(window.innerWidth-oImg.width*oImg.getScaleX())/2);
-		      oImg.set('top',(window.innerHeight-44-oImg.height*oImg.getScaleX())/2);
+		      oImg.set('top',(window.innerHeight-44-oImg.height*oImg.getScaleX())/2.5);
 		      //oImg.center();
 		      //oImg.setCoords();
 	  	  } else if ($scope.cat==4) {
-	  	  	  oImg.scaleToHeight(Math.round((window.innerHeight-44)/2.5));
-		      oImg.set('left',(window.innerWidth-oImg.width*oImg.getScaleX())/2);
-		      oImg.set('top',(window.innerHeight-44-oImg.height*oImg.getScaleY())/2);
+	  	  	  oImg.scaleToWidth(Math.round((window.innerWidth)/5));
+		      oImg.set('left',(window.innerWidth-oImg.width*oImg.getScaleX())/3.8);
+		      oImg.set('top',(window.innerHeight-44-oImg.height*oImg.getScaleY())/1.8);
 		      //oImg.center();
 		      //oImg.setCoords();
 	  	  }
@@ -438,9 +441,9 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
 			$scope.tryitonImg = [];
 			$scope.tryitonImg.push(oImg);
 			oImg.set('lockUniScaling',true);
-			oImg.scaleToWidth(Math.round(window.innerWidth/9));
-			oImg.set('left',(window.innerWidth*0.1));
-		    oImg.set('top',(window.innerHeight-oImg.height*oImg.getScaleX())/2);
+			oImg.scaleToWidth(Math.round(window.innerWidth/22));
+			oImg.set('left',(window.innerWidth*0.2));
+		    oImg.set('top',(window.innerHeight-44-oImg.height*oImg.getScaleY())/2.2);
 		    oImg.set('selectable', false);
 			oImg.set('hasControls', false);
 			oImg.set('hasBorders', false);
@@ -449,8 +452,8 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
 			canvas.add(oImg);
 			oImg.clone(function(c) {
 				c.set('lockUniScaling',true);
-				c.scaleToWidth(Math.round(window.innerWidth/9));
-				c.set('left',(window.innerWidth)*0.9-c.width*c.getScaleX());
+				c.scaleToWidth(Math.round(window.innerWidth/22));
+				c.set('left',(window.innerWidth)*0.8-c.width*c.getScaleY());
 				console.log(c.right);
 		    	c.set('top',oImg.top);
 				c.set('selectable', false);
@@ -535,15 +538,17 @@ function manageMultitouch(ev){
   //cordova.plugins.camerapreview.setOnPictureTakenHandler(function (result) {
     //$scope.photo = picture; // base64 picture;
     //var picture = result[0];
-    var arrows = fabric.Image.fromURL("./img/arrows.png", function(ar) {
+    fabric.Image.fromURL("./img/arrows.png", function(ar) {
     	ar.scaleToWidth(window.innerWidth/12);
-    	ar.set('top',window.innerHeight-44-ar.height*getScaleY());
-    	ar.set('left',window.innerWidth-ar.width*getScaleX());
+    	ar.set('top',window.innerHeight-ar.height*ar.getScaleY()-180);
+    	ar.set('left',window.innerWidth-ar.width*ar.getScaleX()-20);
     	ar.set('lockUniScaling',true);
 		ar.set('selectable', false);
 		ar.set('hasControls', false);
 		ar.set('hasBorders', false);
+		$scope.imgControls = ar;
 		canvas.add(ar);
+		ar.bringToFront();
     });
     var img = document.createElement("img");
     img.onload = function(){
@@ -628,7 +633,7 @@ function manageMultitouch(ev){
     /*$ionicLoading.show({
       template: $scope.localization.pleasewait[$scope.lang]
     });*/
-    $scope.imgControls.remove();
+    if ($scope.imgControls) $scope.imgControls.remove();
     $scope.photoTaken = false;
     if ($scope.cat!=3) {
     	$scope.tryitonImg.remove();

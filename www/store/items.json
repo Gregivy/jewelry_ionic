@@ -199,7 +199,7 @@ var items = [
 		"tryitonImg": "flexy_t.png",
 		"desc": {
 			"ru": "",
-			"en": "Recycled sterling silver. All sizes available for pre-order."
+			"en": "Recycled sterling silver. Phalanx ring optionally. All sizes available for pre-order."
 		},
 		"categoryId": 0
 	},
@@ -211,7 +211,7 @@ var items = [
 		"tryitonImg": "flexyblack_t.png",
 		"desc": {
 			"ru": "",
-			"en": "Ruthenium polished recycled sterling silver. All sizes available for pre-order."
+			"en": "Ruthenium polished recycled sterling silver. Phalanx ring optionally. All sizes available for pre-order."
 		},
 		"categoryId": 0
 	},
@@ -235,7 +235,7 @@ var items = [
 		"tryitonImg": "embraceblack_t.png",
 		"desc": {
 			"ru": "",
-			"en": "Ruthenium recycled sterling silver with black onyx."
+			"en": "Ruthenium polished recycled sterling silver with black onyx."
 		},
 		"categoryId": 1
 	},
@@ -448,7 +448,7 @@ var items = [
 		"imgs": [
 			"ferrule_b_preview.jpg"
 		],
-		"tryitonImg": "ferruleblack_t.jpg",
+		"tryitonImg": "ferruleblack_t.png",
 		"desc": {
 			"ru": "",
 			"en": "Ruthenium polished recycled sterling silver."

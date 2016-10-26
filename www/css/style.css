@@ -35,6 +35,12 @@ ion-footer-bar.photobar {
 	margin-bottom: 10px;
 }
 
+
+.makephoto-preorder {
+	margin-top:3px;
+	width:203px;
+}
+
 .photobar .makephoto {
 	width:100px;
 }
@@ -72,6 +78,7 @@ video {
 }
 .jewelry h3, .category h3 {
 	margin-top: 10px;
+	font-size:14pt;
 	font-weight: 300;
 	text-align: center;
 }
