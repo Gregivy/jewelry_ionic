@@ -355,6 +355,7 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
 
   var canvas = new fabric.Canvas('photo', {
   	selection: false,
+  	stateful: false,
   	enableRetinaScaling: true
   });
   canvas.setHeight(window.innerHeight-44);
@@ -650,7 +651,7 @@ function manageMultitouch(ev){
   	$scope.savingphoto = true;
   	$scope.imgControls.remove();
     canvas.deactivateAll().renderAll();
-    window.canvas2ImagePlugin.saveImageDataToLibrary(function(m){
+    /*window.canvas2ImagePlugin.saveImageDataToLibrary(function(m){
       $ionicPopup.alert({
         title: $scope.localization.savesuccess[$scope.lang],
         template: m
@@ -660,7 +661,7 @@ function manageMultitouch(ev){
       alert(e);
       $ionicHistory.goBack();
     },
-    document.getElementById('photo'));
+    document.getElementById('photo'));*/
     var options = {
   		//message: 'share this', // not supported on some apps (Facebook, Instagram)
   		//subject: 'the subject', // fi. for email
