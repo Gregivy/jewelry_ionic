@@ -409,7 +409,7 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
 	  	  } else if ($scope.cat==1) {
 	  	  	  oImg.scaleToWidth(Math.round(window.innerWidth/2.5));
 		      oImg.set('left',(window.innerWidth-oImg.width*oImg.getScaleX())/2);
-		      oImg.set('top',(window.innerHeight-44-oImg.height*oImg.getScaleX())/1.8);
+		      oImg.set('top',(window.innerHeight-44-oImg.height*oImg.getScaleX())/1.5);
 		      //oImg.center();
 		      //oImg.setCoords();
 	  	  } else if ($scope.cat==2) {
@@ -421,7 +421,7 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
 	  	  } else if ($scope.cat==4) {
 	  	  	  oImg.scaleToWidth(Math.round((window.innerWidth)/5));
 		      oImg.set('left',(window.innerWidth-oImg.width*oImg.getScaleX())/3.8);
-		      oImg.set('top',(window.innerHeight-44-oImg.height*oImg.getScaleY())/1.8);
+		      oImg.set('top',(window.innerHeight-44-oImg.height*oImg.getScaleY())/1.5);
 		      //oImg.center();
 		      //oImg.setCoords();
 	  	  }
@@ -442,9 +442,9 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
 			$scope.tryitonImg = [];
 			$scope.tryitonImg.push(oImg);
 			oImg.set('lockUniScaling',true);
-			oImg.scaleToWidth(Math.round(window.innerWidth/22));
-			oImg.set('left',(window.innerWidth*0.2));
-		    oImg.set('top',(window.innerHeight-44-oImg.height*oImg.getScaleY())/2.2);
+			oImg.scaleToWidth(Math.round(window.innerWidth/20));
+			oImg.set('left',(window.innerWidth*0.1));
+		    oImg.set('top',(window.innerHeight-44-oImg.height*oImg.getScaleY())/1.8);
 		    oImg.set('selectable', false);
 			oImg.set('hasControls', false);
 			oImg.set('hasBorders', false);
@@ -453,8 +453,8 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
 			canvas.add(oImg);
 			oImg.clone(function(c) {
 				c.set('lockUniScaling',true);
-				c.scaleToWidth(Math.round(window.innerWidth/22));
-				c.set('left',(window.innerWidth)*0.8-c.width*c.getScaleY());
+				c.scaleToWidth(Math.round(window.innerWidth/20));
+				c.set('left',(window.innerWidth)*0.9-c.width*c.getScaleY());
 				console.log(c.right);
 		    	c.set('top',oImg.top);
 				c.set('selectable', false);
