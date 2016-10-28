@@ -442,7 +442,11 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
 			$scope.tryitonImg = [];
 			$scope.tryitonImg.push(oImg);
 			oImg.set('lockUniScaling',true);
-			oImg.scaleToWidth(Math.round(window.innerWidth/20));
+			if ($scope.title=="Delta" || $scope.title=="Delta Black" || $scope.title=="Plates" || $scope.title=="Plates Black") {
+				oImg.scaleToWidth(Math.round(window.innerWidth/18));
+			} else {
+				oImg.scaleToWidth(Math.round(window.innerWidth/20));
+			}
 			oImg.set('left',(window.innerWidth*0.1));
 		    oImg.set('top',(window.innerHeight-44-oImg.height*oImg.getScaleY())/1.8);
 		    oImg.set('selectable', false);
@@ -453,7 +457,11 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
 			canvas.add(oImg);
 			oImg.clone(function(c) {
 				c.set('lockUniScaling',true);
-				c.scaleToWidth(Math.round(window.innerWidth/20));
+				if ($scope.title=="Delta" || $scope.title=="Delta Black" || $scope.title=="Plates" || $scope.title=="Plates Black") {
+					c.scaleToWidth(Math.round(window.innerWidth/18));
+				} else {
+					c.scaleToWidth(Math.round(window.innerWidth/20));
+				}
 				c.set('left',(window.innerWidth)*0.9-c.width*c.getScaleY());
 				console.log(c.right);
 		    	c.set('top',oImg.top);
