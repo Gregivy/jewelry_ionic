@@ -419,7 +419,7 @@ angular.module('starter', ['ionic','ngCordova','ngMessages'])
 		      //oImg.center();
 		      //oImg.setCoords();
 	  	  } else if ($scope.cat==4) {
-	  	  	  oImg.scaleToWidth(Math.round((window.innerWidth)/5));
+	  	  	  oImg.scaleToWidth(Math.round((window.innerWidth)/6.5));
 		      oImg.set('left',(window.innerWidth-oImg.width*oImg.getScaleX())/3.8);
 		      oImg.set('top',(window.innerHeight-44-oImg.height*oImg.getScaleY())/1.5);
 		      //oImg.center();
